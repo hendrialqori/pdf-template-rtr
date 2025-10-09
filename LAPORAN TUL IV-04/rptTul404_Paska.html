@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CR_LAP_309_PUSATNEWKAB</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 2px solid #000;
+            --bg-gray: #C0C0C0;
+            --container-max: 1200px;
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            max-width: var(--container-max);
+            margin: auto;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-xxs);
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        thead th {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-normal);
+        }
+
+        tfoot td {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>PT PLN (PERSERO)</p>
+                    <p>NAMAUPI</p>
+                    <p>NAMAAP</p>
+                    <p>NAMAUP</p>
+                </ul>
+            </div>
+
+            <div class="header_title">
+                <p>LAPORAN PIUTANG PELANGGAN PER GOLONGAN TARIF</p>
+                <p>SALDO AKHIR</p>
+                <p>BULAN : {@bulantahun}</p>
+                <p>UNSUR {UNSUR}</p>
+            </div>
+        </header>
+
+        <main>
+            <p>PEMBUKUAN : {?pembukuan}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">GALONGAN TARIF</th>
+                        <th colspan="2">REKENING BARU</th>
+                        <th colspan="2">REKENING BERJALAN</th>
+                        <th colspan="2">REKENING TUNGGAKAN</th>
+                        <th colspan="2">REKENING GABUNGAN</th>
+                    </tr>
+                    <tr>
+                        <th>Lbr</th>
+                        <th>Rp</th>
+                        <th>Lbr</th>
+                        <th>Rp</th>
+                        <th>Lbr</th>
+                        <th>Rp</th>
+                        <th>Lbr</th>
+                        <th>Rp</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td>LABEL</td>
+                        <td>JMLLBR_BARU</td>
+                        <td>RP_BARU</td>
+                        <td>LLBR_BERJALAN</td>
+                        <td>RP_BERJALAN</td>
+                        <td>LBR_TUNGGAK</td>
+                        <td>RP_TUNGGAKAN</td>
+                        <td>JMLLBR_TOTAL</td>
+                        <td>RP_TOTAL</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>
