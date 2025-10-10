@@ -18,7 +18,7 @@
             --font-weight-light: 300;
             --font-weight-medium: 600;
 
-            --border: 2px solid #000;
+            --border: 1px solid #000;
             --bg-gray: #C0C0C0;
             --container-max: 1200px;
             --spacing: 1rem;
@@ -76,6 +76,17 @@
             font-size: var(--font-size-xs);
         }
 
+        .header_top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header_top .attachment {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
         .header_title {
             text-align: center;
             margin-top: 0.5rem;
@@ -87,10 +98,6 @@
         }
 
         /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
-        }
 
         /* ========== TABLE ========== */
         table {
@@ -111,14 +118,23 @@
             font-weight: var(--font-weight-light);
         }
 
-        thead th {
+        th {
             font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-medium);
         }
 
         tfoot td {
             font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-medium);
+            font-weight: var(--font-weight-light);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-light);
         }
     </style>
 </head>
@@ -126,60 +142,67 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">
-                <img src="/assets/pln.png" alt="Logo PLN">
-                <ul>
-                    <p>PT PLN (PERSERO)</p>
-                    <p>NAMAUPI</p>
-                    <p>NAMAAP</p>
-                    <p>NAMAUP</p>
-                </ul>
+            <div class="header_top">
+                <div class="logo">
+                    <img src="/assets/pln.png" alt="Logo PLN">
+                    <ul>
+                        <p>PT PLN (PERSERO)</p>
+                        <p>DISTRIBUSI. {LAP_LK_10J1.NAMAUPI}</p>
+                        <p>APJ : {LAP_LK_10J1.NAMAAP}</p>
+                        <p>UPJ : {LAP_LK_10J1.NAMAUP}</p>
+                    </ul>
+                </div>
+                <p class="attachment">Lampiran 10.J.2</p>
             </div>
-
             <div class="header_title">
-                <p>LAPORAN PIUTANG PELANGGAN PER GOLONGAN TARIF</p>
-                <p>SALDO AKHIR</p>
-                <p>BULAN : {@bulantahun}</p>
-                <p>UNSUR {UNSUR}</p>
+                <p>PENERIMAAN DIMUKA REKENING LISTRIK PRA BAYAR</p>
+                <p>PER GOLONGAN LANGGANAN</p>
+                <p>PERIODE {@bulan}</p>
             </div>
         </header>
 
         <main>
-            <p>PEMBUKUAN : {?pembukuan}</p>
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="2">GALONGAN TARIF</th>
-                        <th colspan="2">REKENING BARU</th>
-                        <th colspan="2">REKENING BERJALAN</th>
-                        <th colspan="2">REKENING TUNGGAKAN</th>
-                        <th colspan="2">REKENING GABUNGAN</th>
+                        <th rowspan="2">GOLONGAN TARIF</th>
+                        <th colspan="2">Januari {@thn}</th>
+                        <th colspan="2">PENERIMAAN DIMUKA LPB</th>
+                        <th colspan="2">PENJUALAN LPB</th>
+                        <th colspan="2">{@bulan}</th>
                     </tr>
                     <tr>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
+                        <th>RP</th>
+                        <th>KWH</th>
+                        <th>RP</th>
+                        <th>KWH</th>
+                        <th>RP</th>
+                        <th>KWH</th>
+                        <th>RP</th>
+                        <th>KWH</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <td>LABEL</td>
-                        <td>JMLLBR_BARU</td>
-                        <td>RP_BARU</td>
-                        <td>LLBR_BERJALAN</td>
-                        <td>RP_BERJALAN</td>
-                        <td>LBR_TUNGGAK</td>
-                        <td>RP_TUNGGAKAN</td>
-                        <td>JMLLBR_TOTAL</td>
-                        <td>RP_TOTAL</td>
+                        <td>GOL_TARIF</td>
+                        <td>RP_LALU</td>
+                        <td>KWH_LALU</td>
+                        <td>RP_DIMUKA</td>
+                        <td>KWH_DIMUKA</td>
+                        <td>RP_LPB</td>
+                        <td>KWH_LPB</td>
+                        <td>RP_DIMUKA_KIN</td>
+                        <td>KWH_DIMUKA_KIN</td>
                     </tr>
                 </tfoot>
             </table>
+            <section class="note">
+                <p>Keterangan:</p>
+                <p>
+                    Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif
+                    sesuai Permen No. 07 Thn. 2024
+                </p>
+            </section>
         </main>
     </div>
 </body>

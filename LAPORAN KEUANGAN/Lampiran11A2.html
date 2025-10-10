@@ -18,9 +18,9 @@
             --font-weight-light: 300;
             --font-weight-medium: 600;
 
-            --border: 2px solid #000;
+            --border: 1px solid #000;
             --bg-gray: #C0C0C0;
-            --container-max: 1200px;
+            --container-max: 800px;
             --spacing: 1rem;
         }
 
@@ -76,6 +76,17 @@
             font-size: var(--font-size-xs);
         }
 
+        .header_top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header_top .attachment {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
         .header_title {
             text-align: center;
             margin-top: 0.5rem;
@@ -87,10 +98,6 @@
         }
 
         /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
-        }
 
         /* ========== TABLE ========== */
         table {
@@ -111,14 +118,14 @@
             font-weight: var(--font-weight-light);
         }
 
-        thead th {
+        th {
             font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-medium);
         }
 
         tfoot td {
             font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-medium);
+            font-weight: var(--font-weight-light);
         }
     </style>
 </head>
@@ -126,59 +133,64 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">
-                <img src="/assets/pln.png" alt="Logo PLN">
-                <ul>
-                    <p>PT PLN (PERSERO)</p>
-                    <p>NAMAUPI</p>
-                    <p>NAMAAP</p>
-                    <p>NAMAUP</p>
-                </ul>
-            </div>
+            <div class="header_top">
+                <div class="logo">
+                    <img src="/assets/pln.png" alt="Logo PLN">
+                    <ul>
+                        <p>PT PLN (PERSERO)</p>
+                        <p>{LK_11A2.NAMAUPI}</p>
+                        <p>{LK_11A2.NAMAAP}</p>
+                        <p>{LK_11A2.NAMAUP}</p>
+                    </ul>
+                </div>
 
+            </div>
             <div class="header_title">
-                <p>LAPORAN PIUTANG PELANGGAN PER GOLONGAN TARIF</p>
-                <p>SALDO AKHIR</p>
-                <p>BULAN : {@bulantahun}</p>
-                <p>UNSUR {UNSUR}</p>
+                <p>PENJUALAN TENAGA LISTRIK - PASCABAYAR</p>
+                <p>PER GOLONGAN LANGGANAN</p>
+                <p>PERIODE {@bulan}</p>
             </div>
         </header>
 
         <main>
-            <p>PEMBUKUAN : {?pembukuan}</p>
             <table>
-                <thead>
-                    <tr>
-                        <th rowspan="2">GALONGAN TARIF</th>
-                        <th colspan="2">REKENING BARU</th>
-                        <th colspan="2">REKENING BERJALAN</th>
-                        <th colspan="2">REKENING TUNGGAKAN</th>
-                        <th colspan="2">REKENING GABUNGAN</th>
-                    </tr>
-                    <tr>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <td>LABEL</td>
-                        <td>JMLLBR_BARU</td>
-                        <td>RP_BARU</td>
-                        <td>LLBR_BERJALAN</td>
-                        <td>RP_BERJALAN</td>
-                        <td>LBR_TUNGGAK</td>
-                        <td>RP_TUNGGAKAN</td>
-                        <td>JMLLBR_TOTAL</td>
-                        <td>RP_TOTAL</td>
-                    </tr>
-                </tfoot>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GOLONGAN LANGGANAN</th>
+                            <th colspan="2">PENDAPATAN (NETTO)</th>
+                            <th colspan="2">KWh TERJUAL</th>
+                            <th>RP / KWh</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Rupiah</th>
+                            <th>% Dari Total</th>
+                            <th>Rupiah</th>
+                            <th>% Dari Total</th>
+                            <th>Rupiah</th>
+                        </tr>
+                    </thead>
+
+                    <tfoot>
+                        <tr>
+                            <td>KOGOL</td>
+                            <td>RPPTL</td>
+                            <td>TOTPTL</td>
+                            <td>JMLKWH</td>
+                            <td>TOTKWH</td>
+                            <td>RPKWH</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500;">JUMLAH</td>
+                            <td>totalptl</td>
+                            <td>totalptlpersen</td>
+                            <td>totalkwh</td>
+                            <td>totalkwhpersen</td>
+                            <td>@ttrpkwh</td>
+                        </tr>
+                    </tfoot>
+                </table>
             </table>
         </main>
     </div>

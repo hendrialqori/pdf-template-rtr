@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CR_LAP_309_PUSATNEWKAB</title>
+    <title>LAMP 5B1 2020</title>
 
     <style>
         /* ========== CSS VARIABLES ========== */
@@ -18,7 +18,7 @@
             --font-weight-light: 300;
             --font-weight-medium: 600;
 
-            --border: 2px solid #000;
+            --border: 1px solid #000;
             --bg-gray: #C0C0C0;
             --container-max: 1200px;
             --spacing: 1rem;
@@ -87,9 +87,12 @@
         }
 
         /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
+        main p.title {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+            width: max-content;
+            margin-left: auto;
+            margin-right: 0;
         }
 
         /* ========== TABLE ========== */
@@ -113,12 +116,26 @@
 
         thead th {
             font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-medium);
         }
 
         tfoot td {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-light);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note span {
             font-size: var(--font-size-xs);
             font-weight: var(--font-weight-medium);
+        }
+
+        .note p {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-light);
         }
     </style>
 </head>
@@ -130,56 +147,76 @@
                 <img src="/assets/pln.png" alt="Logo PLN">
                 <ul>
                     <p>PT PLN (PERSERO)</p>
-                    <p>NAMAUPI</p>
-                    <p>NAMAAP</p>
-                    <p>NAMAUP</p>
+                    <p>DISTRIBUSI. {VW_LK_5B1_CALK.NAMAUPI}</p>
+                    <p>APJ : {VW_LK_5B1_CALK.NAMAAP}</p>
+                    <p>UPJ : {VW_LK_5B1_CALK.NAMAUP}</p>
                 </ul>
             </div>
 
             <div class="header_title">
-                <p>LAPORAN PIUTANG PELANGGAN PER GOLONGAN TARIF</p>
-                <p>SALDO AKHIR</p>
-                <p>BULAN : {@bulantahun}</p>
-                <p>UNSUR {UNSUR}</p>
+                <p>PIUTANG USAHA BERDASARKAN UMUR VER CALK</p>
+                <p>PER {VW_LK_5B1_CALK.TGLCETAK}</p>
             </div>
         </header>
 
         <main>
-            <p>PEMBUKUAN : {?pembukuan}</p>
+            <p class="title">Lampiran 5.B.1 Ver CALK</p>
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="2">GALONGAN TARIF</th>
-                        <th colspan="2">REKENING BARU</th>
-                        <th colspan="2">REKENING BERJALAN</th>
-                        <th colspan="2">REKENING TUNGGAKAN</th>
-                        <th colspan="2">REKENING GABUNGAN</th>
+                        <th rowspan="2">Kode Akun <br> (S A P)</th>
+                        <th rowspan="2" style="width: 300px;">Uraian</th>
+                        <th rowspan="2">Jumlah</th>
+                        <th rowspan="2">Lancar</th>
+                        <th colspan="4">Tunggakan Piutang Usaha</th>
                     </tr>
                     <tr>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
+                        <th style="font-weight: var(--font-weight-light); font-size: var(--font-size-xxs);">1 s/d 30
+                            Hari
+                        </th>
+                        <th style="font-weight: var(--font-weight-light); font-size: var(--font-size-xxs);">31 s/d 60
+                            Hari</th>
+                        <th style="font-weight: var(--font-weight-light); font-size: var(--font-size-xxs);">>61 s/d 360
+                            hari</th>
+                        <th style="font-weight: var(--font-weight-light); font-size: var(--font-size-xxs);">> 360 Hari
+                        </th>
                     </tr>
                 </thead>
+
+                <!-- <tbody>
+                    <tr>
+                        <td>411001</td>
+                        <td></td>
+                        <td>Penjualan Energi</td>
+                        <td>250.000.000</td>
+                        <td>200.000.000</td>
+                        <td>25.000.000</td>
+                        <td>15.000.000</td>
+                        <td>8.000.000</td>
+                        <td>2.000.000</td>
+                    </tr>
+                </tbody> -->
+
                 <tfoot>
                     <tr>
-                        <td>LABEL</td>
-                        <td>JMLLBR_BARU</td>
-                        <td>RP_BARU</td>
-                        <td>LLBR_BERJALAN</td>
-                        <td>RP_BERJALAN</td>
-                        <td>LBR_TUNGGAK</td>
-                        <td>RP_TUNGGAKAN</td>
-                        <td>JMLLBR_TOTAL</td>
-                        <td>RP_TOTAL</td>
+                        <td>KODE_AKUN</td>
+                        <td>URAIAN</td>
+                        <td>JUMLAH</td>
+                        <td>LANCAR</td>
+                        <td>PIU_1_BULAN</td>
+                        <td>PIU_2_BULAN</td>
+                        <td>PIU_3SD12_BULAN</td>
+                        <td>PIU_12_BULAN_LE</td>
                     </tr>
                 </tfoot>
             </table>
+            <section class="note">
+                <span>Catatan:</span>
+                <p>
+                    Untuk piutang TS pelanggan prabayar yang telah jatuh tempo (tidak masuk rekening / berupa nomor
+                    register) dimasukkan untuk BLTH angsurannya (tidak masuk piutang lancar)
+                </p>
+            </section>
         </main>
     </div>
 </body>

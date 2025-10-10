@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CR_LAP_309_PUSATNEWKAB</title>
+    <title>LAMP 5B1 2020</title>
 
     <style>
         /* ========== CSS VARIABLES ========== */
@@ -18,7 +18,7 @@
             --font-weight-light: 300;
             --font-weight-medium: 600;
 
-            --border: 2px solid #000;
+            --border: 1px solid #000;
             --bg-gray: #C0C0C0;
             --container-max: 1200px;
             --spacing: 1rem;
@@ -87,8 +87,8 @@
         }
 
         /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
+        main p.title {
+            font-size: var(--font-size-xs);
             font-weight: var(--font-weight-medium);
         }
 
@@ -107,18 +107,37 @@
             font-size: var(--font-size-xxs);
         }
 
+        th {
+            line-height: 0.8rem;
+            padding-block: 0.6rem;
+        }
+
         td {
             font-weight: var(--font-weight-light);
         }
 
         thead th {
             font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-medium);
         }
 
         tfoot td {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-light);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note span {
             font-size: var(--font-size-xs);
             font-weight: var(--font-weight-medium);
+        }
+
+        .note p {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-light);
         }
     </style>
 </head>
@@ -130,56 +149,59 @@
                 <img src="/assets/pln.png" alt="Logo PLN">
                 <ul>
                     <p>PT PLN (PERSERO)</p>
-                    <p>NAMAUPI</p>
-                    <p>NAMAAP</p>
-                    <p>NAMAUP</p>
+                    <p>DISTRIBUSI. {LAP_LK_5B3.NAMAUPI}</p>
+                    <p>APJ : {LAP_LK_5B3.NAMAAP}</p>
+                    <p>UPJ : {LAP_LK_5B3.NAMAUP}</p>
                 </ul>
             </div>
 
             <div class="header_title">
-                <p>LAPORAN PIUTANG PELANGGAN PER GOLONGAN TARIF</p>
-                <p>SALDO AKHIR</p>
-                <p>BULAN : {@bulantahun}</p>
-                <p>UNSUR {UNSUR}</p>
+                <p>PENGHAPUSAN PIUTANG TAHUN BERJALAN DAN</p>
+                <p>PENERIMAAN KEMBALI PIUTANG YANG TELAH DIHAPUS</p>
+                <p>PERIODE {@bulan}</p>
             </div>
         </header>
 
         <main>
-            <p>PEMBUKUAN : {?pembukuan}</p>
+            <p class="title">A. PENGHAPUSAN PIUTANG TAHUN BERJALAN</p>
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="2">GALONGAN TARIF</th>
-                        <th colspan="2">REKENING BARU</th>
-                        <th colspan="2">REKENING BERJALAN</th>
-                        <th colspan="2">REKENING TUNGGAKAN</th>
-                        <th colspan="2">REKENING GABUNGAN</th>
-                    </tr>
-                    <tr>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
-                        <th>Lbr</th>
-                        <th>Rp</th>
+                        <th style="width: 230px;">Uraian</th>
+                        <th>Jumlah</th>
+                        <th>Pelanggan <br> Umum</th>
+                        <th>Pelanggan TNI & <br> POLRI</th>
+                        <th>Non TNI/POLRI <br> (Departement)</th>
+                        <th>Pelanggan <br> Instansi Pemda</th>
+                        <th>Pelanggan <br> BUMN/D</th>
                     </tr>
                 </thead>
+                <!-- 
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody> -->
+
                 <tfoot>
                     <tr>
-                        <td>LABEL</td>
-                        <td>JMLLBR_BARU</td>
-                        <td>RP_BARU</td>
-                        <td>LLBR_BERJALAN</td>
-                        <td>RP_BERJALAN</td>
-                        <td>LBR_TUNGGAK</td>
-                        <td>RP_TUNGGAKAN</td>
-                        <td>JMLLBR_TOTAL</td>
-                        <td>RP_TOTAL</td>
+                        <td>URIAIAN</td>
+                        <td>JML</td>
+                        <td>GOL_0</td>
+                        <td>GOL_1</td>
+                        <td>GOL_2</td>
+                        <td>GOL_3</td>
+                        <td>GOL_4</td>
                     </tr>
                 </tfoot>
             </table>
+
         </main>
     </div>
 </body>

@@ -76,6 +76,17 @@
             font-size: var(--font-size-xs);
         }
 
+        .header_top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header_top .attachment {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
         .header_title {
             text-align: center;
             margin-top: 0.5rem;
@@ -87,10 +98,6 @@
         }
 
         /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
-        }
 
         /* ========== TABLE ========== */
         table {
@@ -111,20 +118,23 @@
             font-weight: var(--font-weight-light);
         }
 
-        thead th {
-            background-color: var(--bg-gray);
+        th {
             font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-medium);
         }
 
-        /* ========== NOTE SECTION ========== */
+        tfoot td {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
         .note {
             padding-block: var(--spacing);
         }
 
         .note p {
             font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-light);
         }
     </style>
 </head>
@@ -132,71 +142,80 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">
-                <img src="/assets/pln.png" alt="Logo PLN">
-                <ul>
-                    <p>PT PLN (PERSERO)</p>
-                    <p>{VW_LAPORAN_307.NAMAUPI}</p>
-                    <p>{VW_LAPORAN_307.NAMAAP}</p>
-                    <p>{VW_LAPORAN_307.NAMAUP}</p>
-                </ul>
+            <div class="header_top">
+                <div class="logo">
+                    <img src="/assets/pln.png" alt="Logo PLN">
+                    <ul>
+                        <p>PT PLN (PERSERO)</p>
+                        <p>DISTRIBUSI. {LAP_LK_11A1.NAMAUPI}</p>
+                        <p>APJ : {LAP_LK_11A1.NAMAAP}</p>
+                        <p>UPJ : {LAP_LK_11A1.NAMAUP}</p>
+                    </ul>
+                </div>
+                <p class="attachment">Lampiran 11.A.1</p>
             </div>
-
             <div class="header_title">
-                <p>LAPORAN PENJUALAN TENAGA LISTRIK VERSI PUSAT {VW_LAPORAN_307.JENISLAP}</p>
-                <p>BULAN : {@BULANTAHUN}</p>
+                <p>PENJUALAN TENAGA LISTRIK - PASCABAYAR PER GOLONGAN TARIF</p>
+                <p>PERIODE {@bulan}</p>
             </div>
         </header>
 
         <main>
-            <p>PEMBUKUAN : {VW_LAPORAN_307.PEMBUKUAN}</p>
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="4">TARIF</th>
-                        <th colspan="3">RATA-RATA</th>
-                        <th rowspan="4">JAM NYALA</th>
-                        <th colspan="8">JUMLAH S/D AKHIR BULAN INI</th>
+                        <th style="width: 200px;">GOLONGAN TARIF</th>
+                        <th style="width: 120px;">JUMLAH PELANGGAN</th>
+                        <th style="width: 120px;">DAYA TERSAMBUNG</th>
+                        <th style="width: 120px;">PENDAPATAN <br> BIAYA BEBAN</th>
+                        <th style="width: 120px;">PENDAPATAN BIAYA PEMAKAIAN</th>
+                        <th style="width: 120px;">PENDAPATAN <br> (BRUTO)</th>
+                        <th style="width: 120px;">POTONGAN DISCOUNT</th>
+                        <th style="width: 120px;">PENDAPATAN (NETTO)</th>
+                        <th style="width: 120px;">PENJUALAN KWH</th>
+                        <th style="width: 120px;">HARGA <br> RATA-RATA</th>
                     </tr>
-
                     <tr>
-                        <!-- Subheader RATA-RATA -->
-                        <th rowspan="3">VA - PER PELANGGAN</th>
-                        <th rowspan="3">KWH - PER PELANGGAN</th>
-                        <th rowspan="3">RUPIAH PER KWH</th>
-
-                        <!-- JUMLAH S/D AKHIR BULAN INI -->
-                        <th colspan="2">PEMAKAIAN</th>
-                        <th rowspan="2">BIAYA BEBAN</th>
-                        <th colspan="2">BIAYA PEMAKAIAN</th>
-                        <th rowspan="2">TTLB</th>
-                        <th rowspan="2">JUMLAH</th>
-                        <th rowspan="2">RUPIAH PER KWH</th>
-                    </tr>
-
-                    <tr>
-                        <!-- Sub di bawah PEMAKAIAN & BIAYA PEMAKAIAN -->
-                        <th>KWH</th>
-                        <th>KEL. KVARH</th>
-                        <th>KWH</th>
-                        <th>KEL. KVARH</th>
+                        <th></th>
+                        <th>Pelanggan</th>
+                        <th>KVH</th>
+                        <th>Rupiah</th>
+                        <th>Rupiah</th>
+                        <th>Rupiah</th>
+                        <th>Rupiah</th>
+                        <th>Rupiah</th>
+                        <th>Rupiah</th>
+                        <th>Rupiah</th>
                     </tr>
                 </thead>
+
+                <!-- <tbody>
+                    <tr>
+                        <td>R1</td>
+                        <td>120</td>
+                        <td>50.000</td>
+                        <td>2.000.000</td>
+                        <td>15.000.000</td>
+                        <td>17.000.000</td>
+                        <td>1.000.000</td>
+                        <td>16.000.000</td>
+                        <td>80.000</td>
+                        <td>200</td>
+                    </tr>
+                </tbody> -->
+
                 <tfoot>
                     <tr>
-                        <td>{VW_LAPORAN_307.LABEL} {VW_LAPORAN_307.LABEL_ASTERIK}</td>
-                        <td>RATA_VA_LA</td>
-                        <td>RATA_KWH_LA</td>
+                        <td>GOL_TARIF</td>
+                        <td>JMLPLG</td>
+                        <td>JMLDAYA</td>
+                        <td>RPBEBAN</td>
+                        <td>RPKWH</td>
+                        <td>RPPTL_BRUTTO</td>
+                        <td>RSDISKONTMP</td>
+                        <td>RPPTL_NETTO</td>
+                        <td>JMLKWH</td>
                         <td>RATA_RP_KWH</td>
-                        <td>JAM_NYAL</td>
-                        <td>KWH_SD_BLN_IN</td>
-                        <td>KVARH_SD_BLN_IN</td>
-                        <td>BEBAN_SD_BLN_IN</td>
-                        <td>B_KWH_SD_BLN_IN</td>
-                        <td>B_KVARH_SD_BLN_IN</td>
-                        <td></td>
-                        <td>JUMLAH_SD_BLN_IN</td>
-                        <td>RP_KWH_SD_BLN_IN</td>
                     </tr>
                 </tfoot>
             </table>
