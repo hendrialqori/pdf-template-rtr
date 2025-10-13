@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CR_LAP_309_PUSATNEWKAB</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            /* --container-max: 2200px; */
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: max-content;
+        }
+
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-xxs);
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        thead th {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-normal);
+            text-wrap: nowrap;
+            padding-inline: 0.9rem;
+        }
+
+        footer {
+            display: flex;
+            gap: 3rem;
+            border: var(--border);
+            width: max-content;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        footer li,
+        p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-light);
+
+        }
+
+        footer .note_wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        footer .note_1 {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        footer :is(.note_1, .note_2, .note_3) ul {
+            padding-left: 30px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>{VW_LAP_PPN.NAMAUPI}</p>
+                    <p>{VW_LAP_PPN.NAMAAP}</p>
+                    <p>{VW_LAP_PPN.NAMAUP}</p>
+                </ul>
+            </div>
+
+            <div class="header_title">
+                <p>Laporan PPN Listrik Rumah Tangga</p>
+                <p>Lampiran - 2</p>
+                <br>
+                <p>Bulan Tahun Laporan: {@Bulan}</p>
+            </div>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="5">ID PELANGGAN</th>
+                        <th rowspan="5">NAMA PELANGGAN</th>
+                        <th rowspan="5">DAYA</th>
+                        <th rowspan="5">NPWP</th>
+                        <th rowspan="5">TARIF</th>
+
+                        <!-- TOTAL PENETAPAN -->
+                        <th colspan="3" rowspan="3">TOTAL PENETAPAN & PENERIMAAN DIMUKA</th>
+
+                        <!-- RESTITUSI -->
+                        <th colspan="18">RESTITUSI</th>
+
+                        <!-- TOTAL PPN R3 -->
+                        <th colspan="3" rowspan="3">TOTAL PPN R3</th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="12">NON TAGLIS</th>
+                        <th colspan="3" rowspan="2">PRA BAYAR</th>
+                        <th colspan="3" rowspan="2">TOTAL RESTITUSI</th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="3">TOKEN AWAL</th>
+                        <th colspan="3">PESTA</th>
+                        <th colspan="3">TS P2TL</th>
+                        <th colspan="3">TS KWH</th>
+                    </tr>
+
+                    <tr>
+                        <!-- TOTAL PENETAPAN -->
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+
+                        <!-- NON TAGLIS (TOKEN AWAL, PESTA, TS P2TL, TS KWH) -->
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+
+                        <!-- PRA BAYAR -->
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+
+                        <!-- TOTAL RESTITUSI -->
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+
+                        <!-- TOTAL PPN R3 -->
+                        <th style="width: 120px;">PTL</th>
+                        <th style="width: 120px;">DPP Nilai Lain</th>
+                        <th style="width: 120px;">PPN R3</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td colspan="39"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>DPEL</td>
+                        <td>NAMAPLG</td>
+                        <td>NPWP</td>
+                        <td>DAYA</td>
+                        <td>TARIF</td>
+                        <td>TOT_TETAP_DIMUKA_PTL</td>
+                        <td>TOT_TETAP_DIMUKA_DP</td>
+                        <td>TOT_TETAP_DIMUKA_PPN</td>
+                        <td>RES_TOKENAWAL</td>
+                        <td>RES_TOKENAWAL</td>
+                        <td>RES_TOKENAWAL</td>
+                        <td>RES_PESTA_PTL</td>
+                        <td>RES_PESTA_DPPN</td>
+                        <td>RES_PESTA_PPN</td>
+                        <td>RES_P2TL_PTL</td>
+                        <td>RES_P2TL_DPPN</td>
+                        <td>RES_P2TL_PPN</td>
+                        <td>RES_TSKWH_PTL</td>
+                        <td>RES_TSKWH_DPPN</td>
+                        <td>RES_TSKWH_PPN</td>
+                        <td>RES_PRBYR_PTL</td>
+                        <td>RES_PRBYR_DPPN</td>
+                        <td>RES_PRBYR_PPN</td>
+                        <td>TOT_R3_PTL</td>
+                        <td>TOT_R3_DPPN</td>
+                        <td>TOT_R3_PNN</td>
+                        <td>TOTAL_R3_PTL</td>
+                        <td>TOTAL_R3_DPPNILAI</td>
+                        <td>TOTAL_R3_PNN</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="text-align: start;">TOTAL</td>
+                        <td>SUM_TOT_TETAP_DIMUKA</td>
+                        <td>SUM_TETAP_DIMUKA_DPP</td>
+                        <td>SUM_TOT_TETAP_DIMUKA_PPN</td>
+                        <td>SUM_RES_TOKEN</td>
+                        <td>SUM_TOKEN_AWAL</td>
+                        <td>SUM_RES_TOKEN_AWAL</td>
+                        <td>SUM_RES_PESTA</td>
+                        <td>SUM_PESTA_DPP</td>
+                        <td>SUM_RES_PESTA_PPN</td>
+                        <td>SUM_RES_P2TL_PTL</td>
+                        <td>SUM_RES_P2TL_DPP</td>
+                        <td>SUM_RES_P2TL_PPN</td>
+                        <td>SUM_RES_TSKW_PTL</td>
+                        <td>SUM_RES_TSKW_DPP</td>
+                        <td>SUM_RES_TSKW_PPN</td>
+                        <td>SUM_RES_PRBYR_PTL</td>
+                        <td>SUM_RES_PRBYR_DPP</td>
+                        <td>SUM_RES_PRBYR_PPN</td>
+                        <td>SUM_TOT_RES_PTL</td>
+                        <td>SUM_TOT_RES_DPP</td>
+                        <td>SUM_TOT_RES_PPN</td>
+                        <td>SUM_TOTAL_R3</td>
+                        <td>SUM_R3_DPP</td>
+                        <td>SUM_TOTAL_R3_PPN</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+        <footer>
+            <div class="note_1">
+                <p>Restitusi - Non taglis :</p>
+                <ul>
+                    <p>Token Awal : pengembalian karena restitusi BP permohonan pb/pd</p>
+                    <p>Pesta : pengembalian karena restitusi BP permohonan pesta</p>
+                    <p>P2TL : pengembalian karena restitusi penetapan P2TL</p>
+                    <p>TS-kWh : pengembalian karena restitusi penetapan TS-kWh</p>
+                </ul>
+                <p>Restitusi - Prabayar : pengembalian pembelian token prepaid</p>
+            </div>
+            <div class="note_wrapper">
+                <div class="note_2">
+                    <p>Total Restitusi :</p>
+                    <ul>
+                        <p>24 = 9 + 12 + 15 + 18 + 21</p>
+                        <p>25 = 10 + 13 + 16 + 19 + 22</p>
+                        <p>26 = 11 + 14 + 17 + 20 + 23</p>
+                    </ul>
+                </div>
+                <div class="note_3">
+                    <p>Total PPN R3 :</p>
+                    <ul>
+                        <p>27 = 6 - 24</p>
+                        <p>28 = 7 - 25</p>
+                        <p>29 = 8 - 26</p>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

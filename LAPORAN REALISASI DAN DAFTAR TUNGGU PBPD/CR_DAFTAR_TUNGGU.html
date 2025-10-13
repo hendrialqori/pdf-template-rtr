@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CR_LAP_309_PUSATNEWKAB</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            /* --container-max: 2200px; */
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: max-content;
+        }
+
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-xxs);
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        thead th {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-normal);
+            text-wrap: nowrap;
+            padding-inline: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>PT PLN (PERSERO)</p>
+                    <p>NAMAUPI</p>
+                    <p>NAMAAP</p>
+                    <p>NAMAUP</p>
+                </ul>
+            </div>
+
+            <div class="header_title">
+                <p>LAPORAN REALISASI DAN DAFTAR TUNGGU PB/PD {VW_DAFTUNG_BARU.JENISLAP}</p>
+                <p>BULAN {?bulan}</p>
+            </div>
+        </header>
+
+        <main>
+            <p>HAL {Page Number}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="3">TARIF / DAYA</th>
+                        <th colspan="2">DAFTAR TUNGGU BULAN LALU</th>
+                        <th colspan="2">PERMOHONAN BULAN INI</th>
+                        <th colspan="2">BAYAR BP BULAN INI</th>
+                        <th colspan="2">TERIMA DARI BP TITIPAN</th>
+                        <th colspan="2">KOREKSI PERMOHONAN PB/PD</th>
+                        <th colspan="2">PINDAH DARI UNIT LAIN</th>
+                        <th colspan="2">MENYALA</th>
+                        <th colspan="2">GUGUR / BATAL KARENA RESTITUSI</th>
+                        <th colspan="2">GUGUR / BATAL MASUK BP TITIPAN</th>
+                        <th colspan="2">GUGUR / BATAL KARENA KOREKSI</th>
+                        <th colspan="2">PINDAH KE UNIT LAIN</th>
+                        <th colspan="2">DAFTAR TUNGGU AKHIR</th>
+                    </tr>
+                    <tr>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                        <th colspan="1">PASANG BARU</th>
+                        <th colspan="1">PERUBAHAN DAYA</th>
+                    </tr>
+                    <tr>
+                        <!-- Sub-header untuk semua kategori -->
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                        <th>PLG</th>
+                        <th>VA</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>URAIAN</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                        <td>LBR_PB_SALDO_AWAL</td>
+                        <td>DAYA_PB_SALDO_AWAL</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>
