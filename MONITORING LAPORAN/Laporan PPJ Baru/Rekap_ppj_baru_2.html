@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMP 5B1 2020</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            --container-max: 1200px;
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            margin: auto;
+            flex-direction: column;
+            gap: 1rem;
+            width: max-content;
+        }
+
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 0.8rem;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main p.title {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-xs);
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        th {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            padding-inline: 1rem;
+        }
+
+        tfoot td {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-normal);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note span {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .note p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>PT PLN (PERSERO)</p>
+                    <p>{VW_REKAP_PPJ_BARU.NAMAUPI}</p>
+                    <p>{VW_REKAP_PPJ_BARU.NAMAAP}</p>
+                    <p>{VW_REKAP_PPJ_BARU.NAMAUP}</p>
+                </ul>
+            </div>
+
+            <div class="header_title">
+                <p>LAPORAN PEMUNGUTAN PAJAK BARANG DAN JASA TERTENTU ATAS TENAGA LISTRIK (PBJT-TL) / PAJAK PENERANGAN
+                    JALAN (PPJ)</p>
+                <p>BULAN : {@bln}</p>
+                <p>KODE GOLONGAN : {VW_REKAP_PPJ_BARU.KOGOL}</p>
+            </div>
+        </header>
+
+        <main>
+            <p class="title">Halaman 2</p>
+            <table>
+                <thead>
+                    <!-- Row 1 -->
+                    <tr>
+                        <th rowspan="3">KODE PEMDA</th>
+                        <th rowspan="3">PEMDA</th>
+                        <th rowspan="3">TARIF</th>
+                        <th rowspan="3">DAYA</th>
+
+                        <th colspan="5" rowspan="2">Total Pelunasan PBJT TL/PPJ Taglis</th>
+                        <th colspan="12">RESTITUSI</th>
+                        <th colspan="12">Pelunasan PBJT-TL Non Taglis</th>
+                        <th colspan="12">Pelunasan PBJT-TL PraBayar</th>
+
+                        <th rowspan="3">Koreksi <br> Penambahan</th>
+                        <th rowspan="3">Koreksi <br> Pengurangan</th>
+                        <th rowspan="3">Total <br> Pelunasan <br> PBJT TL/PPJ</th>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr>
+                        <!-- RESTITUSI -->
+                        <th colspan="4">Taglis</th>
+                        <th colspan="4">Non Taglis</th>
+                        <th colspan="4">Restitusi Prabayar</th>
+
+                        <!-- NON TAGLIS -->
+                        <th colspan="4">Online</th>
+                        <th colspan="4">Offline I-06</th>
+                        <th colspan="4">Nota Buku</th>
+
+                        <!-- PRABAYAR -->
+                        <th colspan="4">Token Tunai (Online)</th>
+                        <th colspan="4">Kompensasi TMP</th>
+                        <th colspan="4">Kompensasi UJL</th>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr>
+                        <!-- Total Pelunasan PBJT TL/PPJ Taglis -->
+                        <th>Lembar</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>Angs TS</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <!-- RESTITUSI -->
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <!-- NON TAGLIS -->
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <!-- PRABAYAR -->
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+
+                        <th>Jml Trans</th>
+                        <th>Jml Plg</th>
+                        <th>PTL</th>
+                        <th>PBJT TL/PPJ</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tfoot>
+                        <tr>
+                            <td>PEMDA</td>
+                            <td>NAMAPEMDA</td>
+                            <td>GOLTARIF</td>
+                            <td>DAYA</td>
+
+                            <td>LBR_TAGLIS</td>
+                            <td>PLG_TAGLIS</td>
+                            <td>PTL_TAGLIS</td>
+                            <td>TS_TAGLIS</td>
+                            <td>PPJ-TAGLIS</td>
+
+                            <td>LBR_RES_TAGLIS</td>
+                            <td>PLG_RES_TAGLIS</td>
+                            <td>PAL_RES_TAGLIS</td>
+                            <td>PPJ_TAGLIST</td>
+
+                            <td>LBR_RES_NONTAGLIS</td>
+                            <td>PLG_RES_NONTAGLIS</td>
+                            <td>PAL_RES_NONTAGLIS</td>
+                            <td>PPJ_NONTAGLIST</td>
+
+                            <td>LBR_RES_PRA</td>
+                            <td>PLG_RES_PRA</td>
+                            <td>PAL_RES_PRA</td>
+                            <td>PPJ_RES_PRA</td>
+
+                            <td>LBR_NTL</td>
+                            <td>PLG_NTL</td>
+                            <td>PAL_NTL</td>
+                            <td>PPJ_NTL</td>
+
+                            <td>LBR_OFFL</td>
+                            <td>PLG_OFFL</td>
+                            <td>PAL_OFFL</td>
+                            <td>PPJ_OFFL</td>
+
+                            <td>LBR_NOTA</td>
+                            <td>PLG_NOTA</td>
+                            <td>PAL_NOTA</td>
+                            <td>PPJ_NOTA</td>
+
+                            <td>LBR_LPB</td>
+                            <td>PLG_LPB</td>
+                            <td>PAL_LPB</td>
+                            <td>PPJ_LPB</td>
+
+                            <td>LBR_TM_LPB</td>
+                            <td>PLG_TM_LPB</td>
+                            <td>PAL_TM_LPB</td>
+                            <td>PPJ_TM_LPB</td>
+
+                            <td>LBR_UJL_LP</td>
+                            <td>PLG_UJL_LP</td>
+                            <td>PAL_UJL_LP</td>
+                            <td>PPJ_UJL_LP</td>
+
+                            <td>PPJ_KOREKSI</td>
+                            <td>PPJ_KOREKSI</td>
+                            <td>PPJ_TOTAL</td>
+                        </tr>
+                    </tfoot>
+                </tfoot>
+            </table>
+            <section class="note">
+                <p>Keterangan: </p>
+                <p>Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif sesuai
+                    Permen No. 07 Thn. 2024</p>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMP 5B1 2020</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            --container-max: 1200px;
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            margin: auto;
+            flex-direction: column;
+            width: max-content;
+        }
+
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main p.title {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-sm);
+            padding-inline: 1rem;
+        }
+
+        th {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-normal);
+            background-color: var(--bg-gray);
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        tfoot td {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-normal);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note span {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .note p {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>PT PLN (PERSERO)</p>
+                    <p>NAMAUPI</p>
+                    <p>NAMAAP</p>
+                    <p>NAMAUP</p>
+                </ul>
+            </div>
+            <div class="header_title">
+                <p>MONITORING PENJUALAN LAYANAN PREMIUM</p>
+                <p>BULAN : {@BULANTAHUN}</p>
+            </div>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>BLTH</th>
+                        <th>UNITUPI</th>
+                        <th>UNITAP</th>
+                        <th>UNITUP</th>
+                        <th>IDPEL</th>
+                        <th>NAMA</th>
+                        <th>TARIF</th>
+                        <th>DAYA</th>
+                        <th>KOGOL</th>
+                        <th>KDPT</th>
+                        <th>PEMKWH</th>
+                        <th>RPPLT</th>
+                        <th>JAM NYALA</th>
+                        <th>JENIS LAYANAN PREMIUM</th>
+                        <th>SUMBER</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td>Record Number</td>
+                        <td>THBLLAP</td>
+                        <td>UNITUPI</td>
+                        <td>UNITAP</td>
+                        <td>UNITUP</td>
+                        <td>IDPEL</td>
+                        <td>NAMA</td>
+                        <td>TARIF</td>
+                        <td>DAYA</td>
+                        <td>KOGOL</td>
+                        <td>KDPT</td>
+                        <td>PEMKWH</td>
+                        <td>RPPTL</td>
+                        <td>JAM NYALA</td>
+                        <td>JENIS LAYANAN PREMIUM</td>
+                        <td>SUMBER</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </main>
+    </div>
+</body>
+
+</html>

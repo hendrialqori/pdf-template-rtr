@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMP 5B1 2020</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            --container-max: 1200px;
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            margin: auto;
+            flex-direction: column;
+            gap: 1rem;
+            width: max-content;
+        }
+
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 0.8rem;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main p.title {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-xs);
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        th {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        tfoot td {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-normal);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note span {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .note p {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>PT PLN (PERSERO)</p>
+                    <p>{VW_REKAP_PPJ_BARU.NAMAUPI}</p>
+                    <p>{VW_REKAP_PPJ_BARU.NAMAAP}</p>
+                    <p>{VW_REKAP_PPJ_BARU.NAMAUP}</p>
+                </ul>
+            </div>
+
+            <div class="header_title">
+                <p>LAPORAN PENERIMAAN PAJAK PENERANGAN JALAN (PPJ)</p>
+                <p>BULAN : {@bln}</p>
+                <p>KODE GOLONGAN : {VW_REKAP_PPJ_BARU.KOGOL}</p>
+            </div>
+        </header>
+
+        <main>
+            <p class="title">Halaman 1</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="3" style="width: 70px;">KODE PEMDA</th>
+                        <th rowspan="3" style="width: 140px;">PEMDA</th>
+                        <th rowspan="3" style="width: 70px;">TARIF</th>
+                        <th rowspan="3" style="width: 70px;">DAYA</th>
+                        <th colspan="6">REKENING TERCETAK</th>
+                        <th colspan="26">PELUNASAN PPJ TAGIHAN LISTRIK</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2" style="width: 70px;">Lembar</th>
+                        <th rowspan="2" style="width: 70px;">Jml Plg</th>
+                        <th rowspan="2" style="width: 70px;">Kwh</th>
+                        <th rowspan="2" style="width: 70px;">PTL</th>
+                        <th rowspan="2" style="width: 70px;">Angs TS</th>
+                        <th rowspan="2" style="width: 70px;">PPJ</th>
+
+                        <th colspan="4">Kode Gerak 21</th>
+                        <th colspan="4">Kode Gerak 22</th>
+                        <th colspan="4">Kode Gerak 23</th>
+                        <th colspan="4">Kode Gerak 24</th>
+                        <th colspan="4">Kode Gerak 25</th>
+                        <th colspan="5">Total Pelunasan PPJ Taglis</th>
+                    </tr>
+                    <tr>
+                        <!-- Sub kolom untuk masing-masing Kode Gerak -->
+                        <th style="width: 70px;">Lembar</th>
+                        <th style="width: 70px;">PTL</th>
+                        <th style="width: 70px;">Angs TS</th>
+                        <th style="width: 70px;">PPJ</th>
+
+                        <th style="width: 70px;">Lembar</th>
+                        <th style="width: 70px;">PTL</th>
+                        <th style="width: 70px;">Angs TS</th>
+                        <th style="width: 70px;">PPJ</th>
+
+                        <th style="width: 70px;">Lembar</th>
+                        <th style="width: 70px;">PTL</th>
+                        <th style="width: 70px;">Angs TS</th>
+                        <th style="width: 70px;">PPJ</th>
+
+                        <th style="width: 70px;">Lembar</th>
+                        <th style="width: 70px;">PTL</th>
+                        <th style="width: 70px;">Angs TS</th>
+                        <th style="width: 70px;">PPJ</th>
+
+                        <th style="width: 70px;">Lembar</th>
+                        <th style="width: 70px;">PTL</th>
+                        <th style="width: 70px;">Angs TS</th>
+                        <th style="width: 70px;">PPJ</th>
+
+                        <th style="width: 70px;">Lembar</th>
+                        <th style="width: 70px;">Jml Plg</th>
+                        <th style="width: 70px;">PTL</th>
+                        <th style="width: 70px;">Angs TS</th>
+                        <th style="width: 70px;">PPJ</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td>PEMDA</td>
+                        <td>NAMAPEMDA</td>
+                        <td>GOLTARIF</td>
+                        <td>DAYA</td>
+                        <td>LBR_SOREK</td>
+                        <td>PLG_SOREK</td>
+                        <td>PEMKWH_SOREK</td>
+                        <td>PAL_SOREK</td>
+                        <td>TS_SOREK</td>
+                        <td>PPJ_SOREK</td>
+
+                        <!-- DPH21 sampai DPH25 -->
+                        <td>LBR_DPH21</td>
+                        <td>PAL_DPH21</td>
+                        <td>TS_DPH21</td>
+                        <td>PPJ_DPH21</td>
+
+                        <td>LBR_DPH22</td>
+                        <td>PAL_DPH22</td>
+                        <td>TS_DPH22</td>
+                        <td>PPJ_DPH22</td>
+
+                        <td>LBR_DPH23</td>
+                        <td>PAL_DPH23</td>
+                        <td>TS_DPH23</td>
+                        <td>PPJ_DPH23</td>
+
+                        <td>LBR_DPH24</td>
+                        <td>PAL_DPH24</td>
+                        <td>TS_DPH24</td>
+                        <td>PPJ_DPH24</td>
+
+                        <td>LBR_DPH25</td>
+                        <td>PAL_DPH25</td>
+                        <td>TS_DPH25</td>
+                        <td>PPJ_DPH25</td>
+
+                        <!-- Total Taglis -->
+                        <td>LBR_TAGLIS</td>
+                        <td>PLG_TAGLIS</td>
+                        <td>PAL_TAGLIS</td>
+                        <td>TS_TAGLIS</td>
+                        <td>PPJ_TAGLIS</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>

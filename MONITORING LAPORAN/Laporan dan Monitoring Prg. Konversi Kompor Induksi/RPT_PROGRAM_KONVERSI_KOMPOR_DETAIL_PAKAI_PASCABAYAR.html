@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMP 5B1 2020</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            --container-max: 1400px;
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            width: max-content;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+
+        header {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+            flex: 1;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+            padding-bottom: 0.5rem;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-xxs);
+        }
+
+        th {
+            padding: 0.3rem 1rem;
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        thead th {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-normal);
+        }
+
+        tfoot td {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>PT PLN (PERSERO)</p>
+                    <p>NAMAUPI</p>
+                    <p>NAMAAP</p>
+                    <p>NAMAUP</p>
+                </ul>
+            </div>
+
+            <div class="header_title">
+                <p>DETAIL PEMAKAIAN PROGRAM KONVERSI KOMPOR INDUKSI</p>
+                <p>PASCABAYAR</p>
+                <p>BULAN TAHUN</p>
+            </div>
+        </header>
+
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="3">NO</th>
+                        <th rowspan="3">UIW/UID</th>
+                        <th rowspan="3">UP3</th>
+                        <th rowspan="3">ULP</th>
+                        <th rowspan="3">IDPEL</th>
+                        <th rowspan="3">NAMA</th>
+                        <th rowspan="3">TARIF <br> (DIL/NON <br> KOMPOR)</th>
+                        <th rowspan="3">DAYA <br> (DIL/NON <br> KOMPOR)</th>
+                        <th rowspan="3">TARIF <br> KOMPOR</th>
+                        <th rowspan="3">DAYA <br> KOMPOR</th>
+                        <th colspan="4">PEMKWH (DIL/NON KOMPOR)</th>
+                        <th colspan="4">RPPTL (DIL/NON KOMPOR)</th>
+                        <th rowspan="3" style="width: 50px;">JAM NYALA <br> (DIL/NON <br> KOMPOR)</th>
+                        <th rowspan="3" style="width: 50px;">PEMKWH <br> KOMPOR</th>
+                        <th rowspan="3" style="width: 50px;">RPPTL KOMPOR</th>
+                        <th rowspan="3" style="width: 50px;">BIAYA <br> BEBAN (RUPIAH)</th>
+                        <th rowspan="3" style="width: 50px;">PEMKWH TOTAL</th>
+                        <th rowspan="3" style="width: 50px;">RPPTL TOTAL</th>
+                    </tr>
+
+                    <!-- Subheader -->
+                    <tr>
+                        <th>TOTAL</th>
+                        <th>BLOK I</th>
+                        <th>BLOK II</th>
+                        <th>BLOK III</th>
+
+                        <th>TOTAL</th>
+                        <th>BLOK I</th>
+                        <th>BLOK II</th>
+                        <th>BLOK III</th>
+                    </tr>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <td>Record Number</td>
+                        <td>UNITUPI</td>
+                        <td>UNITAP</td>
+                        <td>UNITUP</td>
+                        <td>IDPEL</td>
+                        <td>NAMA</td>
+                        <td>TARIF</td>
+                        <td>DAYA</td>
+                        <td>TARIF_KOMPOR</td>
+                        <td>DAYA_KOMPOR</td>
+                        <td>KWH_TOTAL</td>
+                        <td>KWHBLOK1</td>
+                        <td>KWHBLOK2</td>
+                        <td>KWHBLOK3</td>
+                        <td>RUPIAHTOTAL</td>
+                        <td>RPBLOK1</td>
+                        <td>RPBLOK2</td>
+                        <td>RPBLOK3</td>
+                        <td>JAMNYALA_NONKOMPOR</td>
+                        <td>KWHBACA_KOMPOR</td>
+                        <td>RPTOTAL_KOMPOR</td>
+                        <td>RPBEBAN</td>
+                        <td>PEMKWHTOTAL</td>
+                        <td>RPPTLTOTAL</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="9">TOTAL</td>
+                        <td>sum_kwhbeli</td>
+                        <td>sum_rpkwhbeli</td>
+                        <td>sum_kwhtotal</td>
+                        <td>sum_kwhblok1</td>
+                        <td>sum_kwhblok2</td>
+                        <td>sum_kwhblok3</td>
+                        <td>sum_rupiahtotal</td>
+                        <td>sum_rpblok1</td>
+                        <td>sum_rpblok2</td>
+                        <td>sum_rpblok3</td>
+                        <td></td>
+                        <td>sum_kwhbaca</td>
+                        <td>sun_rptotal_kompor</td>
+                        <td>sum_rpbeban</td>
+                        <td>sum_pemkwhtotal</td>
+                        <td>sum_rpptltotal</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <section class="note">
+                <p>Keterangan:</p>
+                <p>Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif sesuai
+                    Permen No. 07 Thn. 2024</p>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
