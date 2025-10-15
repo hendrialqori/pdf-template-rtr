@@ -148,8 +148,8 @@
 
             <div class="header_title">
                 <p>DETAIL PEMAKAIAN PROGRAM KONVERSI KOMPOR INDUKSI</p>
-                <p>GABUNGAN</p>
-                <p>BULAN TAHUN</p>
+                <p>PRABAYAR</p>
+                <p>BULAN_TAHUN</p>
             </div>
         </header>
 
@@ -157,38 +157,29 @@
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="3">NO</th>
-                        <th rowspan="3">UIW/UID</th>
-                        <th rowspan="3">UP3</th>
-                        <th rowspan="3">ULP</th>
-                        <th rowspan="3">IDPEL</th>
-                        <th rowspan="3">NAMA</th>
-                        <th rowspan="3">TARIF <br> (DIL/NON <br> KOMPOR)</th>
-                        <th rowspan="3">DAYA <br> (DIL/NON <br> KOMPOR)</th>
-                        <th rowspan="3">TARIF <br> KOMPOR</th>
-                        <th rowspan="3">DAYA <br> KOMPOR</th>
-                        <th rowspan="3">PEMBELIAN <br> TOKEN (kWh)</th>
-                        <th rowspan="3">PEMBELIAN <br> TOKEN <br> (Rupiah)</th>
-                        <th colspan="4">PEMKWH (DIL/NON KOMPOR)</th>
-                        <th colspan="4">RPPTL (DIL/NON KOMPOR)</th>
-                        <th rowspan="3" style="width: 50px;">JAM NYALA <br> (DIL/NON <br> KOMPOR)</th>
-                        <th rowspan="3" style="width: 50px;">PEMKWH <br> KOMPOR</th>
-                        <th rowspan="3" style="width: 50px;">RPPTL KOMPOR</th>
-                        <th rowspan="3" style="width: 50px;">RP KURANG BAYAR</th>
-                        <th rowspan="3" style="width: 50px;">RP LEBIH BAYAR</th>
-                        <th rowspan="3" style="width: 50px;">BIAYA <br> BEBAN (RUPIAH)</th>
-                        <th rowspan="3" style="width: 50px;">PEMKWH TOTAL</th>
-                        <th rowspan="3" style="width: 50px;">RPPTL TOTAL</th>
-                    </tr>
-                    <tr>
-                        <th>TOTAL</th>
-                        <th>BLOK I</th>
-                        <th>BLOK II</th>
-                        <th>BLOK III</th>
-                        <th>TOTAL</th>
-                        <th>BLOK I</th>
-                        <th>BLOK II</th>
-                        <th>BLOK III</th>
+                        <th style="width: 40px;">NO</th>
+                        <th style="width: 100px;">UIW/UID</th>
+                        <th style="width: 100px;">UP3</th>
+                        <th style="width: 100px;">ULP</th>
+                        <th style="width: 100px;">IDPEL</th>
+                        <th style="width: 100px;">NAMA</th>
+                        <th style="width: 100px;">TARIF (DIL/NON KOMPOR)</th>
+                        <th style="width: 100px;">DAYA (DIL/NON KOMPOR)</th>
+                        <th style="width: 100px;">TARIF (KOMPOR)</th>
+                        <th style="width: 100px;">DAYA (KOMPOR)</th>
+                        <th style="width: 100px;">PEMBELIAN TOKEN (kWh)</th>
+                        <th style="width: 100px;">PEMBELIAN TOKEN (Rupiah)</th>
+                        <th style="width: 100px;">PEMKWH (DIL/NON KOMPOR) s.d 720 JN</th>
+                        <th style="width: 100px;">PEMKWH (DIL/NON KOMPOR) > 720 JN</th>
+                        <th style="width: 100px;">RPPTL (DIL/NON KOMPOR) s.d 720 JN</th>
+                        <th style="width: 100px;">RPPTL (DIL/NON KOMPOR) > 720 JN</th>
+                        <th style="width: 100px;">JAM NYALA (DIL/NON KOMPOR)</th>
+                        <th style="width: 100px;">PEMKWH KOMPOR</th>
+                        <th style="width: 100px;">RPPTL KOMPOR</th>
+                        <th style="width: 100px;">RP KURANG BAYAR</th>
+                        <th style="width: 100px;">RP LEBIH BAYAR</th>
+                        <th style="width: 100px;">PEMKWH TOTAL</th>
+                        <th style="width: 100px;">RPPTL TOTAL</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -207,46 +198,35 @@
                         <td>DAYA</td>
                         <td>TARIF_KOMPOR</td>
                         <td>DAYA_KOMPOR</td>
-                        <td>KWHBELI_BULAN</td>
+                        <td>KWH_BELI_BULAN</td>
                         <td>RPKWHBELI_BULAN</td>
-                        <td>KWH_TOTAL</td>
-                        <td>KWHBLOK1</td>
-                        <td>KWHBLOK2</td>
-                        <td>KWHBLOK3</td>
-                        <td>RUPIAHTOTAL</td>
-                        <td>RPBLOK1</td>
-                        <td>RPBLOK2</td>
-                        <td>RPBLOK3</td>
+                        <td>KWHREG_NO</td>
+                        <td>KWHLEBIHMAX</td>
+                        <td>RPKWHREG_NO</td>
+                        <td>RPKWHLEBIHMAX</td>
                         <td>JAMNYALA_NONKOMPOR</td>
                         <td>KWHBACA_KOMPOR</td>
                         <td>RPTOTAL_KOMPOR</td>
                         <td>RPKURANGBAYAR</td>
                         <td>RPLEBIHBAYAR</td>
-                        <td>RPBEBAN</td>
-                        <td>PEMKWHTOTAL</td>
-                        <td>RPPTLTOTAL</td>
+                        <td>KWHTOTAL</td>
+                        <td>RPKWHTOTAL</td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="9">TOTAL</td>
+                        <td colspan="10">TOTAL</td>
                         <td>sum_kwhbeli</td>
                         <td>sum_rpkwhbeli</td>
-                        <td>sum_kwhtotal</td>
-                        <td>sum_kwhblok1</td>
-                        <td>sum_kwhblok2</td>
-                        <td>sum_kwhblok3</td>
-                        <td>sum_rupiahtotal</td>
-                        <td>sum_rpblok1</td>
-                        <td>sum_rpblok2</td>
-                        <td>sum_rpblok3</td>
+                        <td>sum_kwhreg_no</td>
+                        <td>sum_kwhlebihmax_nonkompor</td>
+                        <td>sum_rpkwhreg_nonkompor</td>
+                        <td>sum_rpkwhlebihmax_nonkompor</td>
                         <td></td>
-                        <td>sum_kwhbaca</td>
+                        <td>sum_kwhbaca_nonkompor</td>
                         <td>sun_rptotal_kompor</td>
                         <td>sum_rpkurangbayar</td>
                         <td>sum_rplebihbayar</td>
-                        <td>sum_rpbeban</td>
-                        <td>sum_pemkwhtotal</td>
-                        <td>sum_rpptltotal</td>
+                        <td>sum_kwhtotal</td>
+                        <td>sum_rpkwhtotal</td>
                     </tr>
                 </tfoot>
             </table>

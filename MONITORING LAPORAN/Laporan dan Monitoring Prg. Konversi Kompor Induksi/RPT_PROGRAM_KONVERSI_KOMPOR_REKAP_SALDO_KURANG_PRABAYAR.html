@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CR_LAP_309_PUSATNEWKAB</title>
+    <title>LAMP 5B1 2020</title>
 
     <style>
         /* ========== CSS VARIABLES ========== */
@@ -20,7 +20,7 @@
 
             --border: 1px solid #000;
             --bg-gray: #C0C0C0;
-            --container-max: 1200px;
+            --container-max: 1400px;
             --spacing: 1rem;
         }
 
@@ -40,7 +40,7 @@
         /* ========== LAYOUT ========== */
         .container {
             padding: var(--spacing);
-            max-width: var(--container-max);
+            width: max-content;
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -50,7 +50,6 @@
 
         header {
             display: flex;
-            flex-direction: column;
             gap: 2rem;
         }
 
@@ -79,18 +78,16 @@
         .header_title {
             text-align: center;
             margin-top: 0.5rem;
+            flex: 1;
         }
 
         .header_title p {
             font-size: 0.85rem;
             font-weight: var(--font-weight-medium);
+            padding-bottom: 0.5rem;
         }
 
         /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
-        }
 
         /* ========== TABLE ========== */
         table {
@@ -107,19 +104,29 @@
             font-size: var(--font-size-xxs);
         }
 
+        th {
+            padding: 0.3rem 1rem;
+        }
+
         td {
             font-weight: var(--font-weight-light);
         }
 
         thead th {
-            background-color: var(--bg-gray);
-            font-size: var(--font-size-xs);
+            font-size: var(--font-size-sm);
             font-weight: var(--font-weight-normal);
         }
 
-        /* ========== NOTE SECTION ========== */
+        tfoot td {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
         .note {
             padding-block: var(--spacing);
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
         }
 
         .note p {
@@ -136,51 +143,40 @@
                 <img src="/assets/pln.png" alt="Logo PLN">
                 <ul>
                     <p>PT PLN (PERSERO)</p>
-                    <p>{VW_LAPORAN_307.NAMAUPI}</p>
-                    <p>{VW_LAPORAN_307.NAMAAP}</p>
-                    <p>{VW_LAPORAN_307.NAMAUP}</p>
-                    <p>NAMA_KAB</p>
+                    <p>NAMAUPI</p>
+                    <p>NAMAAP</p>
+                    <p>NAMAUP</p>
                 </ul>
             </div>
 
             <div class="header_title">
-                <p>LAPORAN PENJUALAN TENAGA LISTRIK VERSI PUSAT {VW_LAPORAN_307.JENISLAP}</p>
-                <p>BULAN : {@BULANTAHUN}</p>
+                <p>REKAPITULASI MONITORING SALDO KURANG BAYAR PER PELANGGAN <br> REKAPITULASI MONITORING SALDO KURANG
+                    BAYAR PER PELANGGAN PROGRAM KONVERSI KOMPOR INDUKSI</p>
+                <p>PRABAYAR</p>
+                <p>BULAN_TAHUN</p>
             </div>
         </header>
-
         <main>
-            <p>PEMBUKUAN : {VW_LAPORAN_307.PEMBUKUAN}</p>
-
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="3">TARIF</th>
-                        <th rowspan="3">PELANGGAN</th>
-                        <th rowspan="3">DAYA<br>(VA)</th>
-
-                        <!-- PEMAKAIAN KWH -->
-                        <th colspan="4">PEMAKAIAN KWH</th>
-
-                        <!-- RUPIAH PENJUALAN -->
-                        <th colspan="6">RUPIAH PENJUALAN TENAGA LISTRIK</th>
+                        <th rowspan="2">NO</th>
+                        <th rowspan="2">JUMLAH PELANGGAN</th>
+                        <th rowspan="2">TARIF (DIL/NON KOMPOR)</th>
+                        <th rowspan="2">DAYA (DIL/NON KOMPOR)</th>
+                        <th rowspan="2">TARIF (KOMPOR)</th>
+                        <th rowspan="1">SALDO AWAL</th>
+                        <th rowspan="1">PENGURANGAN SALDO</th>
+                        <th rowspan="1">PENAMBAHAN SALDO</th>
+                        <th rowspan="1">KOREKSI (+)</th>
+                        <th rowspan="1">SALDO AKHIR</th>
                     </tr>
-
                     <tr>
-                        <th rowspan="2">JUMLAH</th>
-                        <th rowspan="2">LWBP</th>
-                        <th rowspan="2">WBP</th>
-                        <th rowspan="2">KELEBIHAN KVARH</th>
-
-                        <th rowspan="2">BIAYA BEBAN</th>
-                        <th colspan="3">BIAYA PEMAKAIAN</th>
-                        <th rowspan="2">JUMLAH</th>
-                    </tr>
-
-                    <tr>
-                        <th>KWH</th>
-                        <th>KEL. KVARH</th>
-                        <th>TTLB + 15.29%</th>
+                        <th>RUPIAH</th>
+                        <th>RUPIAH</th>
+                        <th>RUPIAH</th>
+                        <th>RUPIAH</th>
+                        <th>RUPIAH</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -189,29 +185,32 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>{VW_LAPORAN_307.LABEL} {VW_LAPORAN_307.LABEL_ASTERIK}</td>
+                        <td>Record Number</td>
                         <td>JMLPLG</td>
-                        <td>JMLDAYA</td>
-                        <td>JMLKWH</td>
-                        <td>JMLLWBP</td>
-                        <td>KWHWBP</td>
-                        <td>KELBKVARH</td>
-                        <td>RPBEBAN</td>
-                        <td>RPKWH</td>
-                        <td>RPKVARH</td>
-                        <td></td>
-                        <td>RPPTL</td>
+                        <td>TARIF</td>
+                        <td>DAYA</td>
+                        <td>TARIF_KOMPOR</td>
+                        <td>RPSALDOAWAL</td>
+                        <td>RPPENGURANGAN</td>
+                        <td>RPPENAMBAH</td>
+                        <td>KOREKSI</td>
+                        <td>RPSALDOAKHIR</td>
                     </tr>
                 </tfoot>
             </table>
 
+
             <section class="note">
                 <p>Keterangan:</p>
-                <p>
-                    Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif
-                    sesuai
-                    Permen No. 07 Thn. 2024.
-                </p>
+                <p>1. Saldo awal berisi mengenai nilai awal kurang bayar pelanggan di bulan berjalan (untuk bulan
+                    selanjutnya, angka ini besal dari saldo akhir)</p>
+                <p>2. Pengurangan saldo berisi mengenai besaran nilai pengurang akibat adanya pemotongan angsuran dari
+                    pembelian token</p>
+                <p>3. Penambahan saldo berisi mengenai besaran nilai kurang bayar pada bulan berjalan</p>
+                <p>4. Saldo akhir berisi mengenai sisa saldo yang harus dilunasi pelanggan di bulan selanjutnya (pada
+                    laporan bulan selanjutnya, angka ini akan menjadi saldo awal)</p>
+                <p>5. Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif
+                    sesuai Permen No. 07 Thn. 2024</p>
             </section>
         </main>
     </div>
