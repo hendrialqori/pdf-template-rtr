@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CR_LAP_309_PUSATNEWKAB</title>
+    <title>CR_LAP_308</title>
 
     <style>
-        /* ========== CSS VARIABLES ========== */
         :root {
             --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             --font-size-base: 1rem;
@@ -17,6 +16,7 @@
             --font-weight-normal: 400;
             --font-weight-light: 300;
             --font-weight-medium: 600;
+            --font-weight-bold: 700;
 
             --border: 1px solid #000;
             --bg-gray: #C0C0C0;
@@ -24,7 +24,6 @@
             --spacing: 1rem;
         }
 
-        /* ========== GLOBAL RESET ========== */
         * {
             padding: 0;
             margin: 0;
@@ -37,10 +36,8 @@
             list-style: none;
         }
 
-        /* ========== LAYOUT ========== */
         .container {
             padding: var(--spacing);
-            max-width: var(--container-max);
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -54,7 +51,6 @@
             gap: 2rem;
         }
 
-        /* ========== HEADER ========== */
         .logo {
             display: flex;
             align-items: flex-start;
@@ -86,13 +82,16 @@
             font-weight: var(--font-weight-medium);
         }
 
-        /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
+        .attachment {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                font-size: var(--font-size-xxs);
+                font-weight: var(--font-weight-medium);
+            }
         }
 
-        /* ========== TABLE ========== */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -107,24 +106,32 @@
             font-size: var(--font-size-xxs);
         }
 
+        th {
+            background-color: var(--bg-gray);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+        }
+
         td {
             font-weight: var(--font-weight-light);
         }
 
-        thead th {
-            background-color: var(--bg-gray);
-            font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-normal);
-        }
-
-        /* ========== NOTE SECTION ========== */
         .note {
             padding-block: var(--spacing);
         }
 
         .note p {
             font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-light);
+        }
+
+        @media print {
+
+            :is(tr,
+                td) {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
         }
     </style>
 </head>
@@ -181,50 +188,38 @@
                 </div>
                 <ul>
                     <p>PT PLN (PERSERO)</p>
-                    <p>{VW_LAPORAN_307.NAMAUPI}</p>
-                    <p>{VW_LAPORAN_307.NAMAAP}</p>
-                    <p>{VW_LAPORAN_307.NAMAUP}</p>
-                    <p>NAMA_KAB</p>
+                    <p>{VW_LAPORAN_308.NAMAUPI}</p>
+                    <p>{VW_LAPORAN_308.NAMAAP}</p>
+                    <p>{VW_LAPORAN_308.NAMAUP}</p>
                 </ul>
             </div>
 
             <div class="header_title">
-                <p>LAPORAN PENJUALAN TENAGA LISTRIK VERSI PUSAT {VW_LAPORAN_307.JENISLAP}</p>
+                <p>REKAPITULASI PEMBUATAN REKENING LISTRIK PER KODE GOLONGAN</p>
                 <p>BULAN : {@BULANTAHUN}</p>
             </div>
         </header>
 
         <main>
-            <p>PEMBUKUAN : {VW_LAPORAN_307.PEMBUKUAN}</p>
-
+            <div class="attachment">
+                <p>PEMBUKUAN : {VW_LAPORAN_308.PEMBUKUAN}</p>
+            </div>
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="3">TARIF</th>
-                        <th rowspan="3">PELANGGAN</th>
-                        <th rowspan="3">DAYA<br>(VA)</th>
-                        <th colspan="4">PEMAKAIAN KWH</th>
-                        <th colspan="6">RUPIAH PENJUALAN TENAGA LISTRIK</th>
-                    </tr>
-                    <tr>
-                        <th rowspan="2">JUMLAH</th>
-                        <th rowspan="2">LWBP</th>
-                        <th rowspan="2">WBP</th>
-                        <th rowspan="2">KELEBIHAN KVARH</th>
-                        <th rowspan="2">BIAYA BEBAN</th>
-                        <th colspan="3">BIAYA PEMAKAIAN</th>
-                        <th rowspan="2">JUMLAH</th>
-                    </tr>
-
-                    <tr>
-                        <th>KWH</th>
-                        <th>KEL. KVARH</th>
-                        <th>TTLB + 15.29%</th>
+                        <th>NO</th>
+                        <th>URAIAN</th>
+                        <th>SATUAN</th>
+                        <th>UMUM</th>
+                        <th>ABRI</th>
+                        <th>NON ABRI</th>
+                        <th>PEMDA</th>
+                        <th>BUMN</th>
+                        <th>JUMLAH</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Value here -->
-                    <!-- Use <td></td> tag to make it more semantic -->
+                    <!-- value here -->
                     <tr>
                         <td>1</td>
                         <td>2</td>
@@ -235,37 +230,23 @@
                         <td>7</td>
                         <td>8</td>
                         <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
                     </tr>
+                    <!-- value here -->
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>{VW_LAPORAN_307.LABEL} {VW_LAPORAN_307.LABEL_ASTERIK}</td>
-                        <td>JMLPLG</td>
-                        <td>JMLDAYA</td>
-                        <td>JMLKWH</td>
-                        <td>JMLLWBP</td>
-                        <td>KWHWBP</td>
-                        <td>KELBKVARH</td>
-                        <td>RPBEBAN</td>
-                        <td>RPKWH</td>
-                        <td>RPKVARH</td>
-                        <td></td>
-                        <td>RPPTL</td>
+                        <td>Record Number</td>
+                        <td>URAIAN</td>
+                        <td>SATUAN</td>
+                        <td>GOL0</td>
+                        <td>GOL1</td>
+                        <td>GOL2</td>
+                        <td>GOL3</td>
+                        <td>GOL4</td>
+                        <td>TOTAL</td>
                     </tr>
                 </tfoot>
             </table>
-
-            <section class="note">
-                <p>Keterangan:</p>
-                <p>
-                    Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif
-                    sesuai
-                    Permen No. 07 Thn. 2024.
-                </p>
-            </section>
         </main>
     </div>
 </body>

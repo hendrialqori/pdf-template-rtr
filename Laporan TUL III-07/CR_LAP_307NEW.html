@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CR_LAP_309_PUSATNEWKAB</title>
+    <title>CR_LAP_307NEW</title>
 
     <style>
-        /* ========== CSS VARIABLES ========== */
         :root {
             --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             --font-size-base: 1rem;
@@ -17,6 +16,7 @@
             --font-weight-normal: 400;
             --font-weight-light: 300;
             --font-weight-medium: 600;
+            --font-weight-bold: 700;
 
             --border: 1px solid #000;
             --bg-gray: #C0C0C0;
@@ -24,7 +24,6 @@
             --spacing: 1rem;
         }
 
-        /* ========== GLOBAL RESET ========== */
         * {
             padding: 0;
             margin: 0;
@@ -37,10 +36,8 @@
             list-style: none;
         }
 
-        /* ========== LAYOUT ========== */
         .container {
             padding: var(--spacing);
-            max-width: var(--container-max);
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -54,7 +51,6 @@
             gap: 2rem;
         }
 
-        /* ========== HEADER ========== */
         .logo {
             display: flex;
             align-items: flex-start;
@@ -86,13 +82,16 @@
             font-weight: var(--font-weight-medium);
         }
 
-        /* ========== MAIN CONTENT ========== */
-        main p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
+        .attachment {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                font-size: var(--font-size-xxs);
+                font-weight: var(--font-weight-medium);
+            }
         }
 
-        /* ========== TABLE ========== */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -107,24 +106,32 @@
             font-size: var(--font-size-xxs);
         }
 
+        th {
+            background-color: var(--bg-gray);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
         td {
             font-weight: var(--font-weight-light);
         }
 
-        thead th {
-            background-color: var(--bg-gray);
-            font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-normal);
-        }
-
-        /* ========== NOTE SECTION ========== */
         .note {
             padding-block: var(--spacing);
         }
 
         .note p {
             font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-normal);
+            font-weight: var(--font-weight-light);
+        }
+
+        @media print {
+
+            :is(tr,
+                td) {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
@@ -184,47 +191,52 @@
                     <p>{VW_LAPORAN_307.NAMAUPI}</p>
                     <p>{VW_LAPORAN_307.NAMAAP}</p>
                     <p>{VW_LAPORAN_307.NAMAUP}</p>
-                    <p>NAMA_KAB</p>
                 </ul>
             </div>
 
             <div class="header_title">
-                <p>LAPORAN PENJUALAN TENAGA LISTRIK VERSI PUSAT {VW_LAPORAN_307.JENISLAP}</p>
+                <p>REKAPITULASI PEMBUATAN REKENING LISTRIK PER GOLONGAN TARIF</p>
                 <p>BULAN : {@BULANTAHUN}</p>
             </div>
         </header>
 
         <main>
-            <p>PEMBUKUAN : {VW_LAPORAN_307.PEMBUKUAN}</p>
-
+            <div class="attachment">
+                <p>PEMBUKUAN : {VW_LAPORAN_307.PEMBUKUAN}</p>
+                <p>Status : {VW_LAPORAN_307.STATUS_LAPORAN}</p>
+            </div>
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="3">TARIF</th>
+                        <th rowspan="3" style="width: 180px">TARIF</th>
                         <th rowspan="3">PELANGGAN</th>
-                        <th rowspan="3">DAYA<br>(VA)</th>
+                        <th rowspan="3">DAYA <br> (VA)</th>
                         <th colspan="4">PEMAKAIAN KWH</th>
-                        <th colspan="6">RUPIAH PENJUALAN TENAGA LISTRIK</th>
+                        <th colspan="9">RUPIAH PENJUALAN TENAGA LISTRIK</th>
                     </tr>
                     <tr>
-                        <th rowspan="2">JUMLAH</th>
-                        <th rowspan="2">LWBP</th>
-                        <th rowspan="2">WBP</th>
-                        <th rowspan="2">KELEBIHAN KVARH</th>
-                        <th rowspan="2">BIAYA BEBAN</th>
-                        <th colspan="3">BIAYA PEMAKAIAN</th>
-                        <th rowspan="2">JUMLAH</th>
-                    </tr>
+                        <th rowspan="2" style="width: 80px;">JUMLAH</th>
+                        <th rowspan="2" style="width: 80px;">LWBP</th>
+                        <th rowspan="2" style="width: 80px;">WBP</th>
+                        <th rowspan="2" style="width: 80px;">KELEBIHAN KVARH</th>
 
+                        <th colspan="3">BIAYA PEMAKAIAN</th>
+                        <th rowspan="2">KELEBIHAN <br> KVARH</th>
+                        <th rowspan="2">JUMLAH <br> TAGIHAN <br> (BRUTO)</th>
+                        <th colspan="2">SOLUSI CAPPING</th>
+                        <th rowspan="2">KOMPENSASI <br> TMP</th>
+                        <th rowspan="2">JUMLAH <br> TAGIHAN <br> (NETTO)</th>
+                    </tr>
                     <tr>
-                        <th>KWH</th>
-                        <th>KEL. KVARH</th>
-                        <th>TTLB + 15.29%</th>
+                        <th style="width: 80px;">BIAYA BEBAN</th>
+                        <th style="width: 80px;">LWBP</th>
+                        <th style="width: 80px;">WBP</th>
+                        <th style="width: 80px;">TAMBAH</th>
+                        <th style="width: 80px;">KURANG</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Value here -->
-                    <!-- Use <td></td> tag to make it more semantic -->
                     <tr>
                         <td>1</td>
                         <td>2</td>
@@ -238,7 +250,12 @@
                         <td>10</td>
                         <td>11</td>
                         <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
                     </tr>
+                    <!-- Value here -->
                 </tbody>
                 <tfoot>
                     <tr>
@@ -246,14 +263,18 @@
                         <td>JMLPLG</td>
                         <td>JMLDAYA</td>
                         <td>JMLKWH</td>
-                        <td>JMLLWBP</td>
+                        <td>KWHLWBP</td>
                         <td>KWHWBP</td>
                         <td>KELBKVARH</td>
                         <td>RPBEBAN</td>
-                        <td>RPKWH</td>
+                        <td>RPLWPB</td>
+                        <td>RPWPB</td>
                         <td>RPKVARH</td>
-                        <td></td>
-                        <td>RPPTL</td>
+                        <td>RPPTL_BRUTTO</td>
+                        <td>CAPPING_TAMBAH</td>
+                        <td>CAPPING_KURANG</td>
+                        <td>RPDISKONTMP</td>
+                        <td>RPPTL_NETTO</td>
                     </tr>
                 </tfoot>
             </table>

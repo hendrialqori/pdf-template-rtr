@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMP 5B1 2020</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            --container-max: 1200px;
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            margin: auto;
+            flex-direction: column;
+            gap: 1rem;
+            width: max-content;
+        }
+
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ========== HEADER ========== */
+        .logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .logo img {
+            width: 53px;
+            object-fit: cover;
+        }
+
+        .logo ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.13rem;
+        }
+
+        .logo ul p {
+            font-size: var(--font-size-xs);
+        }
+
+        .header_title {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .header_title p {
+            font-size: 0.85rem;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main p.title {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-light);
+        }
+
+        /* ========== TABLE ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            border: var(--border);
+            padding: 0.3rem;
+            text-align: center;
+            font-size: var(--font-size-xs);
+        }
+
+        th {
+            font-weight: var(--font-weight-normal);
+        }
+
+        td {
+            font-weight: var(--font-weight-light);
+        }
+
+        tfoot td {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-normal);
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note span {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .note p {
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-light);
+        }
+
+        @media print {
+
+            :is(tr,
+                td) {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/assets/pln.png" alt="Logo PLN">
+                <ul>
+                    <p>PT PLN (PERSERO)</p>
+                    <p>NAMAUPI</p>
+                    <p>NAMAAP</p>
+                    <p>NAMAUP</p>
+                </ul>
+            </div>
+
+            <div class="header_title">
+                <p>PENERIMAAN DI MUKA LISTRIK PRABAYAR</p>
+                <p>PER GOLONGAN TARIF</p>
+                <p>PERIODE {?thbl}</p>
+            </div>
+        </header>
+
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="3">GOLONGAN TARIF</th>
+                        <th rowspan="2" colspan="2">SALDO AWAL <br> PEMAKAIAN DIMUKA LPB</th>
+                        <th colspan="14">MUTASI PENAMBAHAN</th>
+                        <th colspan="6">MUTASI PENGURANGAN</th>
+                        <th rowspan="2" colspan="2">SALDO AKHIR PENERIMAAN <br> DIMUKA LPB</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">PENJUALAN TOKEN</th>
+                        <th colspan="2">TOKEN PERDANA TUL 106</th>
+                        <th colspan="2">FREE TOKEN KOMP TMP</th>
+                        <th colspan="2">PESTA</th>
+                        <th colspan="2">FREE ISU UJL (NON TUNAI)</th>
+                        <th colspan="2">TOKEN PENGEMBALIAN</th>
+                        <th colspan="2">TOT MUTASI PENAMBAHAN</th>
+                        <th colspan="2">PENJUALAN LPB/PENDPTN</th>
+                        <th colspan="2">RESTITUSI TOKEN</th>
+                        <th colspan="2">TOT MUTASI PENGURANG</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                        <th style="width: 70px;">Rp</th>
+                        <th style="width: 70px;">Kwh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Value here -->
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td>19</td>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td>25</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>LABEL DATA</td>
+                        <td>RPPTL_SALDO</td>
+                        <td>PEMKWH_SALDO</td>
+
+                        <td>RPPTL_JUAL_TOKEN</td>
+                        <td>PEMKWH_JUALTOKEN</td>
+
+                        <td>RPPTL_106</td>
+                        <td>PEMKWH_106</td>
+
+                        <td>RPPTL_TMP</td>
+                        <td>PEMKWH_TMP</td>
+
+                        <td>RPPTL_PESTA</td>
+                        <td>PEMKWH_PESTA</td>
+
+                        <td>RPPRL_FREE_ISSUE</td>
+                        <td>PEMKWH_FREE_ISSUE</td>
+
+                        <td>RPPRL_LEBIHBAYAR</td>
+                        <td>PEMKWH_LEBIHBAYAR</td>
+
+                        <td>RPPTL_TOTAL</td>
+                        <td>PEMKWH_TOTAL</td>
+
+                        <td>RPPTL_PENJUALAN</td>
+                        <td>PEMKWH_PENJUALAN</td>
+
+                        <td>RPPTL_RESTITUSI</td>
+                        <td>PEMKWH_RESTITUSI</td>
+
+                        <td>RPPTL_TOTAL_KURANG_MUT</td>
+                        <td>PEMKWH_TOTAL_KURANG_MUT</td>
+
+                        <td>RPPRL_SALDO_AKHIR</td>
+                        <td>PEMKWH_SALDO_AKHIR</td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td>SUMGRPTRF_RPPTL_SALDO</td>
+                        <td>SUMGRPTRF_PEMKWH_SALDO</td>
+
+                        <td>SUMGRPTRF_RPPTL_JUAL_TOKEN</td>
+                        <td>SUMGRPTRF_PEMKWH_JUALTOKEN</td>
+
+                        <td>SUMGRPTRF_RPPTL_106</td>
+                        <td>SUMGRPTRF_PEMKWH_106</td>
+
+                        <td>SUMGRPTRF_RPPTL_TMP</td>
+                        <td>SUMGRPTRF_PEMKWH_TMP</td>
+
+                        <td>SUMGRPTRF_RPPTL_PESTA</td>
+                        <td>SUMGRPTRF_PEMKWH_PESTA</td>
+
+                        <td>SUMGRPTRF_RPPRL_FREE_ISSUE</td>
+                        <td>SUMGRPTRF_PEMKWH_FREE_ISSUE</td>
+
+                        <td>SUMGRPTRF_RPPRL_LEBIHBAYAR</td>
+                        <td>SUMGRPTRF_PEMKWH_LEBIHBAYAR</td>
+
+                        <td>SUMGRPTRF_RPPTL_TOTAL</td>
+                        <td>SUMGRPTRF_PEMKWH_TOTAL</td>
+
+                        <td>SUMGRPTRF_RPPTL_PENJUALAN</td>
+                        <td>SUMGRPTRF_PEMKWH_PENJUALAN</td>
+
+                        <td>SUMGRPTRF_RPPTL_RESTITUSI</td>
+                        <td>SUMGRPTRF_PEMKWH_RESTITUSI</td>
+
+                        <td>SUMGRPTRF_RPPTL_TOTAL_KURANG_MUT</td>
+                        <td>SUMGRPTRF_PEMKWH_TOTAL_KURANG_MUT</td>
+
+                        <td>SUMGRPTRF_RPPRL_SALDO_AKHIR</td>
+                        <td>SUMGRPTRF_PEMKWH_SALDO_AKHIR</td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td>SUM_RPPTL_SALDO</td>
+                        <td>SUM_PEMKWH_SALDO</td>
+
+                        <td>SUM_RPPTL_JUAL_TOKEN</td>
+                        <td>SUM_PEMKWH_JUALTOKEN</td>
+
+                        <td>SUM_RPPTL_106</td>
+                        <td>SUM_PEMKWH_106</td>
+
+                        <td>SUM_RPPTL_TMP</td>
+                        <td>SUM_PEMKWH_TMP</td>
+
+                        <td>SUM_RPPTL_PESTA</td>
+                        <td>SUM_PEMKWH_PESTA</td>
+
+                        <td>SUM_RPPRL_FREE_ISSUE</td>
+                        <td>SUM_PEMKWH_FREE_ISSUE</td>
+
+                        <td>SUM_RPPRL_LEBIHBAYAR</td>
+                        <td>SUM_PEMKWH_LEBIHBAYAR</td>
+
+                        <td>SUM_RPPTL_TOTAL</td>
+                        <td>SUM_PEMKWH_TOTAL</td>
+
+                        <td>SUM_RPPTL_PENJUALAN</td>
+                        <td>SUM_PEMKWH_PENJUALAN</td>
+
+                        <td>SUM_RPPTL_RESTITUSI</td>
+                        <td>SUM_PEMKWH_RESTITUSI</td>
+
+                        <td>SUM_RPPTL_TOTAL_KURANG_MUT</td>
+                        <td>SUM_PEMKWH_TOTAL_KURANG_MUT</td>
+
+                        <td>SUM_RPPRL_SALDO_AKHIR</td>
+                        <td>SUM_PEMKWH_SALDO_AKHIR</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>
