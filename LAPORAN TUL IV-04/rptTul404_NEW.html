@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rptTul404_Paska</title>
+    <title>rptTul404_NEW</title>
 
     <style>
         /* ========== CSS VARIABLES ========== */
@@ -18,7 +18,7 @@
             --font-weight-light: 300;
             --font-weight-medium: 600;
 
-            --border: 2px solid #000;
+            --border: 1px solid #000;
             --bg-gray: #C0C0C0;
             --container-max: 1200px;
             --spacing: 1rem;
@@ -118,17 +118,7 @@
 
         tfoot td {
             font-size: var(--font-size-xs);
-            /* font-weight: var(--font-weight-medium); */
-        }
-
-        .note {
-            padding-block: var(--spacing);
-        }
-
-        .note p {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-normal);
-            padding-bottom: 4px;
+            font-weight: var(--font-weight-medium);
         }
 
         @media print {
@@ -191,16 +181,17 @@
                 </div>
                 <ul>
                     <p>PT PLN (PERSERO)</p>
-                    <p>{?wilayah}</p>
-                    <p>{?cabang}</p>
-                    <p>{?ranting}</p>
+                    <p>NAMAUPI</p>
+                    <p>NAMAAP</p>
+                    <p>NAMAUP</p>
                 </ul>
             </div>
 
             <div class="header_title">
-                <p>LAPORAN PIUTANG PELANGGAN {UNSUR}</p>
+                <p>LAPORAN PIUTANG PELANGGAN PER GOLONGAN TARIF</p>
+                <p>SALDO AKHIR</p>
                 <p>BULAN : {@bulantahun}</p>
-                <p>Paskabayar</p>
+                <p>UNSUR {UNSUR}</p>
             </div>
         </header>
 
@@ -209,30 +200,26 @@
             <table>
                 <thead>
                     <tr>
-                        <th rowspan="2">URAIAN</th>
-                        <th colspan="2">UMUM</th>
-                        <th colspan="2">TNI/POLRI</th>
-                        <th colspan="2">INS VERTICAL</th>
-                        <th colspan="2">PEMDA</th>
-                        <th colspan="2">BUMN</th>
-                        <th colspan="2">JUMLAH</th>
+                        <th rowspan="2">GALONGAN TARIF</th>
+                        <th colspan="2">REKENING BARU</th>
+                        <th colspan="2">REKENING BERJALAN</th>
+                        <th colspan="2">REKENING TUNGGAKAN</th>
+                        <th colspan="2">REKENING GABUNGAN</th>
                     </tr>
                     <tr>
                         <th>Lbr</th>
-                        <th style="width: 110px;">Rp</th>
+                        <th>Rp</th>
                         <th>Lbr</th>
-                        <th style="width: 110px;">Rp</th>
+                        <th>Rp</th>
                         <th>Lbr</th>
-                        <th style="width: 110px;">Rp</th>
+                        <th>Rp</th>
                         <th>Lbr</th>
-                        <th style="width: 110px;">Rp</th>
-                        <th>Lbr</th>
-                        <th style="width: 110px;">Rp</th>
-                        <th>Lbr</th>
-                        <th style="width: 110px;">Rp</th>
+                        <th>Rp</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Value here -->
+                    <!-- Use <td></td> tag to make it more semantic -->
                     <tr>
                         <td>1</td>
                         <td>2</td>
@@ -243,35 +230,22 @@
                         <td>7</td>
                         <td>8</td>
                         <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td style="font-weight: var(--font-weight-medium);">JUMLAH {@angka}</td>
-                        <td>@ lbr0</td>
-                        <td>@ rp0</td>
-                        <td>@ lbr1</td>
-                        <td>@ rp1</td>
-                        <td>@ lbr2</td>
-                        <td>@ rp2</td>
-                        <td>@ lbr3</td>
-                        <td>@ rp3</td>
-                        <td>@ lbr4</td>
-                        <td>@ rp4</td>
-                        <td>@ lbr5</td>
-                        <td>@ rp5</td>
+                        <td>LABEL</td>
+                        <td>JMLLBR_BARU</td>
+                        <td>RP_BARU</td>
+                        <td>LLBR_BERJALAN</td>
+                        <td>RP_BERJALAN</td>
+                        <td>LBR_TUNGGAK</td>
+                        <td>RP_TUNGGAKAN</td>
+                        <td>JMLLBR_TOTAL</td>
+                        <td>RP_TOTAL</td>
                     </tr>
                 </tfoot>
             </table>
-            <section class="note">
-                <p>[ Laporan TUL IV 04 ]</p>
-                <p>[ TanggalCetak (PrintDate) ]</p>
-                <p>[ Dicetak Oleh (TEMP 1) ]</p>
-            </section>
         </main>
     </div>
 </body>
