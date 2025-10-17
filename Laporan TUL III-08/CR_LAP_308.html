@@ -126,10 +126,7 @@
         }
 
         @media print {
-
-            :is(tr,
-                td) {
-                page-break-inside: avoid;
+            table:is(tr, td) {
                 break-inside: avoid;
             }
         }

@@ -139,6 +139,12 @@
             font-size: var(--font-size-xxs);
             font-weight: var(--font-weight-light);
         }
+
+        @media print {
+            table:is(tr, td) {
+                break-inside: avoid;
+            }
+        }
     </style>
 </head>
 

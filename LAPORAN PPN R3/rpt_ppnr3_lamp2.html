@@ -148,6 +148,12 @@
         footer :is(.note_1, .note_2, .note_3) ul {
             padding-left: 30px
         }
+
+        @media print {
+            table:is(tr, td) {
+                break-inside: avoid;
+            }
+        }
     </style>
 </head>
 
