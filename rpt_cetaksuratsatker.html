@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cetaksuratsatker</title>
+
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 0.9rem;
+            --font-size-sm: 0.8rem;
+            --font-size-xs: 0.7rem;
+            --font-size-xxs: 0.65rem;
+            --font-weight-normal: 400;
+            --font-weight-light: 300;
+            --font-weight-medium: 600;
+
+            --border: 1px solid #000;
+            --bg-gray: #C0C0C0;
+            --container-max: 1200px;
+            --spacing: 1rem;
+        }
+
+        /* ========== GLOBAL RESET ========== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: var(--font-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-light);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            padding: var(--spacing);
+            width: 800px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header__one,
+        .header__two {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+        }
+
+        main {
+            padding-block: 1rem;
+            width: 85%;
+            margin-left: auto;
+
+            p {
+                line-height: 1.8rem;
+            }
+
+            .main__list {
+                margin-left: 2rem;
+
+                .main__list__sublist {
+                    display: flex;
+                    gap: 2rem;
+                    margin-left: 2rem;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.3rem;
+                    }
+                }
+            }
+        }
+
+        footer {
+            height: 100px;
+            margin-left: auto;
+            margin-right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header__one">
+                <div>
+                    <p>[Nomor]</p>
+                    <p>[Lampiran]</p>
+                    <p>[Sifat]</p>
+                    <p>[Perihal]</p>
+                </div>
+                <div>
+                    <p>[]</p>
+                    <p>[1 (Satu) Berkas]</p>
+                    <p>[Segera]</p>
+                    <p>[Tagihan Listrik {VW_CETAK_PENGANTAR_SATKER.NAMA_SATKER}]</p>
+                </div>
+            </div>
+            <div class="header__two">
+                <div>
+                    <p>[TGLCETAK]</p>
+                    <p></p>
+                    <p>[Kepada Yth]</p>
+                    <p>[Kepala <br> {VW_CETAK_PENGANTAR_SATKER.NAMA_SATKER}]</p>
+                    <p></p>
+                    <p>[di]</p>
+                    <p>[NAMAAP]</p>
+                </div>
+            </div>
+        </header>
+        <main>
+            <p>[Bersama ini kami sampaikan tagihan listrik {VW_CETAK_PENGANTAR_SATKER.NAMA_SATKER} sebesar
+                Rp{VW_CETAK_PENGANTAR_SATKER.RPTOTAL},- ({VW_CETAK_PENGANTAR_SATKER.RPTOTAL_TERBILANG} rupiah) sesuai
+                dengan daftar terlampir. Sehubungan dengan hal tersebut kami sampaikan juga hal-hal sebagai berikut :
+            </p>
+            <br>
+            <div class="main__list">
+                <p>[1] Pelunasan Tagihan Rekening Listrik tersebut, paling lambat tanggal 20 bulan berjalan.</p>
+                <p>[2] Apabila sampai dengan batas waktu di atas belum dilunasi, maka akan dilakukan pemutusan aliran
+                    listrik.</p>
+                <p>[3] Pembayaran tagihan di atas dapat dilakukan melalui transfer ke rekening PT.PLN (Persero) Kantor
+                    Pusat pada :</p>
+                <br>
+                <div class="main__list__sublist">
+                    <div>
+                        <p>[Bank]</p>
+                        <p>[Nomor Virtual Account]</p>
+                        <p>[Nama Pemilik Rekening]</p>
+                        <p>[Nomor NPWP]</p>
+                        <p>[Alamat]</p>
+                    </div>
+                    <div>
+                        <p>[NAMA_BANK]</p>
+                        <p>[NO_REKENING_PLN]</p>
+                        <p>[NAMA_REKENING_PLN]</p>
+                        <p>[NPWP_PLN]</p>
+                        <p>[ALAMAT_PLN]</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p>Demikian kami sampaikan, atas perhatian dan kerjasamanya diucapkan terima kasih. </p>
+        </main>
+        <footer>
+            <p>[      NAMA_JABATAN      ]</p>
+            <p>[      NAMA_PEJABAT      ]</p>
+        </footer>
+    </div>
+</body>
+
+</html>
