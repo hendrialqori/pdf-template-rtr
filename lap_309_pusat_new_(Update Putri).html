@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAPORAN LAYANAN KEANDALAN PRIORITAS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+    }
+
+    body {
+      margin: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 6px;
+    }
+
+    th {
+      font-size: 11px;
+    }
+
+    td {
+      font-size: 12px;
+    }
+
+    table.table_header div {
+      margin-top: 5px;
+    }
+
+    .header_report p {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .header_report p.title {
+      font-weight: bold;
+    }
+
+    table.table_header_status {
+      width: 100%;
+    }
+
+    /* refactoring */
+    table.table_data {
+      width: 100%;
+    }
+
+    table.table_data * {
+      border: 1px solid black;
+    }
+
+    thead th {
+      background-color: #c0c0c0;
+      font-weight: normal;
+    }
+
+    .keterangan {
+      margin-top: 16px;
+    }
+
+    .keterangan p {
+      margin-bottom: 6px;
+    }
+
+    /* Atur halaman PDF */
+    @page {
+      size: A4 landscape;
+      margin: 1cm;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="table_header">
+    <tr>
+      <td>
+        <img src="data:image/png;base64,{logoBase64}" alt="Logo" width="64" />
+      </td>
+      <td class="header-info">
+        <div>PT PLN (PERSERO)</div>
+        <div>{data[0].namaupi ?: "SEMUA"}</div>
+        <div>{data[0].namaap ?: "SEMUA"}</div>
+        <div>{data[0].namaup ?: "SEMUA"}</div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Judul laporan -->
+  <div class="header_report">
+    <p class="title">LAPORAN PENJUALAN TENAGA LISTRIK VERSI PUSAT {data[0].jenislap}</p>
+    <p>BULAN : {bulantahun}</p>
+  </div>
+
+  <!-- Status laporan -->
+  <table class="table_header_status">
+    <tr>
+      <td>PEMBUKUAN : {data[0].pembukuan}</td>
+      <td style="text-align: right;">STATUS : {data[0].status_laporan}</td>
+    </tr>
+  </table>
+
+  <!-- Tabel utama -->
+  <table class="table_data">
+    <thead>
+      <tr>
+        <th rowspan="3">TARIF</th>
+        <th rowspan="3">PELANGGAN</th>
+        <th rowspan="3">DAYA<br />(VA)</th>
+        <th colspan="4">PEMAKAIAN KWH</th>
+        <th colspan="5">
+          RUPIAH PENJUALAN TENAGA LISTRIK
+        </th>
+      </tr>
+      <tr>
+        <th rowspan="2">JUMLAH</th>
+        <th rowspan="2">LWBP</th>
+        <th rowspan="2">WBP</th>
+        <th rowspan="2">
+          KELEBIHAN<br />KVARH
+        </th>
+        <th rowspan="2">BIAYA BEBAN</th>
+        <th colspan="3">BIAYA PEMAKAIAN</th>
+        <th rowspan="2">JUMLAH</th>
+      </tr>
+      <tr>
+        <th>KWH</th>
+        <th>KEL.KVARH</th>
+        <th>TTLB + 15.29%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4=5+6</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12 = 8+9+10+11</td>
+      </tr>
+
+      {#for item in data}
+      <tr>
+        <td>{item.label}</td>
+        <td>{item.jmlplg}</td>
+        <td>{item.jmldaya}</td>
+        <td>{item.jmlkwh}</td>
+        <td>{item.kwhlwbp}</td>
+        <td>{item.kwhwbp}</td>
+        <td>{item.kelbkvarh}</td>
+        <td>{item.rpbeban}</td>
+        <td>{item.rpkvarh}</td>
+        <td>{item.rpkwh}</td>
+        <td></td>
+        <td>{item.rpptl}</td>
+      </tr>
+      {/for}
+    </tbody>
+  </table>
+
+  <!-- Keterangan -->
+  <div class="keterangan">
+    <p>Keterangan:</p>
+    <p>
+      Terhitung sejak Laporan September 2024, Laporan pada AP2T dan
+      EIS-AP2T sudah menggunakan tarif sesuai Permen No. 07 Thn. 2024
+    </p>
+  </div>
+</body>
+
+</html>
