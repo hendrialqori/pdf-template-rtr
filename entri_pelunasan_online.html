@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Berita Acara Entri Pelunasan Offline</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 12.5px;
+            padding: 0px 20px;
+            line-height: 1.5;
+            width: 700px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 700px;
+            line-height: 23px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 4px;
+        }
+
+        table.table_information {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table.table_information td {
+            padding: 3px 4px;
+            line-height: 1.2;
+            vertical-align: top;
+        }
+
+        table.table_information .label {
+            width: 25%;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .footer-table td {
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .signature {
+            padding-top: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>BERITA ACARA<br>ENTRI PELUNASAN OFFLINE</h2>
+
+    <table class="table_information">
+        <tr>
+            <td class="label">Tanggal Lunas</td>
+            <td>: {TGLBAYAR}</td>
+        </tr>
+        <tr>
+            <td class="label">Kode PP / Nama PP</td>
+            <td>: {KODEPP} / {NAMAPP}</td>
+        </tr>
+        <tr>
+            <td class="label">Alamat PP</td>
+            <td>: {ALAMATPP}</td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="label">Tanggal Upload</td>
+            <td>: {TGLTRANSAKSI}</td>
+        </tr>
+        <tr>
+            <td class="label">Petugas Upload</td>
+            <td>: {TRANSAKSIYB}</td>
+        </tr>
+    </table>
+
+    <div class="section">
+        <p>
+            Pada hari ini, {TGLTRANSAKSI} telah di-entri pelunasan offline kode gerak 21
+            dengan perincian sebagai berikut :
+        </p>
+    </div>
+
+    <p>Jumlah Data yang {Group #1 Name} Update DPP :</p>
+
+    <table style="margin-top:10px; margin-left: 50px;">
+        <tr>
+            <td style="width: 40%;">Lembar</td>
+            <td>@lbr lembar</td>
+        </tr>
+        <tr>
+            <td>Rp. Tagihan</td>
+            <td>Rp. @rptag</td>
+        </tr>
+        <tr>
+            <td>Rp. BK</td>
+            <td>Rp. @rpBK</td>
+        </tr>
+    </table>
+
+    <div class="section">
+        <p>
+            Demikian Berita Acara ini dibuat dengan sebenar-benarnya.<br>
+            {par_up}, {TGLCETAK}
+        </p>
+    </div>
+
+    <table class="footer-table" style="margin-top: 30px;">
+        <tr>
+            <td>Petugas Entri,</td>
+            <td>Payment Point,</td>
+            <td>Mengetahui,</td>
+        </tr>
+        <tr>
+            <td class="signature">({TRANSAKSIYB})</td>
+            <td class="signature">(............................)</td>
+            <td class="signature">(............................)</td>
+        </tr>
+    </table>
+</body>
+
+</html>

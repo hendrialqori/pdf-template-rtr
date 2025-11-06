@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Surat Usulan Penghapusan Piutang Ragu-ragu</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 40px auto;
+      color: #111;
+      font-size: 13px;
+      width: 800px;
+      line-height: 1.6;
+    }
+
+    table {
+      border-collapse: separate;
+      border-spacing: 0 4px;
+      width: 100%;
+    }
+
+    .header-left div {
+      line-height: 1.6;
+      margin-bottom: 2px;
+    }
+
+    .section {
+      margin-top: 25px;
+    }
+
+    .kepada {
+      width: 40%;
+      float: right;
+      line-height: 1.6;
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    .signature {
+      margin-top: 60px;
+      text-align: right;
+    }
+
+    .footer-note {
+      margin-top: 60px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td style="width: 70%; vertical-align: top;">
+        <table style="border-collapse: separate; border-spacing: 10px 0;">
+          <tr>
+            <td style="width: 70px;">
+              <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" />
+            </td>
+            <td class="header-info">
+              <div>PT. PLN (PERSERO)</div>
+              <div>{NAMAUPI}</div>
+              <div>{UNITAP} : {NAMAAP}</div>
+              <div>{UNITUP} : {NAMAUP}</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td style="width: 30%; vertical-align: top; text-align: right;">
+        <div>Formulir : SUPPR-UP</div>
+        <div>Lampiran : VI</div>
+      </td>
+    </tr>
+  </table>
+
+  <div style="height: 10px;"></div>
+
+  <table>
+    <tr>
+      <td style="vertical-align: top;">
+        <table>
+          <tr>
+            <td style="width: 100px;">Nomor</td>
+            <td style="width: 10px;">:</td>
+            <td>{NO_SUPPR_UP}</td>
+          </tr>
+          <tr>
+            <td>Perihal</td>
+            <td>:</td>
+            <td>Usulan Penghapusan Piutang Ragu-ragu</td>
+          </tr>
+        </table>
+      </td>
+      <td style="vertical-align: bottom; text-align: right;">
+        <div>{DATA_DATE}</div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="section">
+    <div class="kepada">
+      <div>Kepada Yth:</div>
+      <div>PT. PLN (Persero)</div>
+      <div>{NAMAUPI}</div>
+      <div>di tempat</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div class="section" style="text-align: justify;">
+    Dengan ini kami sampaikan asli dan 2 (dua) copy Usulan Penghapusan Piutang Ragu-ragu sejumlah
+    Rp.{JML_PRPR}
+    (terbilang {TERBILANG}) yang terdiri dari:
+  </div>
+
+  <div style="margin-top: 15px;">
+    <div>I. Daftar Usulan Penghapusan Piutang Ragu-ragu (DUPPR)</div>
+    <div style="margin-left: 25px;">
+      No. {NO_SURAT_DUPPR} &nbsp;&nbsp; Tgl: {TGL_SETUJU} &nbsp;&nbsp; Rp. {PR_PRR}
+    </div>
+
+    <div style="margin-top: 10px;">II. Berita Acara Penelitian Piutang Ragu-ragu</div>
+    <div style="margin-left: 25px;">
+      No. {NO_SURAT_DUPPR} &nbsp;&nbsp; Tgl: {TGL_SETUJU}
+    </div>
+  </div>
+
+  <div class="section" style="text-align: justify;">
+    Demikian agar maklum, mohon mendapat penyelesaian lebih lanjut dan terima kasih atas perhatiannya.
+  </div>
+
+  <div class="signature">
+    <div>({JABATAN_SETUJU})</div>
+    <br><br><br>
+    <div>({NAMA_PEJABAT_SETUJU})</div>
+  </div>
+
+  <div class="footer-note">
+    *) Diisi bila ada surat PSBDT / Deponir
+  </div>
+</body>
+
+</html>

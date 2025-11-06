@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitoring Pelunasan Cicilan PRR dan Ex PRR</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+    }
+
+    body {
+      margin: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 6px;
+    }
+
+    th {
+      font-size: 11px;
+    }
+
+    td {
+      font-size: 12px;
+    }
+
+    table.table_header div {
+      margin-top: 5px;
+    }
+
+    .header_report p {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .header_report p.title {
+      font-weight: bold;
+    }
+
+    /* refactoring */
+    table.table_data {
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    table.table_data * {
+      border: 1px solid black;
+    }
+
+    thead th {
+      font-weight: normal;
+    }
+
+    .keterangan {
+      margin-top: 16px;
+    }
+
+    .keterangan p {
+      margin-bottom: 6px;
+    }
+
+    @media print {
+      table tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      table td {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+    }
+
+    /* Atur halaman PDF */
+    @page {
+      size: A4 landscape;
+      margin: 1cm;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="table_header">
+    <tr>
+      <td>
+        <img src="data:image/png;base64,{logoBase64}" alt="Logo" width="64" />
+      </td>
+      <td class="header-info">
+        <div>PT PLN (PERSERO)</div>
+      </td>
+    </tr>
+  </table>
+
+  <hr style="margin-top: 7px; margin-bottom: 20px;">
+  <!-- Judul laporan -->
+  <div class="header_report">
+    <p class="title" style="text-decoration: underline;">Monitoring Pelunasan Cicilan PRR dan Ex PRR</p>
+  </div>
+  <!-- Tabel utama -->
+  <table class="table_data">
+    <thead>
+      <tr>
+        <th>THBL LAP</th>
+        <th>BLTH REK</th>
+        <th>KODE</th>
+        <th>KETERANGAN KODE</th>
+        <th>UNIT UPI</th>
+        <th>UNIT AP</th>
+        <th>UNIT UP</th>
+        <th>ID PEL</th>
+        <th>ID PEL PRR</th>
+        <th>NO AGENDA</th>
+        <th>KOGOL</th>
+        <th>TARIF</th>
+        <th>DAYA</th>
+        <th>RUPIAH</th>
+        <th>JENIS TRANSAKSI</th>
+        <th>TGL BAYAR</th>
+        <th>KETERANGAN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
