@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saldo_rekening_per_golongan_tarif_saldo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+        }
+
+        body {
+            margin: auto;
+            padding: 16px;
+            width: 1500px;
+        }
+
+        /* === HEADER === */
+        .table-header {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            text-align: left;
+            width: 25%;
+            vertical-align: top;
+        }
+
+        .header-center {
+            width: 50%;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .header-center p {
+            margin-bottom: 25px;
+        }
+
+        .header-right {
+            width: 25%;
+            vertical-align: top;
+        }
+
+        .header-left table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .header-left td {
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .header-left img {
+            display: block;
+        }
+
+        .header-left div {
+            margin-bottom: 6px;
+        }
+
+        /* === TABEL DATA === */
+        .table-data {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .table-data th,
+        .table-data td {
+            text-align: right;
+            padding: 6px 4px;
+        }
+
+        .table-data th {
+            font-weight: 500;
+            text-transform: none;
+        }
+
+        .table-data th:first-child,
+        .table-data td:first-child {
+            text-align: left;
+        }
+
+        .border {
+            border-top: 1px dashed black;
+            border-bottom: 1px dashed black;
+        }
+
+        /* === FOOTER DATA === */
+        .table-data tfoot th,
+        .table-data tfoot td {
+            font-weight: 500;
+            text-align: right;
+            padding: 10px 4px;
+        }
+
+        .tfoot-title {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .tfoot-subtitle {
+            text-align: right;
+        }
+
+        /* === PAGE FOOTER === */
+        .page-footer {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 100px;
+            font-size: 14px;
+        }
+
+        .page-footer td {
+            text-align: left;
+            padding: 4px 6px;
+        }
+
+        .page-footer .page-number {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td class="logo-cell">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" />
+                        </td>
+                        <td>
+                            <div>PT PLN (PERSERO) WILAYAH</div>
+                            <div>{cabang}</div>
+                            <div>{ranting}</div>
+                            <div>{wilayah}</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="header-center">
+                <div>
+                    <p>{?JudulSatu}</p>
+                    <p><strong>{?JudulDua}</strong></p>
+                    <p><strong>Data berdasarkan saldo DPP per Tgl Server saat dibuat rekap saldo bulanan</strong></p>
+                </div>
+            </td>
+            <td class="header-right"></td>
+        </tr>
+    </table>
+
+    <!-- Tabel Data -->
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th class="border">No.</th>
+                <th class="border">Tanggal</th>
+                <th class="border">Status</th>
+                <th class="border">Golongan</th>
+                <th class="border">Lembar</th>
+                <th class="border">RpPTL</th>
+                <th class="border">RpBPJU</th>
+                <th class="border">RpPPN</th>
+                <th class="border">RpMaterai</th>
+                <th class="border">RpLain</th>
+                <th class="border">RpTagihan</th>
+                <th class="border">RpBK</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border">1</td>
+                <td class="border">2025-11-07</td>
+                <td class="border">12</td>
+                <td class="border">SELESAI</td>
+                <td class="border">Golongan 1</td>
+                <td class="border">1.200.000</td>
+                <td class="border">150.000</td>
+                <td class="border">120.000</td>
+                <td class="border">10.000</td>
+                <td class="border">5.000</td>
+                <td class="border">1.485.000</td>
+                <td class="border">OK</td>
+            </tr>
+        </tbody>
+
+        <!-- Footer -->
+        <tfoot>
+            <tr>
+                <td colspan="3" rowspan="2" class="tfoot-title"><strong>JUMLAH</strong></td>
+                <td class="border">AMA404</td>
+                <td class="border">RPBJU</td>
+                <td class="border">RPBJU</td>
+                <td class="border">RPPN</td>
+                <td class="border">RPMAT</td>
+                <td class="border">@RpLain2</td>
+                <td class="border">AMA404</td>
+                <td class="border">@RpBK</td>
+                <td class="border">@RpBK</td>
+            </tr>
+
+            <!-- Rincian RPLAIN2 -->
+            <tr>
+                <td class="tfoot-subtitle">Rincian RPLAIN2</td>
+                <td>RpTrafo</td>
+                <td>04. RPTRAFO</td>
+                <td>Jml Angsuran</td>
+                <td>n of @JmlAngsuran</td>
+                <td>RpPotongan</td>
+                <td>404.REDUKSI</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td>RpSewaTrafo</td>
+                <td>BWATRAFO</td>
+                <td colspan="2"></td>
+                <td>RpTambahBiaya</td>
+                <td>LAMA404.RPTE</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td>RpSewaKapasitor</td>
+                <td>RPSEWAKAP</td>
+                <td colspan="6"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- Page Footer -->
+    <table class="page-footer">
+        <tr>
+            <td style="width: 25%;">Petugas Cetak : {petugascetak}</td>
+            <td style="width: 25%;">Saldo : {KDPEMBPP}</td>
+            <td style="width: 25%;">Tgl Cetak : {TGLCETAK}</td>
+            <td class="page-number" style="width: 25%;">
+                Page <span>{pageNumber}</span> of <span>{totalPages}</span>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
