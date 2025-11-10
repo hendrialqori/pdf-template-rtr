@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan_Daftar_DUPPR_Umum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+        }
+
+        body {
+            margin: auto;
+            padding: 16px;
+        }
+
+        /* === HEADER === */
+        .table-header {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            text-align: left;
+            width: 25%;
+            vertical-align: top;
+        }
+
+        .header-center {
+            width: 50%;
+            text-align: center;
+            vertical-align: bottom;
+        }
+
+        .header-center div p {
+            margin-bottom: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .header-right {
+            width: 25%;
+            vertical-align: top;
+        }
+
+        .header-left table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .header-left td {
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .header-left img {
+            display: block;
+        }
+
+        .header-left div {
+            margin-bottom: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* === TABLE DATA === */
+        .table-data {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table-data th,
+        .table-data td {
+            font-weight: 400;
+            font-size: 12px;
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table-data th {
+            background-color: #C0C0C0;
+        }
+
+        /* === ELLIPSIS (AUTO WIDTH + TOOLTIP) === */
+        .ellipsis-cell {
+            max-width: 70px;
+            /* samakan dengan lebar kolom <th> terkait */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" />
+                        </td>
+                        <td>
+                            <div>PT PLN (PERSERO)</div>
+                            <div>{PRR_DAFTAR_DUPPR_A.SATUANUPI}</div>
+                            <div>{PRR_DAFTAR_DUPPR_A.NAMAUPI}</div>
+                            <div>{PRR_DAFTAR_DUPPR_A.SATUANAP}</div>
+                            <div>{PRR_DAFTAR_DUPPR_A.UNITAP}</div>
+                            <div>{PRR_DAFTAR_DUPPR_A.NAMAAP}</div>
+                            <div>{PRR_DAFTAR_DUPPR_A.SATUANUP}</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="header-center">
+                <div>
+                    <p>DAFTAR PENGHAPUSAN PIUTANG RAGU-RAGU</p>
+                    <p>PELANGGAN UMUM</p>
+                    <p>TAHUN BULAN: {PRR_DAFTAR_DUPPR_A.BLTHLAP}</p>
+                </div>
+            </td>
+            <td class="header-right"></td>
+        </tr>
+    </table>
+
+    <!-- Table -->
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="3">NO</th>
+                <th rowspan="3" style="width: 230px;">IDPEL</th>
+                <th rowspan="3" style="width: 230px;">NAMA</th>
+                <th rowspan="3">TARIP</th>
+                <th rowspan="3">DAYA</th>
+                <th colspan="5">PIUTANG YANG DIUSULAKAN UNTUK PINDAH BUKUKAN KE PRR</th>
+                <th colspan="5">PIUTANG BUKAN BEBAN KERUGIAN PT. PLN</th>
+                <th rowspan="3">UJL</th>
+                <th rowspan="3">RP PRR</th>
+            </tr>
+            <tr>
+                <th colspan="3">TAGLIST</th>
+                <th rowspan="2" style="width: 70px;">NON TAGLIST</th>
+                <th rowspan="2" style="width: 70px;">JUMLAH</th>
+                <th rowspan="2" style="width: 70px;">BPJU</th>
+                <th rowspan="2" style="width: 70px;">PPN</th>
+                <th rowspan="2" style="width: 70px;">MATERAI</th>
+                <th rowspan="2" style="width: 70px;">KLP</th>
+                <th rowspan="2" style="width: 70px;">JUMLAH</th>
+            </tr>
+            <tr>
+                <th style="width: 70px;">TAHUN</th>
+                <th style="width: 70px;">LEMBAR</th>
+                <th style="width: 70px;">RUPIAH</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>REC</td>
+                <td>IDPEL</td>
+                <td>NAMA</td>
+                <td>TARIP</td>
+                <td>DAYA</td>
+                <td>TAHUN TD</td>
+                <td>LBB</td>
+                <td>RPTAG</td>
+                <td>RPTUNGGAK</td>
+                <td>@JUMLAH</td>
+                <td>RPBPJU</td>
+                <td>RPPPN</td>
+                <td>RPMA</td>
+                <td>RPKL</td>
+                <td>@JUMLAH2</td>
+                <td>RPUJL</td>
+                <td>RPPRR</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="6">Jumlah</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(@JUMLAH)">Sum(@JUMLAH)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(@JUMLAH2)">Sum(@JUMLAH2)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+                <td class="ellipsis-cell" title="Sum(PRR_DAFTAR_DUPPR)">Sum(PRR_DAFTAR_DUPPR)</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
