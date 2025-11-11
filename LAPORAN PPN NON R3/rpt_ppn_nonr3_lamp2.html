@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAPORAN LAYANAN KEANDALAN PRIORITAS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 1cm;
+        }
+
+        body {
+            width: max-content;
+            margin: auto;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 11px;
+        }
+
+        .header-table {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .header-table td {
+            vertical-align: top;
+            border: none;
+        }
+
+        .table-data {
+            border: 1px solid black;
+            margin-top: 10px;
+            font-size: 10.5px;
+        }
+
+        .table-data th {
+            font-weight: 600;
+        }
+
+        .catatan {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .catatan p {
+            margin: 2px 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <table class="header-table">
+        <tr>
+            <td>
+                <table style="width: max-content;">
+                    <tr>
+                        <td style="width: 64px; vertical-align: top;">
+                            <img src="../Logo_PLN.png" alt="Logo PLN" width="64" />
+                        </td>
+                        <td style="vertical-align: top;">
+                            <div style="margin-bottom: 7px; font-weight: bold;">PT PLN (PERSERO)</div>
+                            <div style="margin-bottom: 7px;">{data.get("NAMAUPI")}</div>
+                            <div style="margin-bottom: 7px;">{data.get("NAMAAP")}</div>
+                            <div style="margin-bottom: 7px;">{data.get("NAMAUP")}</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 50%; text-align: center;">
+                <div style="line-height: 1.5; font-size: 14px;">
+                    <div>Laporan PPN Non Listrik/Jasa</div>
+                    <div>Lampiran - 2</div>
+                    <div>Bulan Tahun Laporan: {data.get("?bulan")}</div>
+                </div>
+            </td>
+            <td style="width: 25%;"></td>
+        </tr>
+    </table>
+
+    <!-- TABLE DATA -->
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="4">ID<br />PELANGGAN</th>
+                <th rowspan="4">NAMA<br />PELANGGAN</th>
+                <th rowspan="4">NPWP</th>
+                <th rowspan="4">TARIF</th>
+                <th rowspan="4">DAYA</th>
+                <th colspan="2">JUMLAH TAGIHAN LISTRIK</th>
+                <th colspan="12">PELUNASAN NON TAGLIS</th>
+                <th colspan="8">RESTITUSI NON TAGLIS</th>
+                <th colspan="2">JUMLAH NON TAGLIS</th>
+                <th colspan="2">TOTAL</th>
+            </tr>
+
+            <tr>
+                <th rowspan="2">PENETAPAN<br />TAGIHAN LISTRIK</th>
+                <th rowspan="2">PPN NON R3</th>
+
+                <th colspan="2">SEWA TRAFO</th>
+                <th colspan="2">REC</th>
+                <th colspan="2">PFK</th>
+                <th colspan="2">MATERIAL</th>
+                <th colspan="2">SHARING REVENUE SPKLU</th>
+                <th colspan="2">DEDICATED SOURCE</th>
+
+                <th colspan="2">SEWA TRAFO</th>
+                <th colspan="2">REC</th>
+                <th colspan="2">PFK</th>
+                <th colspan="2">MATERIAL</th>
+
+                <th rowspan="2">PENETAPAN<br />NON TAGLIS</th>
+                <th rowspan="2">PPN NON R3</th>
+                <th rowspan="2">JUMLAH<br />TAGLIS & NON<br />TAGLIS</th>
+                <th rowspan="2">PPN NON R3</th>
+            </tr>
+
+            <tr>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+                <th>DPP NILAI LAIN</th>
+                <th>PPN NON R3</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30=6+28</td>
+                <td>31=7+29</td>
+            </tr>
+
+            <tr>
+                <td>data.get("IDPEL")</td>
+                <td>data.get("NAMA_PELANGGAN")</td>
+                <td>data.get("NPWP")</td>
+                <td>data.get("TARIF")</td>
+                <td>data.get("DAYA")</td>
+                <td>data.get("JML_PAJAK_TAGLIS")</td>
+                <td>data.get("JML_RPPPN_TAGLIS")</td>
+
+                <td>data.get("NTL_PAJAK_SEWATRAFO")</td>
+                <td>data.get("NTL_RPPPN_SEWATRAFO")</td>
+                <td>data.get("NTL_PAJAK_REC")</td>
+                <td>data.get("NTL_RPPPN_REC")</td>
+                <td>data.get("NTL_PAJAK_PFK")</td>
+                <td>data.get("NTL_RPPPN_PFK")</td>
+                <td>data.get("NTL_PAJAK_MATERIAL")</td>
+                <td>data.get("NTL_RPPPN_MATERIAL")</td>
+                <td>data.get("NTL_PAJAK_SPKLU")</td>
+                <td>data.get("NTL_RPPPN_SPKLU")</td>
+                <td>data.get("NTL_PAJAK_DS")</td>
+                <td>data.get("NTL_RPPPN_DS")</td>
+
+                <td>data.get("RES_NTL_PAJAK_SEWATRAFO")</td>
+                <td>data.get("RES_NTL_RPPPN_SEWATRAFO")</td>
+                <td>data.get("RES_NTL_PAJAK_REC")</td>
+                <td>data.get("RES_NTL_RPPPN_REC")</td>
+                <td>data.get("RES_NTL_PAJAK_PFK")</td>
+                <td>data.get("RES_NTL_RPPPN_PFK")</td>
+                <td>data.get("RES_NTL_PAJAK_MATERIAL")</td>
+                <td>data.get("RES_NTL_RPPPN_MATERIAL")</td>
+
+                <td>data.get("JML_PAJAK_NONTAGLIS")</td>
+                <td>data.get("JML_RPPPN_NONTAGLIS")</td>
+                <td>data.get("TOTAL_PAJAK_NONR3")</td>
+                <td>data.get("TOTAL_RPPPN_NONR3")</td>
+            </tr>
+
+            <tr>
+                <td colspan="5">TOTAL</td>
+                <td>data.get("jml_pajak_taglis")</td>
+                <td>data.get("jml_rpppn_taglis")</td>
+                <td>data.get("ntl_pajak_sewatrafo")</td>
+                <td>data.get("ntl_rpppn_sewatrafo")</td>
+                <td>data.get("ntl_pajak_rec")</td>
+                <td>data.get("ntl_rpppn_rec")</td>
+                <td>data.get("ntl_pajak_pfk")</td>
+                <td>data.get("ntl_rpppn_pfk")</td>
+                <td>data.get("ntl_pajak_material")</td>
+                <td>data.get("ntl_rpppn_material")</td>
+                <td>data.get("ntl_pajak_splku")</td>
+                <td>data.get("ntl_rpppn_splku")</td>
+                <td>data.get("ntl_pajak_ds")</td>
+                <td>data.get("ntl_rpppn_ds")</td>
+                <td>data.get("res_ntl_pajak_sewatrafo")</td>
+                <td>data.get("res_ntl_rpppn_sewatrafo")</td>
+                <td>data.get("res_ntl_pajak_rec")</td>
+                <td>data.get("res_ntl_rpppn_rec")</td>
+                <td>data.get("res_ntl_pajak_pfk")</td>
+                <td>data.get("res_ntl_rpppn_pfk")</td>
+                <td>data.get("res_ntl_pajak_material")</td>
+                <td>data.get("res_ntl_rpppn_material")</td>
+                <td>data.get("jml_pajak_nontaglis")</td>
+                <td>data.get("jml_rpppn_nontaglis")</td>
+                <td>data.get("total_pajak_nonr3")</td>
+                <td>data.get("total_rpppn_nonr3")</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- CATATAN -->
+    <div class="catatan">
+        <div>
+            <p>Catatan :</p>
+            <p style="margin-left: 10px;">- s.d. Maret 2022, laporan PPN UAP dan REC masuk dalam laporan PPN R3</p>
+            <p style="margin-left: 10px;">- Mulai laporan April 2022, laporan PPN untuk UAP dan REC masuk ke dalam laporan PPN Non R3</p>
+        </div>
+        <div style="margin-top: 10px;">
+            <p>Implementasi PMK 131/2024 (PPN 12% dengan DPP Nilai Lain 11/12 * harga jual) pada laporan PPN :</p>
+            <p style="margin-left: 10px;">a. Transaksi Sorek Pascabayar : mulai laporan Maret 2025</p>
+            <p style="margin-left: 10px;">b. Transaksi Non-Taglis : mulai laporan April 2025</p>
+        </div>
+    </div>
+</body>
+
+</html>

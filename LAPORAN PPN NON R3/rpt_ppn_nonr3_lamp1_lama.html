@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAPORAN LAYANAN KEANDALAN PRIORITAS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      @page {
+        size: A4 landscape;
+        margin: 1cm;
+      }
+
+      body {
+        width: max-content;
+        margin: auto;
+        padding: 10px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 6px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 10.5px;
+      }
+
+      .header-table {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .header-table td {
+        vertical-align: top;
+        border: none;
+      }
+
+      .table-data {
+        border: 1px solid black;
+        margin-top: 10px;
+        font-size: 10.5px;
+      }
+
+      .table-data th {
+        font-weight: 600;
+      }
+
+      .catatan {
+        margin-top: 15px;
+        font-size: 12px;
+      }
+
+      .catatan p {
+        margin: 2px 0;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <table class="header-table">
+      <tr>
+        <td>
+          <table style="width: max-content;">
+            <tr>
+              <td style="width: 64px; vertical-align: top;">
+                <img src="../Logo_PLN.png" alt="Logo PLN" width="64" />
+              </td>
+              <td style="vertical-align: top;">
+                <div style="margin-bottom: 7px; font-weight: bold;">PT PLN (PERSERO)</div>
+                <div style="margin-bottom: 7px;">{data.get("NAMAUPI")}</div>
+                <div style="margin-bottom: 7px;">{data.get("NAMAAP")}</div>
+                <div style="margin-bottom: 7px;">{data.get("NAMAUP")}</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td style="width: 50%; text-align: center;">
+          <div style="line-height: 1.5; font-size: 14px;">
+            <div>Laporan PPN Non Listrik/Jasa</div>
+            <div>Lampiran - 1</div>
+            <div>Bulan Tahun Laporan: {data.get("?bulan")}</div>
+          </div>
+        </td>
+        <td style="width: 25%;"></td>
+      </tr>
+    </table>
+
+    <!-- TABLE DATA -->
+    <table class="table-data">
+      <thead>
+        <tr>
+          <th rowspan="4">ID<br />PELANGGAN</th>
+          <th rowspan="4">NAMA<br />PELANGGAN</th>
+          <th rowspan="4">NPWP</th>
+          <th rowspan="4">TARIF</th>
+          <th rowspan="4">DAYA</th>
+          <th colspan="42">TAGIHAN LISTRIK</th>
+          <th colspan="2" rowspan="3">JUMLAH TAGIHAN LISTRIK</th>
+        </tr>
+        <tr>
+          <th colspan="14">REKENING TERCETAK</th>
+          <th colspan="14">PEMBATALAN REKENING</th>
+          <th colspan="14">KOREKSI REKENING</th>
+        </tr>
+        <tr>
+          <th colspan="2">SEWA TRAFO</th>
+          <th colspan="2">SEWA KAPASITOR</th>
+          <th colspan="2">PEMAKAIAN TRAFO</th>
+          <th colspan="2">OPERASI PARAREL</th>
+          <th colspan="2">REC</th>
+          <th colspan="2">UAP</th>
+          <th colspan="2">SEWA LAINNYA</th>
+
+          <th colspan="2">SEWA TRAFO</th>
+          <th colspan="2">SEWA KAPASITOR</th>
+          <th colspan="2">PEMAKAIAN TRAFO</th>
+          <th colspan="2">OPERASI PARAREL</th>
+          <th colspan="2">REC</th>
+          <th colspan="2">UAP</th>
+          <th colspan="2">SEWA LAINNYA</th>
+
+          <th colspan="2">SEWA TRAFO</th>
+          <th colspan="2">SEWA KAPASITOR</th>
+          <th colspan="2">PEMAKAIAN TRAFO</th>
+          <th colspan="2">OPERASI PARAREL</th>
+          <th colspan="2">REC</th>
+          <th colspan="2">UAP</th>
+          <th colspan="2">SEWA LAINNYA</th>
+        </tr>
+
+        <tr>
+          <!-- REKENING TERCETAK -->
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+
+          <!-- PEMBATALAN -->
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+
+          <!-- KOREKSI -->
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+          <th>DASAR PAJAK</th>
+          <th>PPN Non R3</th>
+
+          <th>DASAR PAJAK<br />TAGIHAN LISTRIK</th>
+          <th>PPN Non R3</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+          <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+          <td>11</td><td>12</td><td>13</td><td>14</td>
+          <td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+          <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
+          <td>29</td><td>30</td><td>31</td><td>32</td><td>33</td><td>34</td>
+          <td>35</td><td>36</td><td>37</td><td>38</td><td>39</td><td>40</td>
+          <td>41</td><td>42</td><td>43</td><td>44</td><td>45</td><td>46</td><td>47</td><td>48</td><td>49</td>
+        </tr>
+
+        <!-- DATA ROW -->
+        <tr>
+          <td>data.get("IDPEL")</td>
+          <td>data.get("NAMA_PELANGGAN")</td>
+          <td>data.get("NPWP")</td>
+          <td>data.get("TARIF")</td>
+          <td>data.get("DAYA")</td>
+
+          <td>data.get("TL_PAJAK_SEWATRAFO")</td>
+          <td>data.get("TL_RPPPN_SEWATRAFO")</td>
+          <td>data.get("TL_PAJAK_SEWAKAP")</td>
+          <td>data.get("TL_RPPPN_SEWAKAP")</td>
+          <td>data.get("TL_PAJAK_BPTRAFO")</td>
+          <td>data.get("TL_RPPPN_BPTRAFO")</td>
+          <td>data.get("TL_PAJAK_OPSPARALEL")</td>
+          <td>data.get("TL_RPPPN_OPSPARALEL")</td>
+          <td>data.get("TL_PAJAK_REC")</td>
+          <td>data.get("TL_RPPPN_REC")</td>
+          <td>data.get("TL_PAJAK_UAP")</td>
+          <td>data.get("TL_RPPPN_UAP")</td>
+          <td>data.get("TL_PAJAK_SEWALAINNYA")</td>
+          <td>data.get("TL_RPPPN_SEWALAINNYA")</td>
+
+          <td>data.get("BTL_PAJAK_SEWATRAFO")</td>
+          <td>data.get("BTL_RPPPN_SEWATRAFO")</td>
+          <td>data.get("BTL_PAJAK_SEWAKAP")</td>
+          <td>data.get("BTL_RPPPN_SEWAKAP")</td>
+          <td>data.get("BTL_PAJAK_BPTRAFO")</td>
+          <td>data.get("BTL_RPPPN_BPTRAFO")</td>
+          <td>data.get("BTL_PAJAK_OPSPARALEL")</td>
+          <td>data.get("BTL_RPPPN_OPSPARALEL")</td>
+          <td>data.get("BTL_PAJAK_REC")</td>
+          <td>data.get("BTL_RPPPN_REC")</td>
+          <td>data.get("BTL_PAJAK_UAP")</td>
+          <td>data.get("BTL_RPPPN_UAP")</td>
+          <td>data.get("BTL_PAJAK_SEWALAINNYA")</td>
+          <td>data.get("BTL_RPPPN_SEWALAINNYA")</td>
+
+          <td>data.get("KOR_PAJAK_SEWATRAFO")</td>
+          <td>data.get("KOR_RPPPN_SEWATRAFO")</td>
+          <td>data.get("KOR_PAJAK_SEWAKAP")</td>
+          <td>data.get("KOR_RPPPN_SEWAKAP")</td>
+          <td>data.get("KOR_PAJAK_BPTRAFO")</td>
+          <td>data.get("KOR_RPPPN_BPTRAFO")</td>
+          <td>data.get("KOR_PAJAK_OPSPARALEL")</td>
+          <td>data.get("KOR_RPPPN_OPSPARALEL")</td>
+          <td>data.get("KOR_PAJAK_REC")</td>
+          <td>data.get("KOR_RPPPN_REC")</td>
+          <td>data.get("KOR_PAJAK_UAP")</td>
+          <td>data.get("KOR_RPPPN_UAP")</td>
+          <td>data.get("KOR_PAJAK_SEWALAINNYA")</td>
+          <td>data.get("KOR_RPPPN_SEWALAINNYA")</td>
+
+          <td>data.get("JML_PAJAK_TAGLIS")</td>
+          <td>data.get("JML_RPPPN_TAGLIS")</td>
+        </tr>
+
+        <!-- TOTAL -->
+        <tr>
+          <td colspan="5">TOTAL</td>
+          <td>{data.get("tl_pajak_sw")}</td>
+          <td>{data.get("tl_rpppn_sw")}</td>
+          <td>{data.get("tl_pajak_sk")}</td>
+          <td>{data.get("tl_rpppn_sk")}</td>
+          <td>{data.get("tl_pajak_pt")}</td>
+          <td>{data.get("tl_rpppn_pt")}</td>
+          <td>{data.get("tl_pajak_op")}</td>
+          <td>{data.get("tl_rpppn_op")}</td>
+          <td>{data.get("tl_pajak_rec")}</td>
+          <td>{data.get("tl_rpppn_rec")}</td>
+          <td>{data.get("tl_pajak_uap")}</td>
+          <td>{data.get("tl_rpppn_uap")}</td>
+          <td>{data.get("tl_pajak_sewalain")}</td>
+          <td>{data.get("tl_rpppn_sewalain")}</td>
+
+          <td>{data.get("btl_pajak_sw")}</td>
+          <td>{data.get("btl_rpppn_sw")}</td>
+          <td>{data.get("btl_pajak_sk")}</td>
+          <td>{data.get("btl_rpppn_sk")}</td>
+          <td>{data.get("btl_pajak_pt")}</td>
+          <td>{data.get("btl_rpppn_pt")}</td>
+          <td>{data.get("btl_pajak_op")}</td>
+          <td>{data.get("btl_rpppn_op")}</td>
+          <td>{data.get("btl_pajak_rec")}</td>
+          <td>{data.get("btl_rpppn_rec")}</td>
+          <td>{data.get("btl_pajak_uap")}</td>
+          <td>{data.get("btl_rpppn_uap")}</td>
+          <td>{data.get("btl_pajak_sewalain")}</td>
+          <td>{data.get("btl_rpppn_sewalain")}</td>
+
+          <td>{data.get("kor_pajak_sw")}</td>
+          <td>{data.get("kor_rpppn_sw")}</td>
+          <td>{data.get("kor_pajak_sk")}</td>
+          <td>{data.get("kor_rpppn_sk")}</td>
+          <td>{data.get("kor_pajak_pt")}</td>
+          <td>{data.get("kor_rpppn_pt")}</td>
+          <td>{data.get("kor_pajak_op")}</td>
+          <td>{data.get("kor_rpppn_op")}</td>
+          <td>{data.get("kor_pajak_rec")}</td>
+          <td>{data.get("kor_rpppn_rec")}</td>
+          <td>{data.get("kor_pajak_uap")}</td>
+          <td>{data.get("kor_rpppn_uap")}</td>
+          <td>{data.get("kor_pajak_sewalain")}</td>
+          <td>{data.get("kor_rpppn_sewalain")}</td>
+          <td>{data.get("jml_pajak_taglis")}</td>
+          <td>{data.get("jml_rpppn_taglis")}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- CATATAN -->
+    <div class="catatan">
+      <p><strong>Catatan:</strong></p>
+      <p>- s.d. Maret 2022, laporan PPN UAP dan REC masuk dalam laporan PPN R3</p>
+      <p>- Mulai laporan April 2022, laporan PPN untuk UAP dan REC masuk ke dalam laporan PPN Non R3</p>
+    </div>
+  </body>
+</html>
