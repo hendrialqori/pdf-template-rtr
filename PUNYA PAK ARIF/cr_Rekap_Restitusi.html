@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cr_Rekap_Restitusi</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0.2cm;
+        }
+
+        body {
+            margin: auto;
+            padding: 6px;
+            width: 100%;
+            font-size: 7px;
+        }
+
+        th,
+        td {
+            padding: 4px;
+            text-align: center;
+        }
+
+        .table-header {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .header-left td {
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .header-left img {
+            display: block;
+        }
+
+        .header-left div {
+            margin-bottom: 6px;
+        }
+
+        .table-data {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        .table-data th,
+        .table-data td {
+            border: 1px solid black;
+        }
+
+        .note {
+            padding-block: var(--spacing);
+        }
+
+        .note p {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-light);
+        }
+
+        @media print {
+            table:is(tr, td) {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="padding-left: 4px; text-align: left;">
+                            <div>PT PLN (PERSERO)</div>
+                            <div>{VW_LAPORAN_308.NAMAUPI}</div>
+                            <div>{VW_LAPORAN_308.NAMAAP}</div>
+                            <div>{VW_LAPORAN_308.NAMAUP}</div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="margin-top: 8px; width: 100%;">
+                    <tr>
+                        <td>
+                            <div style="font-weight: bold; font-size: 11px;">REKAPITULASI RESTITUSI TAGIHAN TIDAK WAJAR
+                            </div>
+                            <div style="font-size: 10px;">BULAN : <strong>{@blth}</strong></div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="2">TARIF/DAYA</th>
+                <th rowspan="2">BLTH</th>
+                <th rowspan="2">TGL <br> LUNAS</th>
+                <th rowspan="2">KD <br> GOL</th>
+                <th rowspan="2">LBR</th>
+                <th colspan="10">SEBELUM</th>
+                <th colspan="10">SESUDAH</th>
+                <th rowspan="2">RP <br> RESTITUSI</th>
+            </tr>
+            <tr>
+                <th>PEMKWH</th>
+                <th>RPPTL</th>
+                <th>RPPPN</th>
+                <th>RPBPJU</th>
+                <th>RPMAT</th>
+                <th>RPPRODUKSI</th>
+                <th>RPSUBSIDI</th>
+                <th>RPINSENTIF</th>
+                <th>RPDISINSENTIF</th>
+                <th>TOTAL</th>
+                <th>PEMKWH</th>
+                <th>RPPTL</th>
+                <th>RPPPN</th>
+                <th>RPBPJU</th>
+                <th>RPMAT</th>
+                <th>RPPRODUKSI</th>
+                <th>RPSUBSIDI</th>
+                <th>RPINSENTIF</th>
+                <th>RPDISINSENTIF</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+            </tr>
+            <!-- value here -->
+            <!-- value here -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">TOTAL</td>
+                <td>KDAYA</td>
+                <td>KDPPJ</td>
+                <td>KDINKASO</td>
+                <td>KDKELOMPOK</td>
+                <td>TGLJTTEMPO</td>
+                <td>KDDK</td>
+                <td>TGLBACA</td>
+                <td>SLAWBP</td>
+                <td>SAHWBP</td>
+                <td>SLAKVARH</td>
+                <td>SAHKVARH</td>
+                <td>FAKM</td>
+                <td>FAKMKVARH</td>
+                <td>FAKMKVAMAX</td>
+                <td>KWHLWBP</td>
+                <td>KWHWBP</td>
+                <td>BLOK3</td>
+                <td>PEMKWH</td>
+                <td>RPLWBP</td>
+                <td>RPWBP</td>
+                <td>RPBLOK3</td>
+                <td>RPKVARH</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
