@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cr_41_404</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0.2cm;
+    }
+
+    body {
+      margin: auto;
+      padding: 16px;
+      width: 1500px;
+    }
+
+    /* === HEADER === */
+    .table-header {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    .header-left {
+      text-align: left;
+      width: 25%;
+      vertical-align: top;
+    }
+
+    .header-center {
+      width: 50%;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .header-center p {
+      margin-bottom: 10px;
+    }
+
+    .header-right {
+      width: 25%;
+      vertical-align: top;
+    }
+
+    .header-left table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .header-left td {
+      vertical-align: top;
+      padding: 0;
+    }
+
+    .logo-cell {
+      width: 40px;
+      padding-right: 20px !important;
+    }
+
+    .header-left img {
+      display: block;
+    }
+
+    .header-left div {
+      margin-bottom: 6px;
+    }
+
+    .tittle-status table {
+      width: 100%;
+    }
+
+    /* === TABEL DATA === */
+    .table-data {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .table-data th,
+    .table-data td {
+      text-align: center;
+      padding: 6px 4px;
+    }
+
+    .table-data th {
+      font-weight: 500;
+      text-transform: none;
+    }
+
+    .border {
+      border-top: 1px dashed black;
+      border-bottom: 1px dashed black;
+    }
+
+    .border-bottom {
+      border-bottom: 1px dashed black;
+    }
+
+    /* === FOOTER DATA === */
+    .table-data tfoot th,
+    .table-data tfoot td {
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 4px;
+    }
+
+    .tfoot-subtitle {
+      text-align: right;
+    }
+
+    /* === PAGE FOOTER === */
+    .page-footer {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 100px;
+      font-size: 14px;
+    }
+
+    .page-footer td {
+      text-align: left;
+      padding: 4px 6px;
+    }
+
+    .page-footer .page-number {
+      text-align: left;
+    }
+    .tfoot-style td.td-start{
+      text-align: start;
+      padding-right: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <table class="table-header">
+    <tr>
+      <td class="header-left">
+        <table>
+          <tr>
+            <td class="logo-cell">
+              {#if logoBase64}
+              <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" style="width:40px;height:auto;" />
+              {/if}
+            </td>
+            <td>
+              <div>PT PLN (PERSERO){?wilayah}</div>
+              <div>{?cabang}</div>
+              <div>{?ranting}</div>
+              <div>{?alamat}</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="header-center">
+        <div>
+          <p>REKAPTULASI MUTASI REKENING LISTRIK LANCAR KE RAGU2</p>
+          <p><strong>PINDAH LANCAR KE RAGU2</strong></p>
+          <p>BULAN : <strong>{?bulantahun}</strong></p>
+        </div>
+      </td>
+      <td class="header-right"></td>
+    </tr>
+  </table>
+  <div class="tittle-status">
+    <Table>
+      <td>
+      <th style="text-align: start;"><strong>STATUS REKENING : ST</strong></th>
+      <th style="text-align: end;"><strong>KODE GOLONGAN : KC</strong></th>
+      </td>
+    </Table>
+  </div>
+  <!-- Tabel Data -->
+  <table class="table-data">
+    <thead>
+      <tr>
+        <th class="border">Tanggal</th>
+        <th class="border"></th>
+        <th class="border" >Lembar</th>
+        <th class="border" >RpPTL</th>
+        <th class="border" >RpBPJU</th>
+        <th class="border" >RpPPN</th>
+        <th class="border" >RpMaterai</th>
+        <th class="border" >RpLain2</th>
+        <th class="border" >RpTagihan</th>
+        <th class="border" >RpBK</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border">[TANGGAL]</td>
+        <td class="border">[JALANTUNGGAL]</td>
+        <td class="border">[LEMBAR]</td>
+        <td class="border">[RPPTL]</td>
+        <td class="border">[RPBPJU]</td>
+        <td class="border">[RPPPN]</td>
+        <td class="border">[RPMAT]</td>
+        <td class="border">[@RpLain]</td>
+        <td class="border">[RpTAG]</td>
+        <td class="border">[@RpBK]</td>
+      </tr>
+    </tbody>
+
+    <!-- Footer -->
+    <tfoot class="tfoot-style">
+      <tr>
+        <td class="border"><strong>JUMLAH</strong></td>
+        <td class="border">[JALANTUNGGAL]</td>
+        <td class="border">[2DLAMA404.LEMBAR]</td>
+        <td class="border">[2DLAMA404.RPPTL]</td>
+        <td class="border">[LMA404.RPBJU]</td>
+        <td class="border">[A404.RPPPN]</td>
+        <td class="border">[A404.RPMAT]</td>
+        <td class="border">[sum of @RpLain2]</td>
+        <td class="border">[12DLAMA404.RPTAG]</td>
+        <td class="border">[sum of @RpBK]</td>
+      </tr>
+      <tr>
+        <td class="border" style="padding-block: 15px;" colspan="13"></td>
+      </tr>
+      <tr>
+        <td class="tfoot-subtitle">[Rincian RPLAIN2]</td>
+        <td class="td-start">[RpTrafo]</td>
+        <td class="td-start">[04. RPTRAFO]</td>
+        <td class="td-start">[RpAngsuranA]</td>
+        <td class="td-start">[04.RPANGSA]</td>
+        <td class="td-start">[RpPotongan]</td>
+        <td class="td-start">[404.RPREDUKSI]</td>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td colspan="1"></td>
+        <td class="td-start">[RpSewaTrafo]</td>
+        <td class="td-start">[SEWATRAFO]</td>
+        <td class="td-start">[RpAngsuranB]</td>
+        <td class="td-start">[04.RPANGSB]</td>
+        <td class="td-start">[RpTambahBiaya]</td>
+        <td class="td-start">[LAMA404.RPTB</td>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td colspan="1"></td>
+        <td class="td-start">[RpSewaKapasitor]</td>
+        <td class="td-start">[RPSEWAKAP]</td>
+        <td class="td-start">[RpAngsuranC]</td>
+        <td class="td-start">[04.RPANGSC]</td>
+        <td colspan="6"></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- Page Footer -->
+  <table class="page-footer">
+    <tr>
+      <td style="width: 25%;">Petugas Cetak : {?petugascetak}</td>
+      <td style="width: 25%;">KdGerak : {KDGE}</td>
+      <td style="width: 25%;">Tgl Cetak : {TGLCETAK}</td>
+      <td class="page-number" style="width: 25%;">
+        Page <span>{pageNumber}</span> of <span>{totalPages}</span>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
