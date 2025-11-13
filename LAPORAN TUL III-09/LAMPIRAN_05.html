@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPIRAN REKENING</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 0.2cm;
+    }
+
+    body {
+        margin: auto;
+        padding: 4px;
+        width: 1500px;
+        font-size: 10px;
+    }
+
+    th,
+    td {
+        padding: 6px 4px;
+        text-align: center;
+    }
+
+    .table-header {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    .header-left {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .header-left td {
+        vertical-align: top;
+        padding: 0;
+    }
+
+    .header-left img {
+        display: block;
+    }
+
+    .header-left div {
+        margin-bottom: 6px;
+    }
+
+    .table-data {
+        border-collapse: collapse;
+        border: 1px solid black;
+        table-layout: fixed;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .table-data th {
+        border: 1px solid black;
+        font-weight: 500;
+    }
+
+    .table-data td {
+        border: 1px solid black;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+</style>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div>PT. PLN (Persero) {REKAP_LAMP309_TANPAPECahan.NAMAUPI}</div>
+                            <div>{REKAP_LAMP309_TANPAPECahan.NAMAAP}</div>
+                            <div>{REKAP_LAMP309_TANPAPECahan.NAMAUP}</div>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <div>{?Judul}</div>
+                        <div>TOTAL 309 {?Judul2}</div>
+                        <div>Bulan {@Bulan}</div>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="2" style="width: 18%;">Tarif</th>
+                <th rowspan="2">Daya</th>
+                <th rowspan="2">JML PLG</th>
+                <th colspan="3">Pemakaian KWH</th>
+                <th rowspan="2">Kelebihan <br> KVARH</th>
+                <th rowspan="2">Rupiah KWh</th>
+                <th rowspan="2">Rp KVARh</th>
+                <th rowspan="2">Rp Beban</th>
+                <th rowspan="2">Rupiah <br> Penjualan</th>
+                <th rowspan="2">Rp/kwh</th>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>LWBP</th>
+                <th>WBP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="text-left">LABEL DATA</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+             <tr>
+                <td class="text-left">TOTAL {#1 : <br> REKAP LAMP309 TANPAPECAHAN</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+             <tr>
+                <td class="text-left">TOTAL</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>
