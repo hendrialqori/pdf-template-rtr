@@ -17,6 +17,10 @@
       margin: 1cm;
     }
 
+    .text-right {
+      text-align: right;
+    }
+
     body {
       width: max-content;
       padding: 10px;
@@ -73,6 +77,10 @@
       font-size: 11px;
       line-height: 1.4;
     }
+
+    .text-right {
+      text-align: right !important;
+    }
   </style>
 </head>
 
@@ -82,7 +90,7 @@
     <tr>
       <!-- Logo dan Unit PLN -->
       <td style="width: 25%; text-align: left;">
-        <table style="width: 100%;">
+        <table style="width: 100%; border: 1px solid black;">
           <tr>
             <td style="width: 64px; vertical-align: top;">
               <img src="../Logo_PLN.png" alt="Logo PLN" width="64" />
@@ -119,15 +127,17 @@
         <th rowspan="4">NAMA<br>PELANGGAN</th>
         <th rowspan="4">NPWP</th>
         <th rowspan="4">TARIF</th>
-        <th rowspan="4">TAGIHAN LISTRIK</th>
-        <th colspan="42">DAYA</th>
+        <th rowspan="4">DAYA</th>
+        <th colspan="48">TAGIHAN LISTRIK</th>
         <th colspan="2" rowspan="3">JUMLAH TAGIHAN LISTRIK</th>
       </tr>
 
+
+
       <tr>
-        <th colspan="14">REKENING TERCETAK</th>
-        <th colspan="14">PEMBATALAN REKENING</th>
-        <th colspan="14">KOREKSI REKENING</th>
+        <th colspan="16">REKENING TERCETAK</th>
+        <th colspan="16">PEMBATALAN REKENING</th>
+        <th colspan="16">KOREKSI REKENING</th>
       </tr>
 
       <tr>
@@ -137,9 +147,28 @@
         <th colspan="2">OPERASI PARAREL</th>
         <th colspan="2">REC</th>
         <th colspan="2">UAP</th>
+        <th colspan="2">DS</th>
         <th colspan="2">SEWA LAINNYA</th>
 
         <th colspan="2">SEWA TRAFO</th>
+        <th colspan="2">SEWA KAPASITOR</th>
+        <th colspan="2">PEMAKAIAN TRAFO</th>
+        <th colspan="2">OPERASI PARAREL</th>
+        <th colspan="2">REC</th>
+        <th colspan="2">UAP</th>
+        <th colspan="2">DS</th>
+        <th colspan="2">SEWA LAINNYA</th>
+
+        <th colspan="2">SEWA TRAFO</th>
+        <th colspan="2">SEWA KAPASITOR</th>
+        <th colspan="2">PEMAKAIAN TRAFO</th>
+        <th colspan="2">OPERASI PARAREL</th>
+        <th colspan="2">REC</th>
+        <th colspan="2">UAP</th>
+        <th colspan="2">DS</th>
+        <th colspan="2">SEWA LAINNYA</th>
+
+        <!-- <th colspan="2">SEWA TRAFO</th>
         <th colspan="2">SEWA KAPASITOR</th>
         <th colspan="2">PEMAKAIAN TRAFO</th>
         <th colspan="2">OPERASI PARAREL</th>
@@ -153,7 +182,7 @@
         <th colspan="2">OPERASI PARAREL</th>
         <th colspan="2">REC</th>
         <th colspan="2">UAP</th>
-        <th colspan="2">SEWA LAINNYA</th>
+        <th colspan="2">SEWA LAINNYA</th> -->
       </tr>
 
       <tr>
@@ -173,9 +202,45 @@
         <th>PPN Non R3</th>
         <th>DPP NILAI LAIN</th>
         <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
+        <th>DPP NILAI LAIN</th>
+        <th>PPN Non R3</th>
 
         <!-- PEMBATALAN REKENING -->
-        <th>DPP NILAI LAIN</th>
+        <!-- <th>DPP NILAI LAIN</th>
         <th>PPN Non R3</th>
         <th>DPP NILAI LAIN</th>
         <th>PPN Non R3</th>
@@ -188,10 +253,10 @@
         <th>DPP NILAI LAIN</th>
         <th>PPN Non R3</th>
         <th>DPP NILAI LAIN</th>
-        <th>PPN Non R3</th>
+        <th>PPN Non R3</th> -->
 
         <!-- KOREKSI REKENING -->
-        <th>DPP NILAI LAIN</th>
+        <!-- <th>DPP NILAI LAIN</th>
         <th>PPN Non R3</th>
         <th>DPP NILAI LAIN</th>
         <th>PPN Non R3</th>
@@ -204,7 +269,7 @@
         <th>DPP NILAI LAIN</th>
         <th>PPN Non R3</th>
         <th>DPP NILAI LAIN</th>
-        <th>PPN Non R3</th>
+        <th>PPN Non R3</th> -->
 
         <!-- TOTAL -->
         <th>DPP NILAI LAIN<br>TAGIHAN LISTRIK</th>
@@ -214,6 +279,58 @@
 
     <tbody>
       <!-- Nomor kolom -->
+      <!-- <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+        <td>15</td>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>19</td>
+        <td>20</td>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+        <td>29</td>
+        <td>30</td>
+        <td>31</td>
+        <td>32</td>
+        <td>33</td>
+        <td>34</td>
+        <td>35</td>
+        <td>36</td>
+        <td>37</td>
+        <td>38</td>
+        <td>39</td>
+        <td>40</td>
+        <td>41</td>
+        <td>42</td>
+        <td>43</td>
+        <td>44</td>
+        <td>45</td>
+        <td>46</td>
+        <td>47</td>
+        <td>48</td>
+        <td>49</td>
+      </tr> -->
+
       <tr>
         <td>1</td>
         <td>2</td>
@@ -264,10 +381,16 @@
         <td>47</td>
         <td>48</td>
         <td>49</td>
+        <td>50</td>
+        <td>51</td>
+        <td>52</td>
+        <td>53</td>
+        <td>54</td>
+        <td class="text-right">55</td>
       </tr>
 
       <!-- Data Baris -->
-      <tr>
+      <!-- <tr>
         <td>{data.get("IDPEL")}</td>
         <td>{data.get("NAMA_PELANGGAN")}</td>
         <td>{data.get("NPWP")}</td>
@@ -317,10 +440,10 @@
         <td>{data.get("KOR_RPPPN_SEWALAINNYA")}</td>
         <td>{data.get("JML_PAJAK_TAGLIS")}</td>
         <td>{data.get("JML_RPPPN_TAGLIS")}</td>
-      </tr>
+      </tr> -->
 
       <!-- TOTAL -->
-      <tr>
+      <!-- <tr>
         <td colspan="5">TOTAL</td>
         <td>{data.get("tl_pajak_sw")}</td>
         <td>{data.get("tl_rpppn_sw")}</td>
@@ -366,7 +489,7 @@
         <td>{data.get("kor_rpppn_sewalain")}</td>
         <td>{data.get("jml_pajak_taglis")}</td>
         <td>{data.get("jml_rpppn_taglis")}</td>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
   </table>

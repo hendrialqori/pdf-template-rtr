@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPIRAN REKENING</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 0.2cm;
+    }
+
+    body {
+        margin: auto;
+        padding: 4px;
+        width: 900px;
+        font-size: 10px;
+    }
+
+    th,
+    td {
+        padding: 4px;
+        text-align: center;
+    }
+
+    .table-header {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    .header-left {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .header-left td {
+        vertical-align: top;
+        padding: 0;
+    }
+
+    .header-left img {
+        display: block;
+    }
+
+    .header-left div {
+        margin-bottom: 6px;
+    }
+
+    .table-data {
+        border-collapse: collapse;
+        border: 1px solid black;
+        table-layout: fixed;
+        /* ⚡ penting biar width fix */
+        width: 100%;
+        /* ⚡ jangan 100%, biar nggak auto-scale */
+        word-wrap: break-word;
+    }
+
+    .table-data th {
+        border: 1px solid black;
+        font-weight: 500;
+    }
+
+    .table-data td {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div>PT PLN (PERSERO)</div>
+                            <div>NAMAUPI</div>
+                            <div>NAMAAP</div>
+                            <div>NAMAUP</div>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <div>LAMPIRAN 4 LAPORAN TUL III-09</div>
+                        <div>TOTAL 309 LAPORAN KOMPENSASI TMP PASCA BAYAR</div>
+                        <div>Bulan {?thbl}</div>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="2">GOLONGAN TARIF</th>
+                <th rowspan="2" style="width: 100px;">TR/TM/TT</th>
+                <th rowspan="2" style="width: 100px;">DAYA</th>
+                <th colspan="2">BULAN INI <br> POTONGAN BIAYA BEBAN / RM <br> KOMPENSASI TMP</th>
+                <th colspan="2">KUMULATIF S/D BULAN INI <br> POTONGAN BIAYA BEBAN / RM</th>
+            </tr>
+            <tr>
+                <th>PELANGGAN</th>
+                <th>RUPIAH</th>
+                <th>PELANGGAN</th>
+                <th>RUPIAH</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>LABELDATA</td>
+                <td>KETTEGAN</td>
+                <td>DAYA</td>
+                <td>BULAN_INI_PE</td>
+                <td>BULAN_INI_RUPI</td>
+                <td>KOMULATIF_SD_1</td>
+                <td>KOMULATIF_SD_2</td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td></td>
+                <td></td>
+                <td>SUMGRPTRF</td>
+                <td>SUMGRPTRF_BU</td>
+                <td>SUMGRPTRF_K1</td>
+                <td>SUMGRPTRF_K2</td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td></td>
+                <td></td>
+                <td>SUM_BULAN</td>
+                <td>SUM_BULAN_INI</td>
+                <td>SUM_KOMULATI1</td>
+                <td>SUM_KOMULATI2</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>
