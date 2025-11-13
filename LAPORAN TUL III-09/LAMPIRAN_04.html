@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPIRAN_04</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 0.2cm;
+    }
+
+    body {
+        margin: auto;
+        padding: 4px;
+        width: 100%;
+        font-size: 7px;
+    }
+
+    th,
+    td {
+        padding: 4px;
+        text-align: center;
+    }
+
+    .table-header {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    .header-left {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .header-left td {
+        vertical-align: top;
+        padding: 0;
+    }
+
+    .header-left img {
+        display: block;
+    }
+
+    .header-left div {
+        margin-bottom: 6px;
+    }
+
+    .table-data {
+        border-collapse: collapse;
+        border: 1px solid black;
+        table-layout: fixed;
+        /* ⚡ penting biar width fix */
+        width: 100%;
+        /* ⚡ jangan 100%, biar nggak auto-scale */
+        word-wrap: break-word;
+    }
+
+    .table-data th {
+        border: 1px solid black;
+        font-weight: 500;
+    }
+
+    .table-data td {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div>PT PLN (PERSERO)</div>
+                            <div>NAMAUPI</div>
+                            <div>NAMAAP</div>
+                            <div>NAMAUP</div>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <div>LAMPIRAN 4 LAPORAN TUL III-09</div>
+                        <div>TOTAL 309 INSENTIF</div>
+                        <div>Bulan : {?thbl}</div>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th>Tarif</th>
+                <th>Daya</th>
+                <th>JMLPLG</th>
+                <th>LWBP1 <br> RATA</th>
+                <th>WBP <br> RATA</th>
+                <th>KWH <br> WBP</th>
+                <th>KWH <br> LWBP1 INSENTIF</th>
+                <th>KWH <br> LWBP2 INSENTIF</th>
+                <th>KWH <br> PADAM</th>
+                <th>RP LWBP1 <br> INSENTIF</th>
+                <th>RP LWBP2 <br> INSENTIF</th>
+                <th>RP INSENTIF <br> PADAM</th>
+                <th>RP INSENTIF <br> *)</th>
+                <th>RP KVARH</th>
+                <th>RP BEBAN</th>
+                <th>RUPIAH <br> INSENTIF</th>
+                <th>RUPIAH <br> PENJUALAN</th>
+                <th>RP/KWH</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>LABELDATA</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td></td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td></td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+        </tfoot>
+    </table>
+    <p style="margin-top: 16px;">RP Insentif = Rp TTL - Rp LWBP1 Insentif - Rp LWBP2 Insentif - Rp Insentif Padam</p>
+</body>
+
+</html>
