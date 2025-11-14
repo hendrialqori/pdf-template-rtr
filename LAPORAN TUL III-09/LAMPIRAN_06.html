@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPIRAN REKENING 06</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 0.2cm;
+    }
+
+    body {
+        margin: auto;
+        padding: 4px;
+        width: 900px;
+        font-size: 10px;
+    }
+
+    th,
+    td {
+        padding: 4px;
+        text-align: center;
+    }
+
+    .table-header {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    .header-left {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .header-left td {
+        vertical-align: top;
+        padding: 0;
+    }
+
+    .header-left img {
+        display: block;
+    }
+
+    .header-left div {
+        margin-bottom: 6px;
+    }
+
+    .table-data {
+        border-collapse: collapse;
+        border: 1px solid black;
+        table-layout: fixed;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .table-data th {
+        border: 1px solid black;
+        font-weight: 500;
+    }
+
+    .table-data td {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div>PT PLN (PERSERO)</div>
+                            <div>NAMAUPI</div>
+                            <div>NAMAAP</div>
+                            <div>NAMAUP</div>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <div>Laporan kWh E-min (Bulanan)</div>
+                        <div>LAPORAN BULAN {@blnthn} (REKENING BULAN {?thbl})</div>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th style="width: 60px;">No</th>
+                <th>TARIF</th>
+                <th>LEMBAR</th>
+                <th>PELANGGAM</th>
+                <th>kWh E-min</th>
+                <th>kWh Riil</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Rec</td>
+                <td>LABEL</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>
