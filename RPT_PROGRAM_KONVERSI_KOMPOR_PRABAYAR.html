@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rptTul404_Golongan</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0.2cm;
+        }
+
+        @media print {
+            table:is(tr, td) {
+                break-inside: avoid;
+            }
+        }
+
+        body {
+            /* padding: 8px; */
+            font-size: 8px;
+            margin: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th,
+        td {
+            padding: 8px;
+        }
+
+        th {
+            font-weight: 400;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        table.table-img {
+            border-collapse: collapse;
+            width: 205px;
+        }
+
+        table.table-data {
+            border: 1px solid black;
+        }
+
+        table.table-data th,
+        table.table-data td {
+            vertical-align: top;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <th style="width: 25%;">
+                <table class="table-img">
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div style="margin-bottom: 10px;">PT PLN (PERSERO)</div>
+                            <div style="margin-bottom: 10px;">NAMAUPI</div>
+                            <div style="margin-bottom: 10px;">NAMAAP</div>
+                            <div style="margin-bottom: 10px;">NAMAUP</div>
+                        </td>
+                    </tr>
+                </table>
+            </th>
+            <th style="width: 50%;">
+                <div class="title" style="margin-top: 25px;">
+                    <p style="margin-bottom: 5px; text-align: center;"><strong>LAPORAN PEMAKAIAN PROGRAM KONVERSI KOMPOR
+                            INDUKSI</strong></p>
+                    <p style="margin-bottom: 5px; text-align: center;"><strong>PRABAYAR</strong></p>
+                    <p style="margin-bottom: 5px; text-align: center;"><strong>BULAN TAHUN</strong></p>
+                </div>
+            </th>
+            <th style="width: 25%;"></th>
+        </tr>
+    </table>
+    <table class="table-data" style="margin-top: 16px;">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>JUMLAH <br> PELANGGAN</th>
+                <th>TARIF (DIL/NON <br> - KOMPOR)</th>
+                <th>DAYA (DIL/NON <br> - KOMPOR)</th>
+                <th>TOTAL DAYA <br> (DIL/NON - <br> KOMPOR)</th>
+                <th>TARIF <br> (KOMPOR)</th>
+                <th>DAYA <br> (KOMPOR)</th>
+                <th>TOTAL DAYA <br> (KOMPOR)</th>
+                <th>PEMBELIAN <br> TOKEN (KWH)</th>
+                <th>PEMBELIAN <br> TOKEN (RUPIAH)</th>
+                <th>PEMKWH <br> (DIL/NON- <br> KOMPOR) s.d <br> 720 JN</th>
+                <th>PEMKWH <br>
+                    (DIL/NON- <br>
+                    KOMPOR) > <br> 720 JN
+                </th>
+                <th>
+                    RPPTL <br> (DIL/NON- <br> KOMPOR) s.d <br> 720 JN
+                </th>
+                <th>
+                    RPPTL <br> (DIL/NON- <br> KOMPOR) > 720 <br> JN
+                </th>
+                <th>
+                    RATA-RATA JAM <br> NYALA (DIL/NON - <br> KOMPOR)
+                </th>
+                <th>PEMKWH <br> KOMPOR</th>
+                <th>RPPTL KOMPOR</th>
+                <th>RP KURANG <br> BAYAR</th>
+                <th>RP LEBIH <br> BAYAR</th>
+                <th>PEMKWH TOTAL</th>
+                <th>RPPTL TOTAL</th>
+                <th>PEMKWH <br> TOTAL <br> (INSENTIF)</th>
+                <th>RPPTL TOTAL <br> (INSENTIF)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div style="margin-top: 10px;">
+        <p style="margin-bottom: 6px;">Keterangan :</p>
+        <p>Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif sesuai Permen
+            No. 07 Thn. 2024</p>
+    </div>
+</body>
+
+</html>
