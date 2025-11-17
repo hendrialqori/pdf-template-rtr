@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPIRAN 09</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 0.2cm;
+    }
+
+    body {
+        margin: auto;
+        padding: 4px;
+        /* width: 00px; */
+        font-size: 10px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+        text-align: center;
+    }
+
+    .table-header {
+        border-collapse: collapse;
+        ;
+    }
+
+    .header-left {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .header-left td {
+        vertical-align: top;
+        padding: 0;
+    }
+
+    .header-left img {
+        display: block;
+    }
+
+    .header-left div {
+        margin-bottom: 6px;
+    }
+
+    .table-title {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .table-title td {
+        vertical-align: bottom;
+        font-size: 11px;
+    }
+
+    .table-data {
+        border-collapse: collapse;
+        border: 1px solid black;
+        table-layout: fixed;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .table-data th {
+        border: 1px solid black;
+        font-weight: 500;
+        background-color: #C0C0C0;
+    }
+
+    .table-data td {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td style="padding-right: 10px;">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div style="margin-bottom: 10px;">PT PLN (PERSERO)</div>
+                            <div style="margin-bottom: 10px;">{VW_LAPORAN_TUL309_KOMPOR.NAMAUPI}</div>
+                            <div style="margin-bottom: 10px;">{VW_LAPORAN_TUL309_KOMPOR.NAMAAP}</div>
+                            <div style="margin-bottom: 10px;">{VW_LAPORAN_TUL309_KOMPOR.NAMAUP}</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="table-title">
+        <tr>
+            <td style="width: 25%; text-align: left;">
+                <p><strong>PEMBUKUAN : {VW_LAPORAN_TUL309_KOMPOR.PEMBUKUAN}</strong></p>
+            </td>
+            <td style="width: 50%;">
+                <p style="line-height: 18px; font-size: 14px;"><strong>LAPORAN PENJUALAN TENAGA LISTRIK VERSI PUSAT
+                        {VW_LAPORAN_TUL309_KOMPOR.JENISLAP} <br>
+                        PELANGGAN KOMPOR</strong></p>
+                <p style="margin-top: 10px;"><strong>BULAN : {@BULANTAHUN}</strong></p>
+            </td>
+            <td style="width: 25%;"></td>
+        </tr>
+    </table>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="3">TARIF</th>
+                <th colspan="3">RATA-RATA</th>
+                <th rowspan="3">JAM <br> NYALA</th>
+                <th colspan="8">JUMLAH S/D AKHIR BULAN INI</th>
+            </tr>
+            <tr>
+                <th rowspan="2">VA - PER <br> PELANGGAN</th>
+                <th rowspan="2">KWH - PER <br> PELANGGAN</th>
+                <th rowspan="2">RUPIAH <br> PERKWH</th>
+
+                <th colspan="2">PEMAKAIAN</th>
+                <th rowspan="2">BIAYA <br> BEBAN</th>
+                <th colspan="2">BIAYA PEMAKAIAN</th>
+                <th rowspan="2">TTLB</th>
+                <th rowspan="2">JUMLAH</th>
+                <th rowspan="2">RUPIAH <br> PER - KWH</th>
+            </tr>
+            <tr>
+                <th>KWH</th>
+                <th>KEL. KVARH</th>
+
+                <th>KWH</th>
+                <th>KEL. KVARH</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+                <td style="padding-block: 10px; background-color: #C0C0C0;"></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div style="padding-top: 12px; font-size: 14px;">
+        <p style="margin-bottom: 6px;">Keterangan:</p>
+        <p>
+            Terhitung sejak Laporan September 2024, Laporan pada AP2T dan
+            EIS-AP2T sudah menggunakan tarif sesuai Permen No. 07 Thn. 2024
+        </p>
+    </div>
+</body>
+
+</html>

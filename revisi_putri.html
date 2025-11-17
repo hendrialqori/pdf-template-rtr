@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekap lunas beban kantor per kode</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @page {
+            size: A3 landscape;
+            margin: 20mm;
+        }
+
+
+        body {
+            width: 1300px;
+            margin: 10px auto;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        table.table-header,
+        table.table-keterangan,
+        table.table-data {
+            width: 100%;
+            font-size: 11px !important;
+            color: #000;
+        }
+
+        table.table-keterangan {
+            padding-inline: 50px;
+        }
+
+        table.table-keterangan,
+        table.table-data {
+            margin-top: 30px;
+        }
+
+        table.table-data th,
+        table.table-data td {
+            border-block: 1px dashed black;
+            padding: 6px 10px;
+
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .border-bottom {
+            border-top: none !important;
+            border-bottom: 1px dashed black !important;
+
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .border-dash {
+            border-top: 0.5px dashed black;
+            border-bottom: 0.5px dashed black;
+        }
+
+        .footer {
+            width: 1300px;
+            font-size: 10pt;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* padding: 5px 20px; */
+            padding-block: 20px;
+            margin: auto
+        }
+
+        .footer-line {
+            border-top: 1px dotted #000;
+            margin-bottom: 5px;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .footer-left {
+            flex: 1;
+            text-align: left;
+        }
+
+        .footer-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .footer-right {
+            flex: 1;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <th style="width: 25%;">
+                <table class="table-img">
+                    <tr>
+                        <td style="padding-right: 10px;">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <p style="margin-bottom: 10px;">PT PLN (PERSERO) UIW : {namaupi}</p>
+                            <p style="margin-bottom: 10px;">UP3 : {namaap}</p>
+                            <p style="margin-bottom: 10px;"> ULP : {namaup}</p>
+                            <p style="margin-bottom: 10px;">{alamat}</p>
+                        </td>
+                    </tr>
+                </table>
+            </th>
+            <th style="width: 50%;">
+                <div class="title">
+                    <p>REKAPITULASI PELUNASAN REKENING LISTRIK TERPUSAT</p>
+                    <p style="padding-top: 4px;"><strong>DAFTAR PELUNASAN TERPUSAT</strong></p>
+                    <p style="padding-top: 10px">BULAN : <strong>{bulantahun}</strong></p>
+                </div>
+            </th>
+            <th style="width: 25%;"></th>
+        </tr>
+    </table>
+
+    <table class="table-keterangan">
+        <tr>
+            <th style="text-align: left;"><strong>STATUS REKENING : {status}</strong></th>
+            <th style="text-align: right;"><strong>Kode Golongan: {kogol}</strong></th>
+        </tr>
+    </table>
+
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th class="text-left border-dash">Tanggal</th>
+                <th class="text-left border-dash">Kd Terpusat</th>
+                <th class="text-right border-dash">Lembar</th>
+                <th class="text-right border-dash">RpPTL</th>
+                <th class="text-right border-dash">RpBPJU</th>
+                <th class="text-right border-dash">RpPPN</th>
+                <th class="text-right border-dash">RpMaterai</th>
+                <th class="text-right border-dash">RpLain2</th>
+                <th class="text-right border-dash">RpTagihan</th>
+                <th class="text-right border-dash">RpBK</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#for item in data}
+            <tr>
+                <td class="text-left border-dash">{item.tanggal}</td>
+                <td class="text-left border-dash">{item.kdkirim}</td>
+                <td class="text-right border-dash">{item.lembarFormatted}</td>
+                <td class="text-right border-dash">{item.rpptlFormatted}</td>
+                <td class="text-right border-dash">{item.rpbpjuFormatted}</td>
+                <td class="text-right border-dash">{item.rpppnFormatted}</td>
+                <td class="text-right border-dash">{item.rpmatFormatted}</td>
+                <td class="text-right border-dash">{item.rpLainFormatted}</td>
+                <td class="text-right border-dash">{item.rptagFormatted}</td>
+                <td class="text-right border-dash">{item.rpBkFormatted}</td>
+            </tr>
+            {/for}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td rowspan="2" style="border: none;"><strong>JUMLAH</strong></td>
+                <td></td>
+                <td class="text-right">{sumLembar}</td>
+                <td class="text-right">{sumRpptl}</td>
+                <td class="text-right">{sumRpbpju}</td>
+                <td class="text-right">{sumRpppn}</td>
+                <td class="text-right">{sumRpmat}</td>
+                <td class="text-right">{sumRpLain}</td>
+                <td class="text-right">{sumRptag}</td>
+                <td class="text-right">{sumRpBk}</td>
+            </tr>
+            <tr>
+                <td colspan="9" style="border: none; padding-block: 10px"></td>
+            </tr>
+
+            <tr>
+                <td class="border-none">Rincian RPLAIN2:</td>
+                <td class="border-none text-left">RpTrafo :</td>
+                <td class="border-none">{sumRpTrafo}</td>
+                <td class="border-none">Jml.Angsuran :</td>
+                <td class="border-none">{sumRpAngs}</td>
+                <td class="border-none">RpPotongan</td>
+                <td class="border-none">{sumRpReduksi}</td>
+            </tr>
+            <tr>
+                <td class="border-none"></td>
+                <td class="border-none text-left">RpSewaTrafo</td>
+                <td class="border-none">{sumRpSewaTrafo}</td>
+                <td class="border-none" colspan="2"></td>
+                <td class="border-none">RpTambahBiaya</td>
+                <td class="border-none">{sumRpTb}</td>
+            </tr>
+            <tr>
+                <td class="border-none"></td>
+                <td class="border-none text-left">RpSewaKapasitor</td>
+                <td class="border-none">{sumSewaKap}</td>
+            </tr>
+            <tr>
+                <td colspan="12" class="border-bottom"></td>
+            </tr>
+        </tfoot>
+
+        <div class="footer">
+            <div class="footer-line"></div>
+
+            <div class="footer-row">
+                <div class="footer-left">
+                    Petugas Cetak : {petugas}
+                </div>
+
+                <div class="footer-center">
+                    KdGerak : {kdGerak} &nbsp;&nbsp; | &nbsp;&nbsp; Tgl Cetak : {tanggalCetak}
+                </div>
+
+                <div class="footer-right">
+                    <!-- Page {pageNumber} of {totalPage} -->
+                </div>
+            </div>
+        </div>
+    </table>
+</body>
+
+</html>
