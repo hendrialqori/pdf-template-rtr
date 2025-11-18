@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekap Rekening Baru per tarif daya</title>
+
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing dihapus karena bukan CSS 2.1 */
+        }
+
+        body {
+            width: 1000px;
+            margin: 10px auto;
+            font-size: 11px !important;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Header & Keterangan */
+        table.table-header,
+        table.table-data,
+        table.table-keterangan,
+        table.table-footer
+        {
+            width: 100%;
+        }
+
+        table.table-keterangan {
+            /* padding-inline diganti ke padding-left/right */
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-top: 30px;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .border-bottom {
+            border-top: none !important;
+            border-bottom: 1px dashed black !important;
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        /* TABEL DATA */
+        .table-data {
+            border-top: 1px dashed black;
+            border-bottom: 1px dashed black;
+        }
+
+        .table-data th,
+        .table-data td {
+            /* rem diganti ke px */
+            padding: 7px 10px;
+            text-align: right;
+        }
+
+        /* Garis pemisah antar kelompok data */
+        .table-data tbody tr.separate_data td {
+            border-top: 1px dashed black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <th style="width: 30%;">
+                <table class="table-img">
+                    <tr>
+                        <td style="padding-right: 10px;">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <p style="margin-bottom: 10px;">PT PLN (PERSERO) UIW : MALUKU DAN MALUKU</p>
+                        </td>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </table>
+    <div class="title" style="margin-top: 50px; margin-bottom: 30px;">
+        <p style="margin-bottom: 10px;">REKAPITULASI REKENING LISTRIK BARU</p>
+        <p style="margin-bottom: 10px;"><strong>UPLOAD SOREK</strong></p>
+        <p style="margin-bottom: 10px;">Bulan : <strong>SEPTEMBER 2025</strong></p>
+    </div>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th>Tarip</th>
+                <th>Daya</th>
+                <th>P.kWh LWBP</th>
+                <th>Biaya P. kWh LWBP</th>
+                <th>Biaya Beban</th>
+                <th>PPN</th>
+                <th>T.Biaya</th>
+                <th style="text-align: right;">RpSewaTrafo</th>
+            </tr>
+            <tr>
+                <th colspan="2"></th>
+                <th>P. kWh WBP</th>
+                <th>Biaya P. kWh WBP</th>
+                <th>Rp.Potongan</th>
+                <th>B. PemkTrafo</th>
+                <th>Jml Angs</th>
+                <th style="text-align: right;">RpSewaKapasitor</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Lembar</th>
+                <th>P. Blok3</th>
+                <th>Biaya P. Blok3</th>
+                <th>RpInsentif</th>
+                <th>Materai</th>
+                <th></th>
+                <th style="text-align: right;">RP.Penj.Tenaga Listrik</th>
+            </tr>
+            <tr>
+                <th colspan="2"></th>
+                <th>Jmlh P. kWh</th>
+                <th>Biaya P. kWh</th>
+                <th>RpDisinsentif</th>
+                <th>PPJ</th>
+                <th></th>
+                <th style="text-align: right;">Rp. Yg Harus Dibayar</th>
+            </tr>
+        </thead>
+
+        <!-- value here -->
+        <tbody>
+            <tr class="separate_data">
+                <td>B1</td>
+                <td>450</td>
+                <td>4.714,000</td>
+                <td>1.197.356</td>
+                <td> 2.104.425 </td>
+                <td>0</td>
+                <td>0</td>
+                <td style="text-align: right;">0</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td>10.074,000</td>
+                <td>4.231.080</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td style="text-align: right;">0</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td> 14.788,000</td>
+                <td>14.788,000</td>
+                <td>0</td>
+                <td>752.306</td>
+                <td></td>
+                <td style="text-align: right;">8.285.167</td>
+            </tr>
+            <tr class="separate_data">
+                <td>B1</td>
+                <td>450</td>
+                <td>4.714,000</td>
+                <td>1.197.356</td>
+                <td> 2.104.425 </td>
+                <td>0</td>
+                <td>0</td>
+                <td style="text-align: right;">0</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td>10.074,000</td>
+                <td>4.231.080</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td style="text-align: right;">0</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td> 14.788,000</td>
+                <td>14.788,000</td>
+                <td>0</td>
+                <td>752.306</td>
+                <td></td>
+                <td style="text-align: right;">8.285.167</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table-footer" style="margin-top: 20px;">
+        <tr>
+            <td style="text-align: left;">Petugas Cetak : PS.PUSAT.AZHAR</td>
+            <td style="text-align: left;">Tanggal Cetak : 10/15/2025 4:48:23PM</td>
+            <td style="text-align: right;">Page 1 of 1</td>
+        </tr>
+    </table>
+</body>
+
+</html>
