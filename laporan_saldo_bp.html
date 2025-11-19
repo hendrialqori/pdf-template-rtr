@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Saldo BP</title>
+
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing dihapus karena bukan CSS 2.1 */
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 1cm;
+        }
+
+        body {
+            margin: 10px auto;
+            font-size: 8px !important;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Header & Keterangan */
+        table.table-header,
+        table.table-data,
+        table.table-keterangan,
+        table.table-footer {
+            width: 100%;
+        }
+
+        table.table-keterangan {
+            /* padding-inline diganti ke padding-left/right */
+            padding-left: 50px;
+            padding-right: 50px;
+            /* margin-top: 30px; */
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .border-bottom {
+            border-top: none !important;
+            border-bottom: 1px dashed black !important;
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        /* TABEL DATA */
+        .table-data {
+            border: 1px solid black;
+        }
+
+        .table-data th,
+        .table-data td {
+            /* rem diganti ke px */
+            padding: 7px 10px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        /* Garis pemisah antar kelompok data */
+        .table-data tbody tr.separate_data td {
+            border-top: 1px dashed black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <th style="width: 30%;">
+                <table class="table-img">
+                    <tr>
+                        <td style="padding-right: 10px;">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <p style="margin-bottom: 5px;">PT PLN (PERSERO)</p>
+                            <p style="margin-bottom: 5px;">JAWA BARAT</p>
+                            <p style="margin-bottom: 5px;">BANDUNG</p>
+                            <p style="margin-bottom: 5px;">BANDUNG BARAR</p>
+                        </td>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </table>
+    <div class="title" style="margin-bottom: 30px;">
+        <p style="margin-bottom: 5px;"><strong>DAFTAR BIAYA PENYAMBUNGAN</strong></p>
+        <p style="margin-bottom: 5px;"><strong>BULAN TAHUN : OKTOBER 2025</strong></p>
+    </div>
+
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="2" style="width: 120px;">GOLONGAN TARIF</th>
+                <th colspan="6">PENAMBAH</th>
+                <th colspan="6">PENGURANG</th>
+                <th rowspan="2">SALDO AKHIR
+                    (BP belum tersambung dengan
+                    s.d akhir bulan ini)</th>
+            </tr>
+            <tr>
+                <th style="width: 80px;">SALDO AWAL
+                    (BP belum tersambung dengan
+                    s.d akhir bulan lalu)</th>
+                <th style="width: 80px;">Penerimaan BP Murni</th>
+                <th style="width: 80px;">Terima dari Unit Lain</th>
+                <th style="width: 80px;">Terima dari BP Titipan</th>
+                <th style="width: 80px;">Koreksi Penambah</th>
+                <th style="width: 80px;">Investasi</th>
+                <th style="width: 80px;">Resitusi BP</th>
+                <th style="width: 80px;">Pindah ke Unit Lain</th>
+                <th style="width: 80px;">Masuk Ke BP Titipan</th>
+                <th style="width: 80px;">Tersambung Pada Bulan Ini</th>
+                <th style="width: 80px;">Koreksi Pengurang</th>
+                <th style="width: 80px;">Pendapatan Lain Lain</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="margin-top: 10px;">
+        <p style="margin-bottom: 7px;">Keterangan :</p>
+        <p>Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif sesuai Permen
+            No. 07 Thn. 2024</p>
+    </div>
+</body>
+
+</html>
