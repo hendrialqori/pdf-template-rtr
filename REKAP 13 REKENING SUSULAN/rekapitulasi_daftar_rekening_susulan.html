@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekapitulasi daftar rekening susulan</title>
+
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing dihapus karena bukan CSS 2.1 */
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 1cm;
+        }
+
+        body {
+            width: 1200px;
+            margin: 10px auto;
+            font-size: 11px !important;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Header & Keterangan */
+        table.table-header,
+        table.table-data,
+        table.table-keterangan,
+        table.table-footer {
+            width: 100%;
+        }
+
+        table.table-keterangan {
+            /* padding-inline diganti ke padding-left/right */
+            width: 90%;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .border-bottom {
+            border-top: none !important;
+            border-bottom: 1px dashed black !important;
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        /* TABEL DATA */
+        .table-data {
+            border-top: 1px dashed black;
+            border-bottom: 1px dashed black;
+        }
+
+        .table-data th,
+        .table-data td {
+            /* rem diganti ke px */
+            padding: 7px 10px;
+            text-align: right;
+        }
+
+        /* Garis pemisah antar kelompok data */
+        .table-data tbody tr.separate_data td {
+            border-top: 1px dashed black;
+        }
+
+        .line-through {
+            text-decoration: line-through;
+        }
+
+        .dashed {
+            border-top: 1px dashed black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <th style="width: 30%;">
+                <table class="table-img">
+                    <tr>
+                        <td style="padding-right: 10px;">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <p style="margin-bottom: 10px;">PT PLN (PERSERO) UIW : MALUKU DAN MALUKU</p>
+                        </td>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </table>
+    <div class="title" style="margin-top: 50px; margin-bottom: 30px;">
+        <p style="margin-bottom: 10px;">DAFTAR REKENING LISTRIK TARIP TUNGGAL DAN GANDA DENGAN KVARH</p>
+        <p style="margin-bottom: 10px;">
+            <strong>
+                YANG <span class="line-through">DIBATALKAN</span> / <span class="line-through">DIPERBAIKI</span> / <span
+                    class="line-through">DIPERBAIKAN</span> / <span>SUSULAN</span>
+                *)
+            </strong>
+        </p>
+        <p style="padding-top: 10px">BULAN : <strong>OKTOBER 2025</strong></p>
+    </div>
+    <table class="table-keterangan">
+        <tr>
+            <th style="text-align: right;"><strong></strong></th>
+            <th style="text-align: right;"><strong>STATUS REKENING: L</strong></th>
+
+        </tr>
+    </table>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>No. Pelanggan</th>
+                <th>Kode Kedudukan</th>
+                <th>BLthRek</th>
+                <th>FK. Meter</th>
+                <th>P. kWh LwBP</th>
+                <th>Biaya Beban</th>
+                <th>PPN</th>
+                <th>T. Biaya</th>
+                <th>Sewa Trafo</th>
+                <th>RpPotongan</th>
+            </tr>
+            <tr>
+                <th rowspan="2">Petugas</th>
+                <th>Id Pelanggan</th>
+                <th>Tarip</th>
+                <th>Kogol</th>
+                <th>St. Bln Ini</th>
+                <th>P. kWh WBP</th>
+                <th>Biaya P. kWh LwBP</th>
+                <th>B. PemkTrafo</th>
+                <th>T. Angsuran</th>
+                <th>Sewa Kapasitor</th>
+                <th>Rp. BK1</th>
+            </tr>
+            <tr>
+                <th>Nama</th>
+                <th>Daya (VA)</th>
+                <th>UnitUP</th>
+                <th>St. Bln Lalu</th>
+                <th>P. Blok 3</th>
+                <th>Biaya P. kWh WBP</th>
+                <th>Materai</th>
+                <th></th>
+                <th>RP. Penj. Tenaga Listrik</th>
+                <th>Rp. BK2</th>
+            </tr>
+            <tr>
+                <th>Tanggal</th>
+                <th>Alamat</th>
+                <th>Kelompok</th>
+                <th>NoRekening</th>
+                <th></th>
+                <th>Jml P. kWh</th>
+                <th>Biaya P. Blok 3</th>
+                <th>PPJ</th>
+                <th></th>
+                <th>Rp. Yang Harus Dibayar</th>
+                <th>Rp. BK3</th>
+            </tr>
+        </thead>
+
+        <!-- value here -->
+        <tbody>
+            <tr>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+                <td class="dashed">[]</td>
+            </tr>
+            <tr>
+                <td rowspan="2">[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+                <td>[]</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="dashed" rowspan="4" colspan="5" style="text-align: left;"><strong>JUMLAH</strong></td>
+                <td class="dashed">35.420.000</td>
+                <td class="dashed">0</td>
+                <td class="dashed">506.000</td>
+                <td class="dashed">0</td>
+                <td class="dashed">4.600.000</td>
+                <td class="dashed">0</td>
+            </tr>
+
+            <tr>
+                <td>80.000.000</td>
+                <td>36.701.456</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4.872.592</td>
+            </tr>
+
+            <tr>
+                <td>0,000</td>
+                <td>124.293.600</td>
+                <td>0</td>
+                <td>160.995.056</td>
+                <td>9.745.184</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>115.420.000</td>
+                <td>0</td>
+                <td>8.054.593</td>
+                <td>174.155.649</td>
+                <td>14.617.776</td>
+                <td>0</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
