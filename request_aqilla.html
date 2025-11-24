@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Saldo Hutang (Kompensasi 65%)</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0.2cm;
+        }
+
+        body {
+            margin: auto;
+            padding: 4px;
+            font-size: 10px;
+        }
+
+        th,
+        td {
+            padding: 6px;
+            text-align: center;
+        }
+
+        .table-header {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .header-left {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .header-left td {
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .header-left img {
+            display: block;
+        }
+
+        .header-left div {
+            margin-bottom: 6px;
+        }
+
+        .table-data {
+            border-collapse: collapse;
+            border: 1px solid black;
+            table-layout: fixed;
+            width: 100%;
+            /* ini untuk teks panjang, kalau engine tidak support ya akan diabaikan */
+            word-wrap: break-word;
+        }
+
+        .table-data th {
+            border: 1px solid black;
+            font-weight: 500;
+            background-color: #f0f0f0;
+        }
+
+        .table-data td {
+            border: 1px solid black;
+        }
+
+        .note,
+        .note-footer {
+            margin-top: 20px;
+        }
+
+        .note-footer {
+            text-align: right;
+        }
+
+        .note p,
+        .note-footer p {
+            margin-bottom: 6px;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        /* ATURAN KHUSUS CETAK (PRINT) – CSS 2.1 COMPATIBLE */
+        @media print {
+
+            /* Cegah tabel dipecah aneh-aneh */
+            .table-data {
+                page-break-inside: auto;
+            }
+
+            /* Usahakan 1 baris (tr) tidak terbelah */
+            .table-data tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+
+            /* Header tabel diulang di tiap halaman (kalau engine support) */
+            .table-data thead {
+                display: table-header-group;
+            }
+
+            /* Kalau ada footer tabel, bisa diulang di bawah tiap halaman */
+            .table-data tfoot {
+                display: table-footer-group;
+            }
+
+            /* Keterangan & footer jangan kepotong kalau bisa */
+            .note,
+            .note-footer {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left" style="width: 25%;">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div>PT PLN (PERSERO)</div>
+                            <div>NAMAUPI</div>
+                            <div>NAMAAP</div>
+                            <div>NAMAUP</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 50%; text-align: center;">
+                <div class="title" style="text-align: center; margin-bottom: 10px;">
+                    <p></p>
+                    <strong>{reportTitle ?: 'LAPORAN SALDO HUTANG (KOMPENSASI 65%)'}</strong>
+                    <p style="margin-top: 7px;">
+                        Bulan Tahun : <strong>{bulan ?: '-'} {tahun ?: '-'}</strong>
+                    </p>
+                </div>
+            </td>
+            <td style="width: 25%;"></td>
+        </tr>
+    </table>
+
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>BLTH Rek</th>
+                <th>IDPEL</th>
+                <th>Tarif/Daya<br>(VA)</th>
+                <th>Tarif<br>(Rp/kWh)</th>
+                <th>RM<br>(kWh)</th>
+                <th>Pelanggan Impor<br>(kWh)</th>
+                <th>Pelanggan Ekspor<br>(kWh)</th>
+                <th>Nilai Ekspor<br>kWh * 0,65</th>
+                <th>Max kWh<br>offset</th>
+                <th>kWh Penjualan PLN<br>(kWh)</th>
+                <th>Saldo Awal</th>
+                <th>kWh Ekspor<br>Bulan Berjalan</th>
+                <th>Offset Net kWh<br>Ekspor Bulan Berjalan</th>
+                <th>Saldo Akhir</th>
+                <th>Net Tagih<br>(Rp)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {#for row in dataList}
+            <tr>
+                <td>{row.NO}</td>
+                <td>{row.BLTH_REK}</td>
+                <td>{row.IDPEL}</td>
+                <td>{row.TARIF_DAYA}</td>
+                <td class="text-right">{row.TARIF}</td>
+                <td class="text-right">{row.RM_KWH}</td>
+                <td class="text-right">{row.KWH_IMPORT}</td>
+                <td class="text-right">{row.KWH_EXPORT}</td>
+                <td class="text-right">{row.NILAI_EXPORT}</td>
+                <td class="text-right">{row.MAX_KWH_OFFSET}</td>
+                <td class="text-right">{row.KWH_PENJUALAN}</td>
+                <td class="text-right">{row.SALDO_AWAL}</td>
+                <td class="text-right">{row.KWH_BULANBERJALAN}</td>
+                <td class="text-right">{row.OFFSET_KWH_BULANBERJALAN}</td>
+                <td class="text-right">{row.KWH_SALDO_AKHIR}</td>
+                <td class="text-right">{row.NET_TAGIH}</td>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+
+    <div class="note">
+        <p><strong>KETERANGAN:</strong></p>
+        <p>**) Maksimum offset adalah nilai pelanggan impor:</p>
+        <p>- Jika nilai kWh ekspor *0,65 lebih besar dari impor, maka nilai offset adalah sebesar kWh impor</p>
+        <p>- Jika nilai kWh ekspor *0,65 lebih kecil atau sama dengan dari kWh impor, maka nilai offset adalah sebesar
+            kWh ekspor *0,65</p>
+        <br>
+        <p>***) kWh Jual PLN:</p>
+        <p>- Jika nilai kWh impor lebih besar dari Max kWh offset, maka kWh Jual PLN adalah selisih kWh impor dikurangi
+            Max kWh offset</p>
+        <p>- Jika nilai kWh impor lebih kecil dari Max kWh offset, maka kWh Jual PLN adalah kWh RM</p>
+    </div>
+
+    <div class="note-footer">
+        <p>Dicetak pada: {tglCetakFormatted ?: '-'}</p>
+        <p>Petugas: {petugasCetak ?: 'SISTEM'}</p>
+    </div>
+</body>
+
+</html>

@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Laporan Saldo BP</title>
 
     <style>
@@ -30,11 +30,15 @@
             border-collapse: collapse;
         }
 
-        th,
-        td {
-            font-weight: 500;
+        th {
+            font-weight: 300;
             text-align: center;
         }
+
+        td {
+            font-weight: normal;
+        }
+
 
         /* Header & Keterangan */
         table.table-header,
@@ -77,12 +81,18 @@
             border: 1px solid black;
         }
 
-        .table-data th,
-        .table-data td {
-            /* rem diganti ke px */
-            padding: 7px 10px;
+        .table-data th, .table-data td {
             text-align: center;
+            padding: 6px 10px;
+        }
+
+        .table-data th {
             border: 1px solid black;
+        }
+
+        .table-data td {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
         }
 
         /* Garis pemisah antar kelompok data */
@@ -94,81 +104,101 @@
 </head>
 
 <body>
-    <table class="table-header">
-        <tr>
-            <th style="width: 30%;">
-                <table class="table-img">
-                    <tr>
-                        <td style="padding-right: 10px;">
-                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
-                        </td>
-                        <td style="text-align: left;">
-                            <p style="margin-bottom: 5px;">PT PLN (PERSERO)</p>
-                            <p style="margin-bottom: 5px;">JAWA BARAT</p>
-                            <p style="margin-bottom: 5px;">BANDUNG</p>
-                            <p style="margin-bottom: 5px;">BANDUNG BARAR</p>
-                        </td>
-                    </tr>
-                </table>
-            </th>
-        </tr>
-    </table>
-    <div class="title" style="margin-bottom: 30px;">
-        <p style="margin-bottom: 5px;"><strong>DAFTAR BIAYA PENYAMBUNGAN</strong></p>
-        <p style="margin-bottom: 5px;"><strong>BULAN TAHUN : OKTOBER 2025</strong></p>
-    </div>
+<table class="table-header">
+    <tr>
+        <th style="width: 30%;">
+            <table class="table-img">
+                <tr>
+                    <td style="padding-right: 10px;">
+                        <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70"/>
+                    </td>
+                    <td style="text-align: left;">
+                        <p style="margin-bottom: 5px;">PT PLN (PERSERO)</p>
+                        <p style="margin-bottom: 5px;">{namaupi}</p>
+                        <p style="margin-bottom: 5px;">{namaap}</p>
+                        <p style="margin-bottom: 5px;">{namaup}</p>
+                    </td>
+                </tr>
+            </table>
+        </th>
+    </tr>
+</table>
+<div class="title" style="margin-bottom: 30px;">
+    <p style="margin-bottom: 5px;"><strong>DAFTAR BIAYA PENYAMBUNGAN</strong></p>
+    <p style="margin-bottom: 5px;"><strong>BULAN TAHUN : {bulantahun}</strong></p>
+</div>
 
-    <table class="table-data">
-        <thead>
-            <tr>
-                <th rowspan="2" style="width: 120px;">GOLONGAN TARIF</th>
-                <th colspan="6">PENAMBAH</th>
-                <th colspan="6">PENGURANG</th>
-                <th rowspan="2">SALDO AKHIR
-                    (BP belum tersambung dengan
-                    s.d akhir bulan ini)</th>
-            </tr>
-            <tr>
-                <th style="width: 80px;">SALDO AWAL
-                    (BP belum tersambung dengan
-                    s.d akhir bulan lalu)</th>
-                <th style="width: 80px;">Penerimaan BP Murni</th>
-                <th style="width: 80px;">Terima dari Unit Lain</th>
-                <th style="width: 80px;">Terima dari BP Titipan</th>
-                <th style="width: 80px;">Koreksi Penambah</th>
-                <th style="width: 80px;">Investasi</th>
-                <th style="width: 80px;">Resitusi BP</th>
-                <th style="width: 80px;">Pindah ke Unit Lain</th>
-                <th style="width: 80px;">Masuk Ke BP Titipan</th>
-                <th style="width: 80px;">Tersambung Pada Bulan Ini</th>
-                <th style="width: 80px;">Koreksi Pengurang</th>
-                <th style="width: 80px;">Pendapatan Lain Lain</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-            </tr>
-        </tbody>
-    </table>
-    <div style="margin-top: 10px;">
-        <p style="margin-bottom: 7px;">Keterangan :</p>
-        <p>Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif sesuai Permen
-            No. 07 Thn. 2024</p>
-    </div>
+<table class="table-data">
+    <thead>
+    <tr>
+        <th rowspan="2" style="width: 120px;">GOLONGAN TARIF</th>
+        <th colspan="6">PENAMBAH</th>
+        <th colspan="6">PENGURANG</th>
+        <th rowspan="2" style="width: 80px;">SALDO AKHIR
+            (BP belum tersambung dengan
+            s.d akhir bulan ini)
+        </th>
+    </tr>
+    <tr>
+        <th style="width: 80px;">SALDO AWAL
+            (BP belum tersambung dengan
+            s.d akhir bulan lalu)
+        </th>
+        <th style="width: 80px;">Penerimaan BP Murni</th>
+        <th style="width: 80px;">Terima dari Unit Lain</th>
+        <th style="width: 80px;">Terima dari BP Titipan</th>
+        <th style="width: 80px;">Koreksi Penambah</th>
+        <th style="width: 80px;">Investasi</th>
+        <th style="width: 80px;">Resitusi BP</th>
+        <th style="width: 80px;">Pindah ke Unit Lain</th>
+        <th style="width: 80px;">Masuk Ke BP Titipan</th>
+        <th style="width: 80px;">Tersambung Pada Bulan Ini</th>
+        <th style="width: 80px;">Koreksi Pengurang</th>
+        <th style="width: 80px;">Pendapatan Lain Lain</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+        <th>11</th>
+        <th>12</th>
+        <th>13</th>
+        <th>14= (2+3+4+5+6+7)-(8+9+10+11+12+!3)</th>
+    </tr>
+    {#for item in data}
+    <tr>
+        <td class="text-left">{item.uraianGoltarif}</td>
+        <td class="text-right">{item.rpSaldoawalBpFormatted}</td>
+        <td class="text-right">{item.rpPenerimaanMurniBpFormatted}</td>
+        <td class="text-right">{item.bpTerimaUnitFormatted}</td>
+        <td class="text-right">{item.bpTitipanTambahFormatted}</td>
+        <td class="text-right">{item.bpKoreksiPenambahFormatted}</td>
+        <td class="text-right">{item.bpInvestasiTambahFormatted}</td>
+        <td class="text-right">{item.rpRestitusiBpFormatted}</td>
+        <td class="text-right">{item.bpKirimUnitFormatted}</td>
+        <td class="text-right">{item.bpTitipanFormatted}</td>
+        <td class="text-right">{item.rpTersambungIniBpFormatted}</td>
+        <td class="text-right">{item.bpKoreksiPengurangFormatted}</td>
+        <td class="text-right">{item.bpPendapatanLainKurangFormatted}</td>
+        <td class="text-right">{item.rpSaldoakhirBpFormatted}</td>
+    </tr>
+    {/for}
+    </tbody>
+</table>
+<div style="margin-top: 10px;">
+    <p style="margin-bottom: 7px;">Keterangan :</p>
+    <p>Terhitung sejak Laporan September 2024, Laporan pada AP2T dan EIS-AP2T sudah menggunakan tarif sesuai Permen
+        No. 07 Thn. 2024</p>
+</div>
 </body>
 
 </html>
