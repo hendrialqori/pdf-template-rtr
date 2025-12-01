@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPIRAN REKENING</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 0.2cm;
+    }
+
+    body {
+        margin: auto;
+        padding: 4px;
+        width: 1500px;
+        font-size: 8px;
+    }
+
+    th,
+    td {
+        padding: 6px 4px;
+        text-align: center;
+    }
+
+    .table-header {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    .header-left {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .header-left td {
+        vertical-align: top;
+        padding: 0;
+    }
+
+    .header-left img {
+        display: block;
+    }
+
+    .header-left div {
+        margin-bottom: 6px;
+    }
+
+    .table-data {
+        border-collapse: collapse;
+        border: 1px solid black;
+        table-layout: fixed;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .table-data th {
+        border: 1px solid black;
+        font-weight: 600;
+         background-color: #f2f2f2;
+    }
+
+    .table-data td {
+        border: 1px solid black;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .title p {
+        margin: 8px 0;
+    }
+</style>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <div>PT PLN (PERSERO)</div>
+                            <div>{namaUpi ?: "SEMUA"}</div>
+                            <div>{namaAp ?: "SEMUA"}</div>
+                            <div>{namaUp ?: "SEMUA"}</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div class="title">
+        <p><strong>PENERIMAAN DI MUKA LISTRIK PRABAYAR</strong></p>
+        <p><strong>PER GOLONGAN {jenisLaporan ?: ""}</strong></p>
+        <p><strong>PERIODE {bulantahun ?: '-'}</strong></p>
+    </div>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th rowspan="2">GOLONGAN {jenisLaporan ?: ""}</th>
+                <th rowspan="2" colspan="2">
+                    SALDO AWAL<br />PEMAKAIAN DIMUKA LPB
+                </th>
+                <th colspan="14">MUTASI PENAMBAHAN</th>
+                <th colspan="8">MUTASI PENGURANGAN</th>
+                <th rowspan="2" colspan="2">
+                    SALDO AKHIR<br />PENERIMAAN DIMUKA LPB
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2">PENJUALAN TOKEN</th>
+                <th colspan="2">TOKEN PERDANA TUL 106</th>
+                <th colspan="2">FREE TOKEN KOMP TMP</th>
+                <th colspan="2">PESTA</th>
+                <th colspan="2">FREE ISU UJL (NON TUNAI)</th>
+                <th colspan="2">TOKEN PENGEMBALIAN</th>
+                <th colspan="2">TOT MUTASI PENAMBAHAN</th>
+                <th colspan="2">PENJUALAN LPB/PENDPTN</th>
+                <th colspan="2">RESTITUSI TOKEN</th>
+                <th colspan="2">TOKEN SISA YANG DIKONVERSI KE PRR</th>
+                <th colspan="2">TOT MUTASI PENGURANG</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+                <th>Rp</th>
+                <th>Kwh</th>
+
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+                <th>19</th>
+                <th>20</th>
+                <th>21</th>
+                <th>22</th>
+                <th>23</th>
+                <th>24=18 s.d 22</th>
+                <th>25=19 s.d 23</th>
+                <th>26=2+16-24</th>
+                <th>27=3+17-25</th>
+            </tr>
+        </thead>
+        
+      <tbody>
+        {#for item in dataList}
+        <tr>
+          <td>{item.labelData}</td>
+
+          <td>{item.rpPtlSaldo}</td>
+          <td>{item.pemKwhSaldo}</td>
+
+          <td>{item.rpPtlJualToken}</td>
+          <td>{item.pemKwhJualToken}</td>
+
+          <td>{item.rpPtl_106}</td>
+          <td>{item.pemKwh_106}</td>
+
+          <td>{item.rpPtlTmp}</td>
+          <td>{item.pemKwhTmp}</td>
+
+          <td>{item.rpPtlPesta}</td>
+          <td>{item.pemKwhPesta}</td>
+
+          <td>{item.rpPtlFreeIssue}</td>
+          <td>{item.pemKwhFreeIssue}</td>
+
+          <td>{item.rpPtlLebihBayar}</td>
+          <td>{item.pemKwhLebihBayar}</td>
+
+          <td>{item.rpPtlTotalTambahMut}</td>
+          <td>{item.pemKwhTotalTambahMut}</td>
+
+          <td>{item.rpPtlPenjualan}</td>
+          <td>{item.pemKwhPenjualan}</td>
+
+          <td>{item.rpPtlResitutsi}</td>
+          <td>{item.pemKwhResitutsi}</td>
+
+          <td>{item.rpPtlTokenSisa}</td>
+          <td>{item.pemKwhTokenSisa}</td>
+
+          <td>{item.rpPtlTotalKurangMut}</td>
+          <td>{item.pemKwhTotalKurangMut}</td>
+
+          <td>{item.rpPtlSaldoAkhir}</td>
+          <td>{item.pemKwhSaldoAkhir}</td>
+        </tr>
+        {/for}
+      </tbody>
+    </table>
+
+</body>
+
+</html>
