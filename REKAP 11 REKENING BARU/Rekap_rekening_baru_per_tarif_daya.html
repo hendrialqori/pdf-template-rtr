@@ -13,11 +13,13 @@
             padding: 0;
             /* box-sizing dihapus karena bukan CSS 2.1 */
         }
-
+        @page{
+            size: A4 Landscape;
+            margin: 1cm;
+        }
         body {
-            width: 1000px;
             margin: 10px auto;
-            font-size: 11px !important;
+            font-size: 9px !important;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -42,8 +44,8 @@
 
         table.table-keterangan {
             /* padding-inline diganti ke padding-left/right */
-            padding-left: 50px;
-            padding-right: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
             margin-top: 30px;
         }
 
@@ -66,6 +68,7 @@
 
         .title {
             text-align: center;
+            font-size: 12px;
         }
 
         /* TABEL DATA */
@@ -90,27 +93,54 @@
 </head>
 
 <body>
-    <table class="table-header">
-        <tr>
-            <th style="width: 30%;">
-                <table class="table-img">
-                    <tr>
-                        <td style="padding-right: 10px;">
-                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
-                        </td>
-                        <td style="text-align: left;">
-                            <p style="margin-bottom: 10px;">PT PLN (PERSERO) UIW : MALUKU DAN MALUKU</p>
-                        </td>
-                    </tr>
-                </table>
-            </th>
-        </tr>
-    </table>
-    <div class="title" style="margin-top: 50px; margin-bottom: 30px;">
-        <p style="margin-bottom: 10px;">REKAPITULASI REKENING LISTRIK BARU</p>
-        <p style="margin-bottom: 10px;"><strong>UPLOAD SOREK</strong></p>
-        <p style="margin-bottom: 10px;">Bulan : <strong>SEPTEMBER 2025</strong></p>
-    </div>
+<table class="table-header" style="width: 100%; border-collapse: collapse;">
+    <tr>
+        <td style="width: 35%; vertical-align: top; padding: 10px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td rowspan="5" style="width: 80px; vertical-align: top; padding-right: 10px;">
+                        <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                    </td>
+                    <td style="text-align: left; padding: 2px 0; padding-left: 5px;">
+                        <p style="margin: 0; font-size: 7pt;">PT PLN (PERSERO) UID : {namaupi}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; padding: 2px 0; padding-left: 5px;">
+                        <p style="margin: 0; font-size: 7pt;">UP3 : {namaap}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; padding: 2px 0; padding-left: 5px;">
+                        <p style="margin: 0; font-size: 7pt;">ULP : {namaup}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; padding: 2px 0; padding-left: 5px;">
+                        <p style="margin: 0; font-size: 7pt;">{alamat}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 50%; text-align: center; vertical-align: middle; padding: 10px;">
+            <div class="title">
+                <p style="margin: 0; font-size: 12pt; font-weight: normal;">REKAPITULASI REKENING LISTRIK BARU</p>
+                <p style="margin: 5px 0; font-size: 12pt;"><strong>UPLOAD SOREK</strong></p>
+                <p style="margin: 10px 0 0 0; font-size: 11pt;">BULAN : <strong>{blthFormatted}</strong></p>
+            </div>
+        </td>
+        <td style="width: 15%;"></td>
+    </tr>
+</table>
+
+<table class="table-keterangan">
+    <tr>
+        <th style="text-align: left; width: 10%;"><strong>Kelompok: {kdkelompok}</strong></th>
+        <th style="text-align: left;"><strong>Tanggal Jatuh Tempo: {tgljttempo}</strong></th>
+        <th style="text-align: left; width:0%;"><strong>Bulan Rekg: {blth}</strong></th>
+        <th style="text-align: left; width:40%;"><strong></strong></th>
+    </tr>
+</table>
     <table class="table-data">
         <thead>
             <tr>
@@ -155,69 +185,52 @@
 
         <!-- value here -->
         <tbody>
+            {#for data in dataList}
             <tr class="separate_data">
-                <td>B1</td>
-                <td>450</td>
-                <td>4.714,000</td>
-                <td>1.197.356</td>
-                <td> 2.104.425 </td>
-                <td>0</td>
-                <td>0</td>
-                <td style="text-align: right;">0</td>
+                <td>{data.TARIF}</td>
+                <td>{data.DAYA}</td>
+                <td>{data.KHWLWBP}</td>
+                <td>{data.RPLWBP}</td>
+                <td>{data.RPBEBAN}</td>
+                <td>{data.RPPPN}</td>
+                <td>{data.RPTTLB}</td>
+                <td style="text-align: right;">{data.RPSEWATRAFO}</td>
             </tr>
             <tr>
                 <td colspan="2"></td>
-                <td>10.074,000</td>
-                <td>4.231.080</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td style="text-align: right;">0</td>
+                <td>{data.KHWBP}</td>
+                <td>{data.RPWBP}</td>
+                <td>{data.RPTB}</td>
+                <td>{data.RPTRAFO}</td>
+                <td>{data.RPANGSA}</td>
+                <td style="text-align: right;">{data.RPSEWAKAP}</td>
             </tr>
             <tr>
-                <td colspan="2"></td>
-                <td> 14.788,000</td>
-                <td>14.788,000</td>
-                <td>0</td>
-                <td>752.306</td>
+                <td colspan="2">{data.LEMBAR}</td>
+                <td>{data.BLOK3}</td>
+                <td>{data.RPBLOK3}</td>
+                <td>{data.RPINSENTIF}</td>
+                <td>{data.RPMAT}</td>
                 <td></td>
-                <td style="text-align: right;">8.285.167</td>
-            </tr>
-            <tr class="separate_data">
-                <td>B1</td>
-                <td>450</td>
-                <td>4.714,000</td>
-                <td>1.197.356</td>
-                <td> 2.104.425 </td>
-                <td>0</td>
-                <td>0</td>
-                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">{data.RPPLN}</td>
             </tr>
             <tr>
                 <td colspan="2"></td>
-                <td>10.074,000</td>
-                <td>4.231.080</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td style="text-align: right;">0</td>
-            </tr>
-            <tr>
-                <td colspan="2"></td>
-                <td> 14.788,000</td>
-                <td>14.788,000</td>
-                <td>0</td>
-                <td>752.306</td>
+                <td>{data.PEMKWH}</td>
+                <td>{data.RPPTL}</td>
+                <td>{data.RPDISINSENTIF}</td>
+                <td>{data.RPBPJU}</td>
                 <td></td>
-                <td style="text-align: right;">8.285.167</td>
+                <td style="text-align: right;">{data.RPTAG}</td>
             </tr>
+            {/for}
         </tbody>
     </table>
     <table class="table-footer" style="margin-top: 20px;">
         <tr>
-            <td style="text-align: left;">Petugas Cetak : PS.PUSAT.AZHAR</td>
-            <td style="text-align: left;">Tanggal Cetak : 10/15/2025 4:48:23PM</td>
-            <td style="text-align: right;">Page 1 of 1</td>
+            <td style="text-align: left;">Petugas Cetak : {petugasCetak}</td>
+            <td style="text-align: left;">Tanggal Cetak : {tglCetakFormatted}</td>
+<!--            <td style="text-align: right;">Page 1 of 1</td>-->
         </tr>
     </table>
 </body>
