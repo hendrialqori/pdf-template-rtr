@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INVOICE - {inv.idpel}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 2mm;
+        }
+
+        body {
+            margin: 10px auto;
+            font-size: 11px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px 3px;
+        }
+
+        .border-solid {
+            border: 1px solid black;
+        }
+
+        .border-inline {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        .text-c {
+            text-align: center;
+        }
+
+        .text-r {
+            text-align: right;
+        }
+
+        @media print {
+            table {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kop_surat">
+        <table class="table_header">
+            <tr>
+                <td style="vertical-align: middle;">
+                    <table style="border-collapse: separate; border-spacing: 10px 0;">
+                        <tr>
+                            <td style="width: 70px; border: 1px solid black;">
+                                <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" />
+                            </td>
+                            <td>
+                                <p style="margin-bottom: 6px;"><strong>PT. PLN (PERSERO) {inv.namaUpi}</strong></p>
+                                <p style="margin-bottom: 6px;"><strong>{inv.namaAp}</strong></p>
+                                <p style="margin-bottom: 6px;"><strong>{inv.namaUp}</strong></p>
+                                <p style="margin-bottom: 6px;"><strong>{inv.alamatup}</strong></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="vertical-align: top; text-align: right;">
+                    <p style="margin-bottom: 6px;"><strong>INFORMASI TAGIHAN LISTRIK</strong></p>
+                    <p style="margin-bottom: 6px;"><strong>PT PLN (Persero) Kantor Pusat</strong></p>
+                    <p style="margin-bottom: 6px;"><strong>Jl. Trunojoyo Blok M I/35</strong></p>
+                    <p style="margin-bottom: 6px;"><strong>Kebayoran Baru - Jakarta Selatan</strong></p>
+                    <p style="margin-bottom: 6px;"><strong>NPWP : 01.001.629.3-051.000</strong></p>
+                </td>
+            </tr>
+        </table>
+        <table class="table_data" style="margin-top: 10px;">
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black; vertical-align: top;">
+                    <table>
+                        <tr>
+                            <td style="width: 20%;">KEPADA YTH </td>
+                            <td style="width: 5%;">:</td>
+                        </tr>
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td><strong>{inv.nama}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td><strong>{inv.alamat}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>NPWP</td>
+                            <td>:</td>
+                            <td><strong>{inv.npwp}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>No Invoice</td>
+                            <td>:</td>
+                            <td><strong>{inv.noInvoice}</strong></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="width: 40%;">ID. PELANGGAN</td>
+                            <td style="width: 5%;">:</td>
+                            <td><strong>{inv.idpel}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>REKENING BULAN</td>
+                            <td>:</td>
+                            <td>{inv.thblrekFormatted}</td>
+                        </tr>
+                        <tr>
+                            <td>TARIF / DAYA</td>
+                            <td>:</td>
+                            <td>{inv.tarif} / {inv.daya.or(0)}&#160;&#160;VA</td>
+                        </tr>
+                        <tr>
+                            <td>TARIF / DAYA LAMA</td>
+                            <td>:</td>
+                            <td>{inv.tarifLm.or('-')} / {inv.dayaLm.or(0)}&#160;&#160;VA</td>
+                        </tr>
+                        <tr>
+                            <td>TYPE / NO METER</td>
+                            <td>:</td>
+                            <td>{inv.metkwh}</td>
+                        </tr>
+                        <tr>
+                            <td>FX KWH / KVARH / FRT</td>
+                            <td>:</td>
+                            <td>{inv.fakm.or(1)} / {inv.fakmkvarh.or(1)} / {inv.frt.or('-')}</td>
+                        </tr>
+                        <tr>
+                            <td>JAM NYALA / FAKTOR K</td>
+                            <td>:</td>
+                            <td>{inv.jamnyala.or(0)}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table style="margin-top: 10px; border: 1px solid black;">
+        <thead>
+            <tr>
+                <th class="text-c" style="border: 1px solid black; padding: 5px 0;">CATATAN METER</th>
+                <th class="text-c" style="border: 1px solid black; padding: 5px 0;">TANGGAL</th>
+                <th class="text-c" style="border: 1px solid black; padding: 5px 0;">LWBP</th>
+                <th class="text-c" style="border: 1px solid black; padding: 5px 0;">WBP</th>
+                <th class="text-c" style="border: 1px solid black; padding: 5px 0;">TOTAL</th>
+                <th class="text-c" style="border: 1px solid black; padding: 5px 0;">KVARH</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 5px 3px;"><strong>St. Meter Akhir</strong></td>
+                <td class="border-inline" style="padding: 5px 3px; text-align: center;">{inv.tglbacaakhir}</td>
+                <td class="border-inline text-r">{#if inv.lwbp1Ini}{inv.lwbp1Ini.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{#if inv.wbp1Ini}{inv.wbp1Ini.setScale(3)}{/if}</td>
+                <td class="border-inline"></td>
+                <td class="border-inline text-r">{#if inv.kvarh1Ini}{inv.kvarh1Ini.setScale(3)}{/if}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 3px;"><strong>St. Meter Awal</strong></td>
+                <td class="border-inline" style="padding: 5px 3px; text-align: center;">{inv.tglbacaawal}</td>
+                <td class="border-inline text-r">{#if inv.lwbp1Lalu}{inv.lwbp1Lalu.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{#if inv.wbp1Lalu}{inv.wbp1Lalu.setScale(3)}{/if}</td>
+                <td class="border-inline"></td>
+                <td class="border-inline text-r">{#if inv.kvarh1Lalu}{inv.kvarh1Lalu.setScale(3)}{/if}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 3px;"><strong>Selisih Pemakaian</strong></td>
+                <td class="border-inline" style="padding: 5px 3px; text-align: center;"></td>
+                <td class="border-inline text-r">{#if inv.lwbp1Selisih}{inv.lwbp1Selisih.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{#if inv.wbp1Selisih}{inv.wbp1Selisih.setScale(3)}{/if}</td>
+                <td class="border-inline"></td>
+                <td class="border-inline text-r">{#if inv.kvarh1Selisih}{inv.kvarh1Selisih.setScale(3)}{/if}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 3px;"><strong>Pemakaian KWH Total</strong></td>
+                <td class="border-inline" style="padding: 5px 3px; text-align: center;"></td>
+                <td class="border-inline text-r">{inv.totalPemakaianLwbp.or(0)}</td>
+                <td class="border-inline text-r">{inv.totalPemakaianWbp.or(0)}</td>
+                <td class="border-inline text-r">{#if inv.pemakaianKwh}{inv.pemakaianKwh.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.totalPemakaianKvarh.or(0)}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="rekap_01" style="border: 1px solid black; padding: 10px; margin-top: 10px; page-break-inside: avoid;">
+        <table>
+            <tr>
+                <td><strong>1. BIAYA BEBAN</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.rpbebanKwhkva}{inv.rpbebanKwhkva.format('Rp #,##0')}{/if}</td>
+            </tr>
+        </table>
+        <div style="margin-top: 10px;">
+            <strong>2. BIAYA PEMAKAIAN</strong>
+            <table class="b_pemakaian_01" style="margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th class="border-solid" rowspan="2"></th>
+                        <th class="border-solid text-c" colspan="3">LWBP</th>
+                        <th class="border-solid text-c" colspan="3">WBP</th>
+                        <th class="border-solid text-c" colspan="3">KVARH</th>
+                        <th class="border-solid text-c" rowspan="2">TOTAL</th>
+                    </tr>
+                    <tr>
+                        <th class="border-solid text-c">PEMKWH</th>
+                        <th class="border-solid text-c">BIAYA</th>
+                        <th class="border-solid text-c">SUB TOTAL</th>
+                        <th class="border-solid text-c">PEMKWH</th>
+                        <th class="border-solid text-c">BIAYA</th>
+                        <th class="border-solid text-c">SUB TOTAL</th>
+                        <th class="border-solid text-c">PEMKWH</th>
+                        <th class="border-solid text-c">BIAYA</th>
+                        <th class="border-solid text-c">SUB TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-solid text-c">A</td>
+                        <td class="border-solid text-r">{#if inv.lwbpKwhkvaA}{inv.lwbpKwhkvaA}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.lwbpHargaA}{inv.lwbpHargaA}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.lwbpRupiahA}{inv.lwbpRupiahA.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpKwhkvaA}{inv.wbpKwhkvaA}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpHargaA}{inv.wbpHargaA}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpRupiahA}{inv.wbpRupiahA.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhKwhkvaA}{inv.kvarhKwhkvaA}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhHargaA}{inv.kvarhHargaA}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhRupiahA}{inv.kvarhRupiahA.format('#,##0')}{/if}
+                        </td>
+                        <td class="border-solid text-r"></td>
+                    </tr>
+                    <tr>
+                        <td class="border-solid text-c">B</td>
+                        <td class="border-solid text-r">{#if inv.lwbpKwhkvaB}{inv.lwbpKwhkvaB}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.lwbpHargaB}{inv.lwbpHargaB}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.lwbpRupiahB}{inv.lwbpRupiahB.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpKwhkvaB}{inv.wbpKwhkvaB}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpHargaB}{inv.wbpHargaB}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpRupiahB}{inv.wbpRupiahB.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhKwhkvaB}{inv.kvarhKwhkvaB}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhHargaB}{inv.kvarhHargaB}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhRupiahB}{inv.kvarhRupiahB.format('#,##0')}{/if}
+                        </td>
+                        <td class="border-solid text-r"></td>
+                    </tr>
+                    <tr>
+                        <td class="border-solid text-c"><strong>TOTAL</strong></td>
+                        <td class="border-solid text-r">{#if inv.lwbpKwhkva}{inv.lwbpKwhkva}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.lwbpHarga}{inv.lwbpHarga}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.lwbpRupiah}{inv.lwbpRupiah.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpKwhkva}{inv.wbpKwhkva}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpHarga}{inv.wbpHarga}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.wbpRupiah}{inv.wbpRupiah.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhKwhkva}{inv.kvarhKwhkva}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhHarga}{inv.kvarhHarga}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.kvarhRupiah}{inv.kvarhRupiah.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{#if inv.rpptlRupiah}{inv.rpptlRupiah.format('#,##0')}{/if}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <table style="margin-top: 10px;">
+            <tr>
+                <td><strong>3. RUPIAH PTL BRUTO</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.rpptlBrutoRupiah}{inv.rpptlBrutoRupiah.format('Rp #,##0')}{/if}</td>
+            </tr>
+            <tr>
+                <td><strong>4. RUPIAH DISKON</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.rpdiskonRupiah}{inv.rpdiskonRupiah.format('Rp #,##0')}{/if}</td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><strong>5. JUMLAH RUPIAH PTL NETTO</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.rpptlRupiah}{inv.rpptlRupiah.format('Rp #,##0')}{/if}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="rekap_02" style="border: 1px solid black; padding: 10px; margin-top: 10px; page-break-inside: avoid;">
+        <table>
+            <tr>
+                <td><strong>6. Jumlah Rupiah Pemakaian Tenaga Listrik (PTL) yang ditagihkan</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.rpptlTagRupiah}{inv.rpptlTagRupiah.format('Rp #,##0')}{/if}</td>
+            </tr>
+            <tr>
+                <td><strong>7. PPJ</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.ppjTagRupiah}{inv.ppjTagRupiah.format('Rp #,##0')}{/if}</td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><strong>8. PPN</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.ppnTagRupiah}{inv.ppnTagRupiah.format('Rp #,##0')}{/if}</td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;">
+                    <strong>9. LAIN - LAIN</strong>
+                    <table style="margin-top: 5px; margin-left: 30px;">
+                        <tr>
+                            <td>A. BIAYA SEWA TRAFO / PEMAKAIAN TRAFO / KAPASITOR</td>
+                            <td class="text-r">{#if inv.rpsewaTagRupiah}{inv.rpsewaTagRupiah.format('Rp #,##0')}{/if}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>B. ANGSURAN</td>
+                            <td class="text-r">{#if inv.rpangsuranTagRupiah}{inv.rpangsuranTagRupiah.format('Rp
+                                #,##0')}{/if}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><strong>10. METERAI</strong></td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
+                    inv.meteraiTagRupiah}{inv.meteraiTagRupiah.format('Rp #,##0')}{/if}</td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><strong>TERBILANG</strong></td>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="border-top :3px solid black; border-bottom: 3px solid black;"><strong>JUMLAH
+                                    TAGIHAN</strong></td>
+                            <td style="border-top :3px solid black; border-bottom: 3px solid black;" class="text-r">
+                                <strong>{#if inv.rptagTagRupiah}{inv.rptagTagRupiah.format('Rp #,##0')}{/if}</strong>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="border:  1px solid black;"><strong><i>{inv.rptagTagTerbilang}</i></strong></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 10px;">
+        <p style="margin-left: 20px;"><strong>Batas Akhir Masa Bayar {inv.tgljttempo}</strong></p>
+        <table>
+            <tr>
+                <td style="width: 60%;">
+                    <table>
+                        <tr>
+                            <td><strong>Status</strong></td>
+                            <td>: {inv.ketLunas.or('BELUM LUNAS')}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tanggal Bayar</strong></td>
+                            <td>: {inv.tglbayar.or('-')}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Biaya Keterlambatan(BK)</strong></td>
+                            <td>: {#if inv.rpbkTagRupiah}{inv.rpbkTagRupiah.format('Rp #,##0')}{#else}Rp 0{/if}</td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top;"><strong>Keterangan</strong></td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>A = Tarif/Daya Baru TTL Baru</td>
+                                        <td>C = Tarif/Daya Baru TTL Lama</td>
+                                    </tr>
+                                    <tr>
+                                        <td>B = Tarif/Daya Lama TTL Baru</td>
+                                        <td>D = Tarif/Daya Lama TTL Lama</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="vertical-align: middle;">
+                    <div style="text-align:center;">
+                        <strong>MANAGER</strong>
+                        <div style="margin-top:60px;"><strong>{inv.managerup}</strong></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        body {
+            margin: auto;
+            padding: 16px;
+            width: 1500px;
+            font-weight: 300;
+        }
+
+        /* === HEADER === */
+        .table-header {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            text-align: left;
+            width: 25%;
+            vertical-align: top;
+        }
+
+        .header-center {
+            width: 50%;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .header-center p {
+            margin-bottom: 25px;
+        }
+
+        .header-right {
+            width: 25%;
+            vertical-align: top;
+        }
+
+        /* === TABEL DATA === */
+        .table-data {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td class="logo-cell">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" />
+                        </td>
+                        <td class="logo-title">
+                            <p style="margin-bottom: 4px;"><strong>PT PLN (PERSERO)</strong></p>
+                            <p style="margin-bottom: 4px;">UIW PAPUA DAN PAPUA BARAT</p>
+                            <p style="margin-bottom: 4px;">UP3 BIAK</p>
+                            <p style="margin-bottom: 4px;">ULP BIAK KOTA</p>
+                            <p style="margin-bottom: 4px;">KAB. BIAK NUMFOR</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="header-center">
+                <div>
+                    <p>{?JudulSatu}</p>
+                    <p><strong>{?JudulDua}</strong></p>
+                    <p><strong>Data berdasarkan saldo DPP per Tgl Server saat dibuat rekap saldo bulanan</strong></p>
+                </div>
+            </td>
+            <td class="header-right"></td>
+        </tr>
+    </table>
+    <table class="table-data">
+
+    </table>
+</body>
+
+</html>
