@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BA Usulan Flagging Non Taglis Beban Kantor</title>
+    <style>
+      body {
+        font-family: "Times New Roman", serif;
+        font-size: 12px;
+        margin: 20px 40px;
+        color: #000;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+
+      .company-info {
+        line-height: 1.2;
+      }
+
+      h2,
+      h3 {
+        text-align: center;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-top: 10px;
+      }
+
+      h3 {
+        font-size: 14px;
+        font-weight: normal;
+        margin-bottom: 10px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 11px;
+      }
+
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 4px 6px;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+      }
+
+      .footer {
+        margin-top: 40px;
+        width: 100%;
+      }
+
+      .footer td {
+        border: none;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      .footer .sign-box {
+        height: 60px;
+      }
+
+      .footer strong {
+        display: block;
+        margin-top: 5px;
+        text-decoration: underline;
+      }
+
+      @media print {
+        body {
+          margin: 10mm 15mm;
+        }
+        table {
+          page-break-inside: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Logo_PLN.svg/512px-Logo_PLN.svg.png"
+        alt="PLN"
+        class="logo"
+      />
+      <div class="company-info">
+        <strong>PT PLN (PERSERO)</strong><br />
+        {#if namaupi}
+        <p>UID / UIW {namaupi}</p>
+        {/if} {#if namaap}
+        <p>UP3 {namaap}</p>
+        {/if} {#if namaup}
+        <p>ULP {namaup}</p>
+        {/if}
+      </div>
+    </div>
+
+    <h2>BERITA ACARA DAFTAR USULAN FLAGGING MANUAL {namaunit}</h2>
+    <h3>TRANSAKSI NON TAGLIS BEBAN KANTOR</h3>
+    <p style="text-align: center">
+      No Berita Acara : <strong>{noba}</strong><br />
+      No Induk Agenda : <strong>{noagendainduk}</strong>
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>No Agenda</th>
+          <th>No Register</th>
+          <th>ID Pelanggan</th>
+          <th>Nama Pelanggan</th>
+          <th>Jenis Transaksi</th>
+          <th>Tarif</th>
+          <th>Daya</th>
+          <th>Rp Tagihan</th>
+          <th>No Surat</th>
+          <th>Kepemilikan Program</th>
+          <th>Status Pengajuan</th>
+          <th>Tgl Sah</th>
+          <th>Petugas Sah</th>
+        </tr>
+      </thead>
+      <tbody>
+        {#for item in dataList}
+        <tr>
+          <td>{item.nomor}</td>
+          <td>{item.noAgenda}</td>
+          <td>{item.noRegister}</td>
+          <td>{item.idPel}</td>
+          <td>{item.nama}</td>
+          <td>{item.jenisTransaksi}</td>
+          <td>{item.tarif}</td>
+          <td>{item.daya}</td>
+          <td>{item.rpTag}</td>
+          <td>{item.noSurat}</td>
+          <td>{item.statusKepemilikanPln}</td>
+          <td>{item.statusPengajuan}</td>
+          <td>{item.tglSah}</td>
+          <td>{item.ptgSah}</td>
+        </tr>
+        {/for}
+      </tbody>
+    </table>
+
+    <table class="footer">
+      <tr>
+        <td width="50%">
+          MENGETAHUI<br />
+          <strong>{jabatanmanager}</strong>
+          <div class="sign-box"></div>
+          <strong>{namamanager}</strong>
+        </td>
+        <td width="50%">
+          SPV PELAYANAN PELANGGAN<br />
+          <div class="sign-box"></div>
+          <strong>{namaspv}</strong>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

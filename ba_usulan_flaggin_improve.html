@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BA Usulan Flagging Non Taglis Beban Kantor</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 2mm;
+    }
+
+    @media print {
+        table {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+    }
+
+    body {
+        /* width: 1500px; */
+        padding: 0 10px;
+        margin: 10px auto;
+    }
+
+    table.table-header th {
+        font-weight: 500;
+    }
+
+    .kop-surat {
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .kop-surat p {
+        padding-bottom: 8px;
+    }
+
+    table.table-data {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid black;
+        margin-top: 10px;
+    }
+
+    .table-data th,
+    .table-data td {
+        border: 1px solid black;
+    }
+
+    .table-data th {
+        font-weight: 600;
+        padding: 4px;
+    }
+
+    .table-data td {
+        padding: 4px;
+    }
+
+    table.footer {
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .footer td {
+        text-align: center;
+        vertical-align: top;
+
+    }
+
+    .footer .sign-box {
+        height: 60px;
+    }
+
+    .footer strong {
+        display: block;
+        margin-top: 5px;
+        text-decoration: underline;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+</style>
+
+<body>
+    <table class="table-header">
+        <tr>
+            <th style="width: 25%;">
+                <table class="table-img">
+                    <tr>
+                        <td style="padding-right: 10px;">
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td style="text-align: left;">
+                            <p style="margin-bottom: 9px;">PT PLN (PERSERO)</p>
+                            {#if namaupi}
+                            <p style="margin-bottom: 9px;">UID / UIW {namaupi}</p>
+                            {/if} {#if namaap}
+                            <p style="margin-bottom: 9px;">UP3 {namaap}</p>
+                            {/if} {#if namaup}
+                            <p style="margin-bottom: 9px;">ULP {namaup}</p>
+                            {/if}
+                        </td>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </table>
+    <div class="kop-surat">
+        <p>BERITA ACARA DAFTAR USULAN FLAGGING MANUAL {namaunit}</p>
+        <p>TRANSAKSI NON TAGLIS BEBAN KANTOR</p>
+        <p>No Berita Acara : {noba}</p>
+        <p>No Induk Agenda : {noagendainduk}</p>
+    </div>
+    <table class="table-data">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>No Agenda</th>
+                <th>No Register</th>
+                <th>ID Pelanggan</th>
+                <th>Nama Pelanggan</th>
+                <th>Jenis Transaksi</th>
+                <th>Tarif</th>
+                <th>Daya</th>
+                <th>Rp Tagihan</th>
+                <th>No Surat</th>
+                <th>Kepemilikan Program</th>
+                <th>Status Pengajuan</th>
+                <th>Tgl Sah</th>
+                <th>Petugas Sah</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#for item in dataList}
+            <tr>
+                <td class="text-left">{item.nomor}</td>
+                <td class="text-left">{item.noAgenda}</td>
+                <td class="text-left">{item.noRegister}</td>
+                <td class="text-left">{item.idPel}</td>
+                <td class="text-left">{item.nama}</td>
+                <td class="text-left">{item.jenisTransaksi}</td>
+                <td>{item.tarif}</td>
+                <td class="text-right">{item.daya}</td>
+                <td class="text-right">{item.rpTag}</td>
+                <td class="text-left">{item.noSurat}</td>
+                <td class="text-left">{item.statusKepemilikanPln}</td>
+                <td class="text-left">{item.statusPengajuan}</td>
+                <td class="text-left">{item.tglSah}</td>
+                <td class="text-left">{item.ptgSah}</td>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+
+    <table class="footer">
+        <tr>
+            <td width="50%">
+                MENGETAHUI<br />
+                <strong>{jabatanmanager}</strong>
+                <div class="sign-box"></div>
+                <strong>{namamanager}</strong>
+            </td>
+            <td width="50%">
+                SPV PELAYANAN PELANGGAN<br />
+                <div class="sign-box"></div>
+                <strong>{namaspv}</strong>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
