@@ -66,11 +66,11 @@
                 <td style="vertical-align: middle;">
                     <table style="border-collapse: separate; border-spacing: 10px 0;">
                         <tr>
-                            <td style="width: 70px; border: 1px solid black;">
+                            <td style="width: 70px;">
                                 <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" />
                             </td>
                             <td>
-                                <p style="margin-bottom: 6px;"><strong>PT. PLN (PERSERO) {inv.namaUpi}</strong></p>
+                                <p style="margin-bottom: 6px;"><strong>{inv.namaUpi}</strong></p>
                                 <p style="margin-bottom: 6px;"><strong>{inv.namaAp}</strong></p>
                                 <p style="margin-bottom: 6px;"><strong>{inv.namaUp}</strong></p>
                                 <p style="margin-bottom: 6px;"><strong>{inv.alamatup}</strong></p>
@@ -175,33 +175,42 @@
             <tr>
                 <td style="padding: 5px 3px;"><strong>St. Meter Akhir</strong></td>
                 <td class="border-inline" style="padding: 5px 3px; text-align: center;">{inv.tglbacaakhir}</td>
-                <td class="border-inline text-r">{#if inv.lwbp1Ini}{inv.lwbp1Ini.setScale(3)}{/if}</td>
-                <td class="border-inline text-r">{#if inv.wbp1Ini}{inv.wbp1Ini.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.lwbp1IniFormatted}</td>
+                <td class="border-inline text-r">{inv.wbp1IniFormatted}</td>
                 <td class="border-inline"></td>
-                <td class="border-inline text-r">{#if inv.kvarh1Ini}{inv.kvarh1Ini.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.kvarh1IniFormatted}</td>
             </tr>
             <tr>
-                <td style="padding: 5px 3px;"><strong>St. Meter Awal</strong></td>
+                <td style="padding: 5px 3px;"><strong>Selisih St.Meter Baru (st.akhir - st.pasang)</strong></td>
                 <td class="border-inline" style="padding: 5px 3px; text-align: center;">{inv.tglbacaawal}</td>
-                <td class="border-inline text-r">{#if inv.lwbp1Lalu}{inv.lwbp1Lalu.setScale(3)}{/if}</td>
-                <td class="border-inline text-r">{#if inv.wbp1Lalu}{inv.wbp1Lalu.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.lwbp1LaluFormatted}</td>
+                <td class="border-inline text-r">{inv.wbp1LaluFormatted}</td>
                 <td class="border-inline"></td>
-                <td class="border-inline text-r">{#if inv.kvarh1Lalu}{inv.kvarh1Lalu.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.kvarh1LaluFormatted}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 3px;"><strong>Selisih St.Meter Baru (st.akhir - st.pecah ttl * fkm)</strong>
+                </td>
+                <td class="border-inline" style="padding: 5px 3px; text-align: center;">{inv.tglbacaawal}</td>
+                <td class="border-inline text-r">{inv.lwbp1LaluFormatted}</td>
+                <td class="border-inline text-r">{inv.wbp1LaluFormatted}</td>
+                <td class="border-inline"></td>
+                <td class="border-inline text-r">{inv.kvarh1LaluFormatted}</td>
             </tr>
             <tr>
                 <td style="padding: 5px 3px;"><strong>Selisih Pemakaian</strong></td>
                 <td class="border-inline" style="padding: 5px 3px; text-align: center;"></td>
-                <td class="border-inline text-r">{#if inv.lwbp1Selisih}{inv.lwbp1Selisih.setScale(3)}{/if}</td>
-                <td class="border-inline text-r">{#if inv.wbp1Selisih}{inv.wbp1Selisih.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.lwbp1SelisihFormatted}</td>
+                <td class="border-inline text-r">{inv.wbp1SelisihFormatted}</td>
                 <td class="border-inline"></td>
-                <td class="border-inline text-r">{#if inv.kvarh1Selisih}{inv.kvarh1Selisih.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.kvarh1SelisihFormatted}</td>
             </tr>
             <tr>
                 <td style="padding: 5px 3px;"><strong>Pemakaian KWH Total</strong></td>
                 <td class="border-inline" style="padding: 5px 3px; text-align: center;"></td>
                 <td class="border-inline text-r">{inv.totalPemakaianLwbp.or(0)}</td>
                 <td class="border-inline text-r">{inv.totalPemakaianWbp.or(0)}</td>
-                <td class="border-inline text-r">{#if inv.pemakaianKwh}{inv.pemakaianKwh.setScale(3)}{/if}</td>
+                <td class="border-inline text-r">{inv.pemakaianKwhFormatted}</td>
                 <td class="border-inline text-r">{inv.totalPemakaianKvarh.or(0)}</td>
             </tr>
         </tbody>
@@ -211,8 +220,8 @@
         <table>
             <tr>
                 <td><strong>1. BIAYA BEBAN</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.rpbebanKwhkva}{inv.rpbebanKwhkva.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.rpbebanKwhkvaFormatted}
+                </td>
             </tr>
         </table>
         <div style="margin-top: 10px;">
@@ -241,44 +250,92 @@
                 <tbody>
                     <tr>
                         <td class="border-solid text-c">A</td>
-                        <td class="border-solid text-r">{#if inv.lwbpKwhkvaA}{inv.lwbpKwhkvaA}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.lwbpHargaA}{inv.lwbpHargaA}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.lwbpRupiahA}{inv.lwbpRupiahA.format('#,##0')}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpKwhkvaA}{inv.wbpKwhkvaA}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpHargaA}{inv.wbpHargaA}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpRupiahA}{inv.wbpRupiahA.format('#,##0')}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhKwhkvaA}{inv.kvarhKwhkvaA}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhHargaA}{inv.kvarhHargaA}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhRupiahA}{inv.kvarhRupiahA.format('#,##0')}{/if}
-                        </td>
+                        <td class="border-solid text-r">[{inv.lwbpKwhkvaAFormatted}]</td>
+                        <td class="border-solid text-r">{inv.lwbpHargaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpRupiahAFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpKwhkvaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpHargaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpRupiahAFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhKwhkvaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhHargaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhRupiahAFormatted}</td>
                         <td class="border-solid text-r"></td>
                     </tr>
                     <tr>
                         <td class="border-solid text-c">B</td>
-                        <td class="border-solid text-r">{#if inv.lwbpKwhkvaB}{inv.lwbpKwhkvaB}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.lwbpHargaB}{inv.lwbpHargaB}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.lwbpRupiahB}{inv.lwbpRupiahB.format('#,##0')}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpKwhkvaB}{inv.wbpKwhkvaB}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpHargaB}{inv.wbpHargaB}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpRupiahB}{inv.wbpRupiahB.format('#,##0')}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhKwhkvaB}{inv.kvarhKwhkvaB}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhHargaB}{inv.kvarhHargaB}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhRupiahB}{inv.kvarhRupiahB.format('#,##0')}{/if}
-                        </td>
+                        <td class="border-solid text-r">{inv.lwbpKwhkvaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpHargaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpRupiahBFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpKwhkvaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpHargaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpRupiahBFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhKwhkvaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhHargaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhRupiahBFormatted}</td>
                         <td class="border-solid text-r"></td>
                     </tr>
                     <tr>
                         <td class="border-solid text-c"><strong>TOTAL</strong></td>
-                        <td class="border-solid text-r">{#if inv.lwbpKwhkva}{inv.lwbpKwhkva}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.lwbpHarga}{inv.lwbpHarga}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.lwbpRupiah}{inv.lwbpRupiah.format('#,##0')}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpKwhkva}{inv.wbpKwhkva}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpHarga}{inv.wbpHarga}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.wbpRupiah}{inv.wbpRupiah.format('#,##0')}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhKwhkva}{inv.kvarhKwhkva}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhHarga}{inv.kvarhHarga}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.kvarhRupiah}{inv.kvarhRupiah.format('#,##0')}{/if}</td>
-                        <td class="border-solid text-r">{#if inv.rpptlRupiah}{inv.rpptlRupiah.format('#,##0')}{/if}</td>
+                        <td class="border-solid text-r">{inv.lwbpKwhkvaFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpHargaFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpRupiahFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpKwhkvaFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpHargaFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpRupiahFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhKwhkvaFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhHargaFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhRupiahFormatted}</td>
+                        <td class="border-solid text-r">{inv.rpptlRupiahFormatted}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="b_pemakaian_01" style="margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th class="border-solid" rowspan="2"></th>
+                        <th class="border-solid text-c" colspan="3">BLOK I</th>
+                        <th class="border-solid text-c" colspan="3">BLOK II</th>
+                        <th class="border-solid text-c" colspan="3">BLOK III</th>
+                        <th class="border-solid text-c" rowspan="2">TOTAL</th>
+                    </tr>
+                    <tr>
+                        <th class="border-solid text-c">PEMKWH</th>
+                        <th class="border-solid text-c">BIAYA</th>
+                        <th class="border-solid text-c">SUB TOTAL</th>
+                        <th class="border-solid text-c">PEMKWH</th>
+                        <th class="border-solid text-c">BIAYA</th>
+                        <th class="border-solid text-c">SUB TOTAL</th>
+                        <th class="border-solid text-c">PEMKWH</th>
+                        <th class="border-solid text-c">BIAYA</th>
+                        <th class="border-solid text-c">SUB TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-solid text-c">BARU</td>
+                        <td class="border-solid text-r">[{inv.lwbpKwhkvaAFormatted}]</td>
+                        <td class="border-solid text-r">{inv.lwbpHargaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpRupiahAFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpKwhkvaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpHargaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpRupiahAFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhKwhkvaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhHargaAFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhRupiahAFormatted}</td>
+                        <td class="border-solid text-r"></td>
+                    </tr>
+                    <tr>
+                        <td class="border-solid text-c">LAMA</td>
+                        <td class="border-solid text-r">{inv.lwbpKwhkvaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpHargaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.lwbpRupiahBFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpKwhkvaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpHargaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.wbpRupiahBFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhKwhkvaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhHargaBFormatted}</td>
+                        <td class="border-solid text-r">{inv.kvarhRupiahBFormatted}</td>
+                        <td class="border-solid text-r"></td>
                     </tr>
                 </tbody>
             </table>
@@ -286,18 +343,17 @@
         <table style="margin-top: 10px;">
             <tr>
                 <td><strong>3. RUPIAH PTL BRUTO</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.rpptlBrutoRupiah}{inv.rpptlBrutoRupiah.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.rpptlBrutoRupiahFormatted}
+                </td>
             </tr>
             <tr>
                 <td><strong>4. RUPIAH DISKON</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.rpdiskonRupiah}{inv.rpdiskonRupiah.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.rpdiskonRupiahFormatted}
+                </td>
             </tr>
             <tr>
                 <td style="white-space: nowrap;"><strong>5. JUMLAH RUPIAH PTL NETTO</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.rpptlRupiah}{inv.rpptlRupiah.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.rpptlRupiahFormatted}</td>
             </tr>
         </table>
     </div>
@@ -305,18 +361,16 @@
         <table>
             <tr>
                 <td><strong>6. Jumlah Rupiah Pemakaian Tenaga Listrik (PTL) yang ditagihkan</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.rpptlTagRupiah}{inv.rpptlTagRupiah.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.rpptlTagRupiahFormatted}
+                </td>
             </tr>
             <tr>
                 <td><strong>7. PPJ</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.ppjTagRupiah}{inv.ppjTagRupiah.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.ppjTagRupiahFormatted}</td>
             </tr>
             <tr>
                 <td style="white-space: nowrap;"><strong>8. PPN</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.ppnTagRupiah}{inv.ppnTagRupiah.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.ppnTagRupiahFormatted}</td>
             </tr>
             <tr>
                 <td style="white-space: nowrap;">
@@ -324,21 +378,19 @@
                     <table style="margin-top: 5px; margin-left: 30px;">
                         <tr>
                             <td>A. BIAYA SEWA TRAFO / PEMAKAIAN TRAFO / KAPASITOR</td>
-                            <td class="text-r">{#if inv.rpsewaTagRupiah}{inv.rpsewaTagRupiah.format('Rp #,##0')}{/if}
-                            </td>
+                            <td class="text-r">{inv.rpsewaTagRupiahFormatted}</td>
                         </tr>
                         <tr>
                             <td>B. ANGSURAN</td>
-                            <td class="text-r">{#if inv.rpangsuranTagRupiah}{inv.rpangsuranTagRupiah.format('Rp
-                                #,##0')}{/if}</td>
+                            <td class="text-r">{inv.rpangsuranTagRupiahFormatted}</td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
                 <td style="white-space: nowrap;"><strong>10. METERAI</strong></td>
-                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{#if
-                    inv.meteraiTagRupiah}{inv.meteraiTagRupiah.format('Rp #,##0')}{/if}</td>
+                <td class="text-r" style="width: 50%; border-bottom: 1px dashed black;">{inv.meteraiTagRupiahFormatted}
+                </td>
             </tr>
             <tr>
                 <td style="white-space: nowrap;"><strong>TERBILANG</strong></td>
@@ -348,7 +400,7 @@
                             <td style="border-top :3px solid black; border-bottom: 3px solid black;"><strong>JUMLAH
                                     TAGIHAN</strong></td>
                             <td style="border-top :3px solid black; border-bottom: 3px solid black;" class="text-r">
-                                <strong>{#if inv.rptagTagRupiah}{inv.rptagTagRupiah.format('Rp #,##0')}{/if}</strong>
+                                <strong>{inv.rptagTagRupiahFormatted}</strong>
                             </td>
                         </tr>
                     </table>
@@ -376,7 +428,7 @@
                         </tr>
                         <tr>
                             <td><strong>Biaya Keterlambatan(BK)</strong></td>
-                            <td>: {#if inv.rpbkTagRupiah}{inv.rpbkTagRupiah.format('Rp #,##0')}{#else}Rp 0{/if}</td>
+                            <td>: {inv.rpbkTagRupiahFormatted}</td>
                         </tr>
                         <tr>
                             <td style="vertical-align: top;"><strong>Keterangan</strong></td>
