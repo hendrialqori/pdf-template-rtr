@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemantauan Transaksi Daftar Koreksi Rekening Per Tanggal Transaksi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin-top: 140px;
+            margin-bottom: 80px;
+            margin-left: 5mm;
+            margin-right: 5mm;
+
+            @top-left {
+                content: element(pageHeader);
+                width: 100%;
+            }
+            @bottom-left {
+                content: element(pageFooter);
+                width: 100%;
+            }
+        }
+        #pageHeader {
+            position: running(pageHeader);
+            width: 100%;
+        }
+        #pageFooter {
+            position: running(pageFooter);
+            width: 100%;
+        }
+
+        .page-number:after {
+            content: counter(page);
+        }
+
+        body {
+            font-family: "Times New Roman", serif;
+            font-size: 10px;
+            margin: 10px;
+            color: #000;
+        }
+
+        .table-header {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            width: 30%;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .header-left table {
+            border-collapse: collapse;
+        }
+
+        .header-left td {
+            vertical-align: top;
+            padding: 0;
+            padding-right: 5px;
+        }
+
+        .header-left img {
+            width: 55px;
+            height: 55px;
+            display: block;
+        }
+
+        .header-left p {
+            line-height: 1.2;
+            margin: 0;
+            font-size: 10px;
+        }
+
+        .header-center {
+            width: 40%;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .header-center p {
+            margin: 2px 0;
+            line-height: 1.3;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .header-right {
+            width: 30%;
+        }
+
+        .table-data {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin-bottom: 10px;
+            table-layout: fixed;
+        }
+
+        .table-data th,
+        .table-data td {
+            padding: 3px 5px;
+            border: none;
+            font-size: 9px;
+        }
+
+        .table-data thead tr {
+            border-top: 1px dotted #000;
+            border-bottom: 1px dotted #000;
+        }
+
+        .table-data tbody tr:last-child {
+            border-bottom: 1px dotted #000;
+        }
+
+        .table-data tr.main-row td:first-child {
+            vertical-align: top;
+        }
+
+        .footer-print {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px dotted #000;
+            border-bottom: 1px dotted #000;
+            margin-top: 10px;
+            font-size: 9px;
+        }
+
+        .footer-print td {
+            padding: 4px 0;
+        }
+
+        /* ATURAN KHUSUS CETAK (PRINT) */
+        @media print {
+            .table-data {
+                page-break-inside: auto;
+            }
+
+            .table-data tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+
+            .table-data thead {
+                display: table-header-group;
+            }
+
+            .footer-print {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- HEADER -->
+<div id="pageHeader">
+<table class="table-header">
+    <tr>
+        <td class="header-left">
+            <table>
+                <tr>
+                    <td>
+                        <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                    </td>
+                    <td>
+                        <p><strong>PT PLN (PERSERO)</strong></p>
+                        <p>UIW : {upi ?: ''}</p>
+                        <p>UP3 : {ap ?: ''}</p>
+                        <p>ULP : {up ?: ''}</p>
+                        <p>{alamatKantor ?: ''}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td class="header-center">
+            <p>PEMANTAUAN TRANSAKSI DATA PIUTANG PELANGGAN - DPP</p>
+            <p class="bold">KDPEMBPP = R1 - REKENING LISTRIK</p>
+            <p>TANGGAL : {tglMulai ?: ''} s/d {tglSelesai ?: ''}</p>
+            <p class="bold">Pemantauan Transaksi berdasarkan Tanggal Transaksi</p>
+        </td>
+        <td class="header-right"></td>
+    </tr>
+</table>
+</div>
+
+<!-- FOOTER -->
+<div id="pageFooter">
+<table class="footer-print">
+    <tr>
+        <td style="width: 25%; text-align: left;">
+            Petugas Cetak : {petugasCetak ?: ''}
+        </td>
+        <td style="width: 25%; text-align: center;">
+            KdGerak : 12
+        </td>
+        <td style="width: 25%; text-align: center;">
+            Tgl Cetak : {tglCetak ?: ''}
+        </td>
+        <td style="width: 25%; text-align: right;">
+            Halaman <span class="page-number"></span>
+        </td>
+    </tr>
+</table>
+</div>
+
+<!-- DATA TABLE -->
+<table class="table-data">
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>TglTransaksi</th>
+        <th>TglBuku</th>
+        <th>Idpel</th>
+        <th>Trf</th>
+        <th>Daya</th>
+        <th>Gol</th>
+        <th>Stus</th>
+        <th>Kelp</th>
+        <th>Petugas</th>
+        <th>RpPTL</th>
+        <th>RpBPJU</th>
+        <th>RpPPN</th>
+        <th>RpMaterai</th>
+        <th>RpLain2</th>
+        <th>RpTagihan</th>
+        <th>RpBK</th>
+        <th>Keterangan</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop ini akan diulang untuk setiap transaksi -->
+    <!-- Baris utama transaksi -->
+    {#for item in dataList}
+    <tr class="main-row">
+        <td rowspan="2">{item.nomor ?: ''}</td>
+        <td>{item.tanggal ?: ''}</td>
+        <td>{item.tglbuku ?: ''}</td>
+        <td>{item.idpel ?: ''}</td>
+        <td>{item.tarip ?: ''}</td>
+        <td>{item.daya ?: ''}</td>
+        <td>{item.kogol ?: ''}</td>
+        <td>{item.status ?: ''}</td>
+        <td>{item.kdkelompok ?: ''}</td>
+        <td>{item.petugas ?: ''}</td>
+        <td>{item.rpptl ?: ''}</td>
+        <td>{item.rpbpju ?: ''}</td>
+        <td>{item.rpppn ?: ''}</td>
+        <td>{item.rpmat ?: ''}</td>
+        <td>{item.rplain2 ?: ''}</td>
+        <td>{item.rptag ?: ''}</td>
+        <td>{item.rpbk ?: ''}</td>
+        <td>Sesudah</td>
+    </tr>
+    <!-- Baris detail (BalanRekg) -->
+    <tr class="detail-row">
+        <td colspan="2">BULANREKG: {item.blth ?: ''}</td>
+        <td>KDKRS: {item.kdkoreksi ?: ''}</td>
+        <td>{item.taripL ?: ''}</td>
+        <td>{item.dayaL ?: ''}</td>
+        <td>{item.kogolL ?: ''}</td>
+        <td></td>
+        <td>{item.kdkelompokL}</td>
+        <td></td>
+        <td>{item.rpptlL ?: ''}</td>
+        <td>{item.rpbpjuL ?: ''}</td>
+        <td>{item.rpppnL ?: ''}</td>
+        <td>{item.rpmatL ?: ''}</td>
+        <td>{item.rplain2L ?: ''}</td>
+        <td>{item.rptagL ?: ''}</td>
+        <td>{item.rpbkL ?: ''}</td>
+        <td>Sebelum</td>
+    </tr>
+    {/for}
+    <!-- End loop -->
+    </tbody>
+</table>
+
+</body>
+
+</html>

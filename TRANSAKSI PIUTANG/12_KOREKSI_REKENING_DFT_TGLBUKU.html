@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemantauan Transaksi Daftar Koreksi Rekening Per Tanggal Pembukuan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin-top: 140px;
+            margin-bottom: 80px;
+            margin-left: 5mm;
+            margin-right: 5mm;
+
+            @top-left {
+                content: element(pageHeader);
+                width: 100%;
+            }
+
+            @bottom-left {
+                content: element(pageFooter);
+                width: 100%;
+            }
+        }
+
+        #pageHeader {
+            position: running(pageHeader);
+            width: 100%;
+        }
+
+        #pageFooter {
+            position: running(pageFooter);
+            width: 100%;
+        }
+
+        .page-number:after {
+            content: counter(page);
+        }
+
+        body {
+            font-family: "Times New Roman", serif;
+            font-size: 10px;
+            margin: 10px;
+            color: #000;
+        }
+
+        .table-header {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            width: 30%;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .header-left table {
+            border-collapse: collapse;
+        }
+
+        .header-left td {
+            vertical-align: top;
+            padding: 0;
+            padding-right: 5px;
+        }
+
+        .header-left img {
+            width: 55px;
+            height: 55px;
+            display: block;
+        }
+
+        .header-left p {
+            line-height: 1.2;
+            margin: 0;
+            font-size: 10px;
+        }
+
+        .header-center {
+            width: 40%;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .header-center p {
+            margin: 2px 0;
+            line-height: 1.3;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .header-right {
+            width: 30%;
+        }
+
+        .table-data {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin-bottom: 10px;
+            table-layout: fixed;
+        }
+
+        .table-data th,
+        .table-data td {
+            padding: 6px 5px;
+            border: none;
+            font-size: 9px;
+        }
+
+        .table-data thead tr {
+            border-top: 1px dotted #000;
+            border-bottom: 1px dotted #000;
+        }
+
+        .table-data tbody tr:last-child {
+            border-bottom: 1px dotted #000;
+        }
+
+        .table-data tr.main-row td:first-child {
+            vertical-align: top;
+        }
+
+        .footer-print {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px dotted #000;
+            border-bottom: 1px dotted #000;
+            margin-top: 10px;
+            font-size: 9px;
+        }
+
+        .footer-print td {
+            padding: 4px 0;
+        }
+
+        @media print {
+            .table-data {
+                page-break-inside: auto;
+            }
+
+            .table-data tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+
+            .table-data thead {
+                display: table-header-group;
+            }
+
+            .footer-print {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="pageHeader">
+    <table class="table-header">
+        <tr>
+            <td class="header-left">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="data:image/png;base64,{logoBase64}" alt="Logo PLN" width="64" height="70" />
+                        </td>
+                        <td>
+                            <p style="margin-bottom: 6px;"><strong>PT PLN (PERSERO)</strong></p>
+                            <p style="margin-bottom: 6px;">UIW : {upi ?: ''}</p>
+                            <p style="margin-bottom: 6px;">UP3 : {ap ?: ''}</p>
+                            <p style="margin-bottom: 6px;">ULP : {up ?: ''}</p>
+                            <p style="margin-bottom: 6px;">{alamatKantor ?: ''}</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="header-center">
+                <p style="margin-bottom: 6px;">PEMANTAUAN TRANSAKSI DATA PIUTANG PELANGGAN - DPP</p>
+                <p style="margin-bottom: 6px;" class="bold">KDPEMBPP = R1 - REKENING LISTRIK</p>
+                <p style="margin-bottom: 6px;">TANGGAL : {tglMulai ?: ''} s/d {tglSelesai ?: ''}</p>
+                <p style="margin-bottom: 6px;" class="bold">Pemantauan Transaksi berdasarkan Tanggal Pembukuan</p>
+            </td>
+            <td class="header-right"></td>
+        </tr>
+    </table>
+</div>
+
+<!-- FOOTER -->
+<div id="pageFooter">
+    <table class="footer-print">
+        <tr>
+            <td style="width: 25%; text-align: left;">
+                Petugas Cetak : {petugasCetak ?: ''}
+            </td>
+            <td style="width: 25%; text-align: center;">
+                KdGerak : 12
+            </td>
+            <td style="width: 25%; text-align: center;">
+                Tgl Cetak : {tglCetak ?: ''}
+            </td>
+            <td style="width: 25%; text-align: right;">
+                Halaman <span class="page-number"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- DATA TABLE -->
+<table class="table-data">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>TglBuku</th>
+            <th>TglTransaksi</th>
+            <th>Idpel</th>
+            <th>Trf</th>
+            <th>Daya</th>
+            <th>Gol</th>
+            <th>Stus</th>
+            <th>Kelp</th>
+            <th>Petugas</th>
+            <th>RpPTL</th>
+            <th>RpBPJU</th>
+            <th>RpPPN</th>
+            <th>RpMaterai</th>
+            <th>RpLain2</th>
+            <th>RpTagihan</th>
+            <th>RpBK</th>
+            <th>Keterangan</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!-- DATA DUMMY MULAI -->
+        <tr class="main-row">
+            <td rowspan="2">1</td>
+            <td>2026-01-10</td>
+            <td>2026-01-09</td>
+            <td>111000000001</td>
+            <td>R1/900</td>
+            <td>900</td>
+            <td>R1</td>
+            <td>A</td>
+            <td>01</td>
+            <td>BUDI</td>
+            <td>45000</td>
+            <td>5000</td>
+            <td>4000</td>
+            <td>3000</td>
+            <td>2000</td>
+            <td>59000</td>
+            <td>0</td>
+            <td>Sesudah</td>
+        </tr>
+        <tr class="detail-row">
+            <td colspan="2">BULANREKG: 202512</td>
+            <td>KDKRS: K1</td>
+            <td>R1/900</td>
+            <td>900</td>
+            <td>R1</td>
+            <td></td>
+            <td>01</td>
+            <td></td>
+            <td>40000</td>
+            <td>4500</td>
+            <td>3500</td>
+            <td>3000</td>
+            <td>1000</td>
+            <td>52000</td>
+            <td>0</td>
+            <td>Sebelum</td>
+        </tr>
+
+        <tr class="main-row">
+            <td rowspan="2">2</td>
+            <td>2026-01-10</td>
+            <td>2026-01-10</td>
+            <td>111000000002</td>
+            <td>R1/1300</td>
+            <td>1300</td>
+            <td>R1</td>
+            <td>N</td>
+            <td>02</td>
+            <td>AGUS</td>
+            <td>76000</td>
+            <td>8000</td>
+            <td>6500</td>
+            <td>3000</td>
+            <td>3500</td>
+            <td>97000</td>
+            <td>0</td>
+            <td>Sesudah</td>
+        </tr>
+        <tr class="detail-row">
+            <td colspan="2">BULANREKG: 202512</td>
+            <td>KDKRS: K2</td>
+            <td>R1/1300</td>
+            <td>1300</td>
+            <td>R1</td>
+            <td></td>
+            <td>02</td>
+            <td></td>
+            <td>70000</td>
+            <td>7500</td>
+            <td>6000</td>
+            <td>3000</td>
+            <td>2000</td>
+            <td>88500</td>
+            <td>0</td>
+            <td>Sebelum</td>
+        </tr>
+
+        <tr class="main-row">
+            <td rowspan="2">3</td>
+            <td>2026-01-11</td>
+            <td>2026-01-10</td>
+            <td>111000000003</td>
+            <td>B1/2200</td>
+            <td>2200</td>
+            <td>B1</td>
+            <td>A</td>
+            <td>03</td>
+            <td>TONI</td>
+            <td>150000</td>
+            <td>20000</td>
+            <td>12000</td>
+            <td>6000</td>
+            <td>4000</td>
+            <td>192000</td>
+            <td>0</td>
+            <td>Sesudah</td>
+        </tr>
+        <tr class="detail-row">
+            <td colspan="2">BULANREKG: 202512</td>
+            <td>KDKRS: K3</td>
+            <td>B1/2200</td>
+            <td>2200</td>
+            <td>B1</td>
+            <td></td>
+            <td>03</td>
+            <td></td>
+            <td>140000</td>
+            <td>18000</td>
+            <td>11000</td>
+            <td>6000</td>
+            <td>3000</td>
+            <td>178000</td>
+            <td>0</td>
+            <td>Sebelum</td>
+        </tr>
+        <!-- DATA DUMMY SELESAI -->
+
+    </tbody>
+</table>
+
+</body>
+</html>
